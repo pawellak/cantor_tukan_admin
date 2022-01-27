@@ -34,6 +34,7 @@
 /ios
 .metadata
 analysis_options.yaml
+google-services.json
 
 # Web related
 lib/generated_plugin_registrant.dart
@@ -48,3 +49,6 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+key-properties
+/app/upload-keystore.jks
