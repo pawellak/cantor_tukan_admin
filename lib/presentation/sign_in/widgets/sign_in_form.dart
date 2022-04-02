@@ -4,8 +4,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kantor_tukan/application/auth/app_auth_bloc.dart';
 import 'package:kantor_tukan/application/auth/sign_in_form/sign_in_form_bloc.dart';
 import 'package:kantor_tukan/domain/auth/auth_failure.dart';
-import 'package:kantor_tukan/presentation/exchange_rate/exchange_rate_page.dart';
-import 'package:kantor_tukan/presentation/sign_in/widgets/button_register_email.dart';
 import 'package:kantor_tukan/presentation/sign_in/widgets/button_sign_in_email.dart';
 import 'package:kantor_tukan/presentation/sign_in/widgets/button_sign_in_google.dart';
 import 'package:kantor_tukan/presentation/sign_in/widgets/custom_progress_indicator.dart';
@@ -14,6 +12,7 @@ import 'package:kantor_tukan/presentation/sign_in/widgets/input_email.dart';
 import 'package:kantor_tukan/presentation/sign_in/widgets/input_password.dart';
 import 'package:kantor_tukan/presentation/sign_in/widgets/logo_sign_in.dart';
 import 'package:kantor_tukan/presentation/sign_in/constants.dart';
+import '../../orders/orders_page.dart';
 
 class SignInForm extends StatelessWidget {
   const SignInForm({Key? key}) : super(key: key);
@@ -43,7 +42,7 @@ class SignInForm extends StatelessWidget {
   }
 
   void _getSuccessOption(BuildContext context) {
-    Navigator.of(context).popAndPushNamed(ExchangeRatePage.routeName);
+    Navigator.of(context).popAndPushNamed(OrdersPage.routeName);
     context.read<AppAuthBloc>().add(const AppAuthEvent.authCheckRequested());
   }
 
@@ -86,9 +85,6 @@ class SignInForm extends StatelessWidget {
           child: ButtonSignInEmail(),
         ),
         _emptyWidthSpace(),
-        const Expanded(
-          child: ButtonRegisterEmail(),
-        ),
       ],
     );
   }

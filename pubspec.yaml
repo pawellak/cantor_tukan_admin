@@ -52,7 +52,6 @@ flutter:
   assets:
     - D:\Flutter\kantor_tukan\assets\logo_tukan.png
     - assets/wymiana_calc.png
-    - assets/flags/
 
 flutter_native_splash:
   color: "#f8f4f3"

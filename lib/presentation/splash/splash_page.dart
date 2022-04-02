@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kantor_tukan/application/auth/app_auth_bloc.dart';
-import 'package:kantor_tukan/presentation/exchange_rate/exchange_rate_page.dart';
 
+import '../orders/orders_page.dart';
 import 'constants.dart';
 
 class SplashPage extends StatelessWidget {
@@ -25,16 +25,16 @@ class SplashPage extends StatelessWidget {
     state.map(
       initial: (_) {},
       authenticated: (_) {
-        _navigateToExchangeRatePage(context);
+        _navigateToOrdersPage(context);
       },
       unauthenticated: (_) {
-        _navigateToExchangeRatePage(context);
+        _navigateToOrdersPage(context);
       },
     );
   }
 
-  void _navigateToExchangeRatePage(BuildContext context) {
-    Navigator.of(context).popAndPushNamed(ExchangeRatePage.routeName);
+  void _navigateToOrdersPage(BuildContext context) {
+    Navigator.of(context).popAndPushNamed(OrdersPage.routeName);
   }
 
   Center _buildLoadingWidget(BuildContext context) {

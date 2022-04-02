@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:kantor_tukan/presentation/exchange_rate/exchange_rate_page.dart';
 import 'package:kantor_tukan/presentation/orders/widgets/appbar.dart';
 import 'package:kantor_tukan/presentation/orders/widgets/body.dart';
 
@@ -26,7 +25,7 @@ class OrdersPage extends StatelessWidget {
   }
 
   Future<bool> _onWillPop(BuildContext context) async {
-    Navigator.of(context).popAndPushNamed(ExchangeRatePage.routeName);
+    Navigator.of(context).popAndPushNamed(OrdersPage.routeName);
     return false;
   }
 }

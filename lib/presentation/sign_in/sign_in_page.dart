@@ -6,7 +6,7 @@ import 'package:kantor_tukan/presentation/sign_in/widgets/sign_in_form.dart';
 import 'package:kantor_tukan/presentation/sign_in/constants.dart';
 
 import '../core/menu_app_bar/menu_app_bar.dart';
-import '../exchange_rate/exchange_rate_page.dart';
+import '../orders/orders_page.dart';
 
 class SignInPage extends StatelessWidget {
   static const routeName = '/sign-in';
@@ -42,7 +42,7 @@ class SignInPage extends StatelessWidget {
   }
 
   Future<bool> _onWillPop(BuildContext context) async {
-    Navigator.of(context).popAndPushNamed(ExchangeRatePage.routeName);
+    Navigator.of(context).popAndPushNamed(OrdersPage.routeName);
     return false;
   }
 }
