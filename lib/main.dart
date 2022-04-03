@@ -16,5 +16,5 @@ void main() async {
 }
 
 void initialization(BuildContext context) async {
-  await Future.delayed(const Duration(seconds: splashScreenDurationInSec));
+  await   Future.delayed(const Duration(seconds: splashScreenDurationInSec));
 }

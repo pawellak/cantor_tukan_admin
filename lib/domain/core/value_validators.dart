@@ -30,6 +30,22 @@ class ValueValidators {
     }
   }
 
+  Either<ValueFailure<String>, String> uid(String input) {
+    if (input.isEmpty) {
+      return left(ValueFailure.invalidUid(failedValue: input));
+    } else {
+      return Right(input);
+    }
+  }
+
+  Either<ValueFailure<String>, String> transactionUid(String input) {
+    if (input.isEmpty) {
+      return left(ValueFailure.invalidTransactionId(failedValue: input));
+    } else {
+      return Right(input);
+    }
+  }
+
   Either<ValueFailure<double>, double> currencyValue(double input) {
     if (_isNotInputInteger(input)) {
       return Left(ValueFailure.currencyValueNotInteger(failedValue: input));

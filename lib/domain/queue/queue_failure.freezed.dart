@@ -2,7 +2,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
-part of 'transaction_failure.dart';
+part of 'queue_failure.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -14,15 +14,11 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-class _$TransactionFailureTearOff {
-  const _$TransactionFailureTearOff();
+class _$QueueFailureTearOff {
+  const _$QueueFailureTearOff();
 
   _Unexpected unexpected() {
     return const _Unexpected();
-  }
-
-  _InsufficientPermission insufficientPermission() {
-    return const _InsufficientPermission();
   }
 
   _NotFound notFound() {
@@ -35,14 +31,13 @@ class _$TransactionFailureTearOff {
 }
 
 /// @nodoc
-const $TransactionFailure = _$TransactionFailureTearOff();
+const $QueueFailure = _$QueueFailureTearOff();
 
 /// @nodoc
-mixin _$TransactionFailure {
+mixin _$QueueFailure {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() unexpected,
-    required TResult Function() insufficientPermission,
     required TResult Function() notFound,
     required TResult Function() noInternet,
   }) =>
@@ -50,7 +45,6 @@ mixin _$TransactionFailure {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? unexpected,
-    TResult Function()? insufficientPermission,
     TResult Function()? notFound,
     TResult Function()? noInternet,
   }) =>
@@ -58,7 +52,6 @@ mixin _$TransactionFailure {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? unexpected,
-    TResult Function()? insufficientPermission,
     TResult Function()? notFound,
     TResult Function()? noInternet,
     required TResult orElse(),
@@ -67,8 +60,6 @@ mixin _$TransactionFailure {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Unexpected value) unexpected,
-    required TResult Function(_InsufficientPermission value)
-        insufficientPermission,
     required TResult Function(_NotFound value) notFound,
     required TResult Function(_noInternet value) noInternet,
   }) =>
@@ -76,7 +67,6 @@ mixin _$TransactionFailure {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Unexpected value)? unexpected,
-    TResult Function(_InsufficientPermission value)? insufficientPermission,
     TResult Function(_NotFound value)? notFound,
     TResult Function(_noInternet value)? noInternet,
   }) =>
@@ -84,7 +74,6 @@ mixin _$TransactionFailure {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Unexpected value)? unexpected,
-    TResult Function(_InsufficientPermission value)? insufficientPermission,
     TResult Function(_NotFound value)? notFound,
     TResult Function(_noInternet value)? noInternet,
     required TResult orElse(),
@@ -93,20 +82,19 @@ mixin _$TransactionFailure {
 }
 
 /// @nodoc
-abstract class $TransactionFailureCopyWith<$Res> {
-  factory $TransactionFailureCopyWith(
-          TransactionFailure value, $Res Function(TransactionFailure) then) =
-      _$TransactionFailureCopyWithImpl<$Res>;
+abstract class $QueueFailureCopyWith<$Res> {
+  factory $QueueFailureCopyWith(
+          QueueFailure value, $Res Function(QueueFailure) then) =
+      _$QueueFailureCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$TransactionFailureCopyWithImpl<$Res>
-    implements $TransactionFailureCopyWith<$Res> {
-  _$TransactionFailureCopyWithImpl(this._value, this._then);
+class _$QueueFailureCopyWithImpl<$Res> implements $QueueFailureCopyWith<$Res> {
+  _$QueueFailureCopyWithImpl(this._value, this._then);
 
-  final TransactionFailure _value;
+  final QueueFailure _value;
   // ignore: unused_field
-  final $Res Function(TransactionFailure) _then;
+  final $Res Function(QueueFailure) _then;
 }
 
 /// @nodoc
@@ -117,8 +105,7 @@ abstract class _$UnexpectedCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$UnexpectedCopyWithImpl<$Res>
-    extends _$TransactionFailureCopyWithImpl<$Res>
+class __$UnexpectedCopyWithImpl<$Res> extends _$QueueFailureCopyWithImpl<$Res>
     implements _$UnexpectedCopyWith<$Res> {
   __$UnexpectedCopyWithImpl(
       _Unexpected _value, $Res Function(_Unexpected) _then)
@@ -135,7 +122,7 @@ class _$_Unexpected implements _Unexpected {
 
   @override
   String toString() {
-    return 'TransactionFailure.unexpected()';
+    return 'QueueFailure.unexpected()';
   }
 
   @override
@@ -151,7 +138,6 @@ class _$_Unexpected implements _Unexpected {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() unexpected,
-    required TResult Function() insufficientPermission,
     required TResult Function() notFound,
     required TResult Function() noInternet,
   }) {
@@ -162,7 +148,6 @@ class _$_Unexpected implements _Unexpected {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? unexpected,
-    TResult Function()? insufficientPermission,
     TResult Function()? notFound,
     TResult Function()? noInternet,
   }) {
@@ -173,7 +158,6 @@ class _$_Unexpected implements _Unexpected {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? unexpected,
-    TResult Function()? insufficientPermission,
     TResult Function()? notFound,
     TResult Function()? noInternet,
     required TResult orElse(),
@@ -188,8 +172,6 @@ class _$_Unexpected implements _Unexpected {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Unexpected value) unexpected,
-    required TResult Function(_InsufficientPermission value)
-        insufficientPermission,
     required TResult Function(_NotFound value) notFound,
     required TResult Function(_noInternet value) noInternet,
   }) {
@@ -200,7 +182,6 @@ class _$_Unexpected implements _Unexpected {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Unexpected value)? unexpected,
-    TResult Function(_InsufficientPermission value)? insufficientPermission,
     TResult Function(_NotFound value)? notFound,
     TResult Function(_noInternet value)? noInternet,
   }) {
@@ -211,7 +192,6 @@ class _$_Unexpected implements _Unexpected {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Unexpected value)? unexpected,
-    TResult Function(_InsufficientPermission value)? insufficientPermission,
     TResult Function(_NotFound value)? notFound,
     TResult Function(_noInternet value)? noInternet,
     required TResult orElse(),
@@ -223,126 +203,8 @@ class _$_Unexpected implements _Unexpected {
   }
 }
 
-abstract class _Unexpected implements TransactionFailure {
+abstract class _Unexpected implements QueueFailure {
   const factory _Unexpected() = _$_Unexpected;
-}
-
-/// @nodoc
-abstract class _$InsufficientPermissionCopyWith<$Res> {
-  factory _$InsufficientPermissionCopyWith(_InsufficientPermission value,
-          $Res Function(_InsufficientPermission) then) =
-      __$InsufficientPermissionCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$InsufficientPermissionCopyWithImpl<$Res>
-    extends _$TransactionFailureCopyWithImpl<$Res>
-    implements _$InsufficientPermissionCopyWith<$Res> {
-  __$InsufficientPermissionCopyWithImpl(_InsufficientPermission _value,
-      $Res Function(_InsufficientPermission) _then)
-      : super(_value, (v) => _then(v as _InsufficientPermission));
-
-  @override
-  _InsufficientPermission get _value => super._value as _InsufficientPermission;
-}
-
-/// @nodoc
-
-class _$_InsufficientPermission implements _InsufficientPermission {
-  const _$_InsufficientPermission();
-
-  @override
-  String toString() {
-    return 'TransactionFailure.insufficientPermission()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _InsufficientPermission);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() unexpected,
-    required TResult Function() insufficientPermission,
-    required TResult Function() notFound,
-    required TResult Function() noInternet,
-  }) {
-    return insufficientPermission();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? unexpected,
-    TResult Function()? insufficientPermission,
-    TResult Function()? notFound,
-    TResult Function()? noInternet,
-  }) {
-    return insufficientPermission?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? unexpected,
-    TResult Function()? insufficientPermission,
-    TResult Function()? notFound,
-    TResult Function()? noInternet,
-    required TResult orElse(),
-  }) {
-    if (insufficientPermission != null) {
-      return insufficientPermission();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Unexpected value) unexpected,
-    required TResult Function(_InsufficientPermission value)
-        insufficientPermission,
-    required TResult Function(_NotFound value) notFound,
-    required TResult Function(_noInternet value) noInternet,
-  }) {
-    return insufficientPermission(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Unexpected value)? unexpected,
-    TResult Function(_InsufficientPermission value)? insufficientPermission,
-    TResult Function(_NotFound value)? notFound,
-    TResult Function(_noInternet value)? noInternet,
-  }) {
-    return insufficientPermission?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Unexpected value)? unexpected,
-    TResult Function(_InsufficientPermission value)? insufficientPermission,
-    TResult Function(_NotFound value)? notFound,
-    TResult Function(_noInternet value)? noInternet,
-    required TResult orElse(),
-  }) {
-    if (insufficientPermission != null) {
-      return insufficientPermission(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _InsufficientPermission implements TransactionFailure {
-  const factory _InsufficientPermission() = _$_InsufficientPermission;
 }
 
 /// @nodoc
@@ -352,8 +214,7 @@ abstract class _$NotFoundCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$NotFoundCopyWithImpl<$Res>
-    extends _$TransactionFailureCopyWithImpl<$Res>
+class __$NotFoundCopyWithImpl<$Res> extends _$QueueFailureCopyWithImpl<$Res>
     implements _$NotFoundCopyWith<$Res> {
   __$NotFoundCopyWithImpl(_NotFound _value, $Res Function(_NotFound) _then)
       : super(_value, (v) => _then(v as _NotFound));
@@ -369,7 +230,7 @@ class _$_NotFound implements _NotFound {
 
   @override
   String toString() {
-    return 'TransactionFailure.notFound()';
+    return 'QueueFailure.notFound()';
   }
 
   @override
@@ -385,7 +246,6 @@ class _$_NotFound implements _NotFound {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() unexpected,
-    required TResult Function() insufficientPermission,
     required TResult Function() notFound,
     required TResult Function() noInternet,
   }) {
@@ -396,7 +256,6 @@ class _$_NotFound implements _NotFound {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? unexpected,
-    TResult Function()? insufficientPermission,
     TResult Function()? notFound,
     TResult Function()? noInternet,
   }) {
@@ -407,7 +266,6 @@ class _$_NotFound implements _NotFound {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? unexpected,
-    TResult Function()? insufficientPermission,
     TResult Function()? notFound,
     TResult Function()? noInternet,
     required TResult orElse(),
@@ -422,8 +280,6 @@ class _$_NotFound implements _NotFound {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Unexpected value) unexpected,
-    required TResult Function(_InsufficientPermission value)
-        insufficientPermission,
     required TResult Function(_NotFound value) notFound,
     required TResult Function(_noInternet value) noInternet,
   }) {
@@ -434,7 +290,6 @@ class _$_NotFound implements _NotFound {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Unexpected value)? unexpected,
-    TResult Function(_InsufficientPermission value)? insufficientPermission,
     TResult Function(_NotFound value)? notFound,
     TResult Function(_noInternet value)? noInternet,
   }) {
@@ -445,7 +300,6 @@ class _$_NotFound implements _NotFound {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Unexpected value)? unexpected,
-    TResult Function(_InsufficientPermission value)? insufficientPermission,
     TResult Function(_NotFound value)? notFound,
     TResult Function(_noInternet value)? noInternet,
     required TResult orElse(),
@@ -457,7 +311,7 @@ class _$_NotFound implements _NotFound {
   }
 }
 
-abstract class _NotFound implements TransactionFailure {
+abstract class _NotFound implements QueueFailure {
   const factory _NotFound() = _$_NotFound;
 }
 
@@ -469,8 +323,7 @@ abstract class _$noInternetCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$noInternetCopyWithImpl<$Res>
-    extends _$TransactionFailureCopyWithImpl<$Res>
+class __$noInternetCopyWithImpl<$Res> extends _$QueueFailureCopyWithImpl<$Res>
     implements _$noInternetCopyWith<$Res> {
   __$noInternetCopyWithImpl(
       _noInternet _value, $Res Function(_noInternet) _then)
@@ -487,7 +340,7 @@ class _$_noInternet implements _noInternet {
 
   @override
   String toString() {
-    return 'TransactionFailure.noInternet()';
+    return 'QueueFailure.noInternet()';
   }
 
   @override
@@ -503,7 +356,6 @@ class _$_noInternet implements _noInternet {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() unexpected,
-    required TResult Function() insufficientPermission,
     required TResult Function() notFound,
     required TResult Function() noInternet,
   }) {
@@ -514,7 +366,6 @@ class _$_noInternet implements _noInternet {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? unexpected,
-    TResult Function()? insufficientPermission,
     TResult Function()? notFound,
     TResult Function()? noInternet,
   }) {
@@ -525,7 +376,6 @@ class _$_noInternet implements _noInternet {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? unexpected,
-    TResult Function()? insufficientPermission,
     TResult Function()? notFound,
     TResult Function()? noInternet,
     required TResult orElse(),
@@ -540,8 +390,6 @@ class _$_noInternet implements _noInternet {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Unexpected value) unexpected,
-    required TResult Function(_InsufficientPermission value)
-        insufficientPermission,
     required TResult Function(_NotFound value) notFound,
     required TResult Function(_noInternet value) noInternet,
   }) {
@@ -552,7 +400,6 @@ class _$_noInternet implements _noInternet {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Unexpected value)? unexpected,
-    TResult Function(_InsufficientPermission value)? insufficientPermission,
     TResult Function(_NotFound value)? notFound,
     TResult Function(_noInternet value)? noInternet,
   }) {
@@ -563,7 +410,6 @@ class _$_noInternet implements _noInternet {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Unexpected value)? unexpected,
-    TResult Function(_InsufficientPermission value)? insufficientPermission,
     TResult Function(_NotFound value)? notFound,
     TResult Function(_noInternet value)? noInternet,
     required TResult orElse(),
@@ -575,6 +421,6 @@ class _$_noInternet implements _noInternet {
   }
 }
 
-abstract class _noInternet implements TransactionFailure {
+abstract class _noInternet implements QueueFailure {
   const factory _noInternet() = _$_noInternet;
 }

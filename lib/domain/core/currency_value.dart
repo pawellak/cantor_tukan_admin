@@ -17,6 +17,30 @@ class CurrencyBill extends ValueObject<double> {
   const CurrencyBill._(this.value);
 }
 
+class Uid extends ValueObject<String> {
+  @override
+  final Either<ValueFailure<String>, String> value;
+
+  factory Uid(String input) {
+    var eitherFailureOrString = ValueValidators().uid(input);
+    return Uid._(eitherFailureOrString);
+  }
+
+  const Uid._(this.value);
+}
+
+class TransactionUid extends ValueObject<String> {
+  @override
+  final Either<ValueFailure<String>, String> value;
+
+  factory TransactionUid(String input) {
+    var eitherFailureOrString = ValueValidators().transactionUid(input);
+    return TransactionUid._(eitherFailureOrString);
+  }
+
+  const TransactionUid._(this.value);
+}
+
 class CurrencyValue extends ValueObject<double> {
   @override
   final Either<ValueFailure<double>, double> value;

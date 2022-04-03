@@ -14,7 +14,6 @@ class MenuButtonAll extends StatelessWidget {
 
   OutlinedButton _buildAllButton(BuildContext context) => OutlinedButton(
         onPressed: () {
-          context.read<TransactionWatcherBloc>().add(const TransactionWatcherEvent.watchAllTransaction());
         },
         child: const FittedBox(child: Text(OrdersConstants.all)),
       );

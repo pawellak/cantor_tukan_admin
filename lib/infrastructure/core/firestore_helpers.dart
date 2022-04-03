@@ -12,6 +12,22 @@ extension FirestoreX on FirebaseFirestore {
   }
 }
 
+extension FirestoreUsersListX on FirebaseFirestore {
+   Future<CollectionReference> userCollection() async {
+    final userOption = await getIt<IAuthFacade>().getSignedInUser();
+    userOption.getOrElse(() => throw NotAuthenticatedError());
+    return FirebaseFirestore.instance.collection(FirebaseConst.docUsers);
+  }
+}
+
+extension FirestoreQueueListX on FirebaseFirestore {
+  Future<CollectionReference> queueCollection() async {
+    final userOption = await getIt<IAuthFacade>().getSignedInUser();
+    userOption.getOrElse(() => throw NotAuthenticatedError());
+    return FirebaseFirestore.instance.collection(FirebaseConst.docQueue);
+  }
+}
+
 extension DocumentReferenceX on DocumentReference {
   CollectionReference get transactionCollection {
     return collection(FirebaseConst.docTransactions);

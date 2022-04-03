@@ -13,6 +13,14 @@ abstract class ValueFailure<T> with _$ValueFailure<T> {
     required T failedValue,
   }) = CurrencyTooBig<T>;
 
+  const factory ValueFailure.invalidUid({
+    required T failedValue,
+  }) = InvalidUid<T>;
+
+  const factory ValueFailure.invalidTransactionId({
+    required T failedValue,
+  }) = InvalidTransactionId<T>;
+
   const factory ValueFailure.currencyValueTooSmall({
     required double min,
     required T failedValue,

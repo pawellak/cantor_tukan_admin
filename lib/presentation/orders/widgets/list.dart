@@ -24,8 +24,13 @@ class OrdersList extends StatelessWidget {
       return state.map(
         initial: _buildInitialState,
         loadInProgress: _buildLoadingState,
-        loadSuccess: _loadSuccess,
         loadFailure: _buildFailureState,
+        loadTransactionsSuccess: (_) {
+          return const Text('');
+        },
+        loadQueueSuccess: (_) {
+          return const Text('');
+        },
       );
     });
   }

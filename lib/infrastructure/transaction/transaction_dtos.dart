@@ -61,11 +61,8 @@ abstract class TransactionDto with _$TransactionDto {
     return TransactionDto.fromJson(docData).copyWith(uid: doc.id);
   }
 
-  /// Connect the generated [_$TransactionDtoFromJson] function to the `fromJson`
-  /// factory.
   factory TransactionDto.fromJson(Map<String, dynamic> json) => _$TransactionDtoFromJson(json);
 
-  /// Connect the generated [_$TransactionDtoToJson] function to the `toJson` method.
   @override
   Map<String, dynamic> toJson() => _$TransactionDtoToJson(this);
 }

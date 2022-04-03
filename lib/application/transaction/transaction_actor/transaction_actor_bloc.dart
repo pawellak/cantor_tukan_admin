@@ -20,13 +20,13 @@ class TransactionActorBloc extends Bloc<TransactionActorEvent, TransactionActorS
 
   TransactionActorBloc(this._transactionRepository) : super(const TransactionActorState.initial()) {
     on<TransactionActorEvent>((event, emit) {
-      event.map(deleted: _deleted);
+
     });
   }
 
-  void _deleted(_Deleted deleted) async {
-    emit(const TransactionActorState.actionInProgress());
-    final possiblyFailure = await _transactionRepository.delete(deleted.transaction);
-    possiblyFailure.fold((f) => TransactionActorState.deleteFailure(f), (r) => TransactionActorState.deleteSuccess);
-  }
+  // void _deleted(_Deleted deleted) async {
+  //   emit(const TransactionActorState.actionInProgress());
+  //   final possiblyFailure = await _transactionRepository.delete(deleted.transaction);
+  //   possiblyFailure.fold((f) => TransactionActorState.deleteFailure(f), (r) => TransactionActorState.deleteSuccess);
+  // }
 }

@@ -19,18 +19,19 @@ import 'application/auth/sign_in_form/sign_in_form_bloc.dart' as _i15;
 import 'application/internet/internet_bloc.dart' as _i21;
 import 'application/transaction/transaction_actor/transaction_actor_bloc.dart'
     as _i16;
-
 import 'application/transaction/transaction_watcher/transaction_watcher_bloc.dart'
     as _i17;
 import 'domain/auth/i_auth_facade.dart' as _i8;
 import 'domain/internet/i_internet_connection_checker.dart' as _i19;
+import 'domain/queue/i_queue_repository.dart' as _i10;
 import 'domain/transaction/i_transaction_repository.dart' as _i12;
 import 'infrastructure/auth/firebase_auth_facade.dart' as _i9;
 import 'infrastructure/auth/firebase_user_mapper.dart' as _i6;
-import 'infrastructure/core/firebase_injectable_module.dart' as _i26;
-import 'infrastructure/core/http_injectable_module.dart' as _i25;
-import 'infrastructure/core/internet_injectable_module.dart' as _i27;
+import 'infrastructure/core/firebase_injectable_module.dart' as _i24;
+import 'infrastructure/core/http_injectable_module.dart' as _i23;
+import 'infrastructure/core/internet_injectable_module.dart' as _i25;
 import 'infrastructure/internet/internet_checker.dart' as _i20;
+import 'infrastructure/queue/queue_repository.dart' as _i11;
 import 'infrastructure/transaction/transaction_repository.dart' as _i13;
 
 const String _prod = 'prod';
@@ -55,6 +56,8 @@ _i1.GetIt $initGetIt(_i1.GetIt get,
       () => _i9.FirebaseAuthFacade(get<_i4.FirebaseAuth>(),
           get<_i7.GoogleSignIn>(), get<_i6.FirebaseUserMapper>()),
       registerFor: {_prod});
+  gh.lazySingleton<_i10.IQueueRepository>(
+      () => _i11.QueueRepository(get<_i5.FirebaseFirestore>()));
   gh.lazySingleton<_i12.ITransactionRepository>(
       () => _i13.TransactionRepository(get<_i5.FirebaseFirestore>()));
   gh.singleton<_i14.InternetConnectionChecker>(
@@ -72,13 +75,11 @@ _i1.GetIt $initGetIt(_i1.GetIt get,
       () => _i21.InternetBloc(get<_i19.IInternetConnectionChecker>()));
   gh.factory<_i22.RegisterFormBloc>(() => _i22.RegisterFormBloc(
       get<_i8.IAuthFacade>(), get<_i19.IInternetConnectionChecker>()));
-
-
   return get;
 }
 
-class _$HttpInjectableModule extends _i25.HttpInjectableModule {}
+class _$HttpInjectableModule extends _i23.HttpInjectableModule {}
 
-class _$FirebaseInjectableModule extends _i26.FirebaseInjectableModule {}
+class _$FirebaseInjectableModule extends _i24.FirebaseInjectableModule {}
 
-class _$InternetInjectableModule extends _i27.InternetInjectableModule {}
+class _$InternetInjectableModule extends _i25.InternetInjectableModule {}

@@ -31,6 +31,18 @@ class _$ValueFailureTearOff {
     );
   }
 
+  InvalidUid<T> invalidUid<T>({required T failedValue}) {
+    return InvalidUid<T>(
+      failedValue: failedValue,
+    );
+  }
+
+  InvalidTransactionId<T> invalidTransactionId<T>({required T failedValue}) {
+    return InvalidTransactionId<T>(
+      failedValue: failedValue,
+    );
+  }
+
   CurrencyTooSmall<T> currencyValueTooSmall<T>(
       {required double min, required T failedValue}) {
     return CurrencyTooSmall<T>(
@@ -108,6 +120,8 @@ mixin _$ValueFailure<T> {
   TResult when<TResult extends Object?>({
     required TResult Function(T failedValue) unknownEnum,
     required TResult Function(double max, T failedValue) currencyValueTooBig,
+    required TResult Function(T failedValue) invalidUid,
+    required TResult Function(T failedValue) invalidTransactionId,
     required TResult Function(double min, T failedValue) currencyValueTooSmall,
     required TResult Function(T failedValue) passwordsNotEqual,
     required TResult Function(T failedValue) currencyValueNotInteger,
@@ -124,6 +138,8 @@ mixin _$ValueFailure<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(T failedValue)? unknownEnum,
     TResult Function(double max, T failedValue)? currencyValueTooBig,
+    TResult Function(T failedValue)? invalidUid,
+    TResult Function(T failedValue)? invalidTransactionId,
     TResult Function(double min, T failedValue)? currencyValueTooSmall,
     TResult Function(T failedValue)? passwordsNotEqual,
     TResult Function(T failedValue)? currencyValueNotInteger,
@@ -140,6 +156,8 @@ mixin _$ValueFailure<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(T failedValue)? unknownEnum,
     TResult Function(double max, T failedValue)? currencyValueTooBig,
+    TResult Function(T failedValue)? invalidUid,
+    TResult Function(T failedValue)? invalidTransactionId,
     TResult Function(double min, T failedValue)? currencyValueTooSmall,
     TResult Function(T failedValue)? passwordsNotEqual,
     TResult Function(T failedValue)? currencyValueNotInteger,
@@ -157,6 +175,9 @@ mixin _$ValueFailure<T> {
   TResult map<TResult extends Object?>({
     required TResult Function(UnknownCurrency<T> value) unknownEnum,
     required TResult Function(CurrencyTooBig<T> value) currencyValueTooBig,
+    required TResult Function(InvalidUid<T> value) invalidUid,
+    required TResult Function(InvalidTransactionId<T> value)
+        invalidTransactionId,
     required TResult Function(CurrencyTooSmall<T> value) currencyValueTooSmall,
     required TResult Function(PasswordsNotEqual<T> value) passwordsNotEqual,
     required TResult Function(CurrencyValueNotInteger<T> value)
@@ -176,6 +197,8 @@ mixin _$ValueFailure<T> {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(UnknownCurrency<T> value)? unknownEnum,
     TResult Function(CurrencyTooBig<T> value)? currencyValueTooBig,
+    TResult Function(InvalidUid<T> value)? invalidUid,
+    TResult Function(InvalidTransactionId<T> value)? invalidTransactionId,
     TResult Function(CurrencyTooSmall<T> value)? currencyValueTooSmall,
     TResult Function(PasswordsNotEqual<T> value)? passwordsNotEqual,
     TResult Function(CurrencyValueNotInteger<T> value)? currencyValueNotInteger,
@@ -192,6 +215,8 @@ mixin _$ValueFailure<T> {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(UnknownCurrency<T> value)? unknownEnum,
     TResult Function(CurrencyTooBig<T> value)? currencyValueTooBig,
+    TResult Function(InvalidUid<T> value)? invalidUid,
+    TResult Function(InvalidTransactionId<T> value)? invalidTransactionId,
     TResult Function(CurrencyTooSmall<T> value)? currencyValueTooSmall,
     TResult Function(PasswordsNotEqual<T> value)? passwordsNotEqual,
     TResult Function(CurrencyValueNotInteger<T> value)? currencyValueNotInteger,
@@ -311,6 +336,8 @@ class _$UnknownCurrency<T> implements UnknownCurrency<T> {
   TResult when<TResult extends Object?>({
     required TResult Function(T failedValue) unknownEnum,
     required TResult Function(double max, T failedValue) currencyValueTooBig,
+    required TResult Function(T failedValue) invalidUid,
+    required TResult Function(T failedValue) invalidTransactionId,
     required TResult Function(double min, T failedValue) currencyValueTooSmall,
     required TResult Function(T failedValue) passwordsNotEqual,
     required TResult Function(T failedValue) currencyValueNotInteger,
@@ -330,6 +357,8 @@ class _$UnknownCurrency<T> implements UnknownCurrency<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(T failedValue)? unknownEnum,
     TResult Function(double max, T failedValue)? currencyValueTooBig,
+    TResult Function(T failedValue)? invalidUid,
+    TResult Function(T failedValue)? invalidTransactionId,
     TResult Function(double min, T failedValue)? currencyValueTooSmall,
     TResult Function(T failedValue)? passwordsNotEqual,
     TResult Function(T failedValue)? currencyValueNotInteger,
@@ -349,6 +378,8 @@ class _$UnknownCurrency<T> implements UnknownCurrency<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(T failedValue)? unknownEnum,
     TResult Function(double max, T failedValue)? currencyValueTooBig,
+    TResult Function(T failedValue)? invalidUid,
+    TResult Function(T failedValue)? invalidTransactionId,
     TResult Function(double min, T failedValue)? currencyValueTooSmall,
     TResult Function(T failedValue)? passwordsNotEqual,
     TResult Function(T failedValue)? currencyValueNotInteger,
@@ -372,6 +403,9 @@ class _$UnknownCurrency<T> implements UnknownCurrency<T> {
   TResult map<TResult extends Object?>({
     required TResult Function(UnknownCurrency<T> value) unknownEnum,
     required TResult Function(CurrencyTooBig<T> value) currencyValueTooBig,
+    required TResult Function(InvalidUid<T> value) invalidUid,
+    required TResult Function(InvalidTransactionId<T> value)
+        invalidTransactionId,
     required TResult Function(CurrencyTooSmall<T> value) currencyValueTooSmall,
     required TResult Function(PasswordsNotEqual<T> value) passwordsNotEqual,
     required TResult Function(CurrencyValueNotInteger<T> value)
@@ -394,6 +428,8 @@ class _$UnknownCurrency<T> implements UnknownCurrency<T> {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(UnknownCurrency<T> value)? unknownEnum,
     TResult Function(CurrencyTooBig<T> value)? currencyValueTooBig,
+    TResult Function(InvalidUid<T> value)? invalidUid,
+    TResult Function(InvalidTransactionId<T> value)? invalidTransactionId,
     TResult Function(CurrencyTooSmall<T> value)? currencyValueTooSmall,
     TResult Function(PasswordsNotEqual<T> value)? passwordsNotEqual,
     TResult Function(CurrencyValueNotInteger<T> value)? currencyValueNotInteger,
@@ -413,6 +449,8 @@ class _$UnknownCurrency<T> implements UnknownCurrency<T> {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(UnknownCurrency<T> value)? unknownEnum,
     TResult Function(CurrencyTooBig<T> value)? currencyValueTooBig,
+    TResult Function(InvalidUid<T> value)? invalidUid,
+    TResult Function(InvalidTransactionId<T> value)? invalidTransactionId,
     TResult Function(CurrencyTooSmall<T> value)? currencyValueTooSmall,
     TResult Function(PasswordsNotEqual<T> value)? passwordsNotEqual,
     TResult Function(CurrencyValueNotInteger<T> value)? currencyValueNotInteger,
@@ -524,6 +562,8 @@ class _$CurrencyTooBig<T> implements CurrencyTooBig<T> {
   TResult when<TResult extends Object?>({
     required TResult Function(T failedValue) unknownEnum,
     required TResult Function(double max, T failedValue) currencyValueTooBig,
+    required TResult Function(T failedValue) invalidUid,
+    required TResult Function(T failedValue) invalidTransactionId,
     required TResult Function(double min, T failedValue) currencyValueTooSmall,
     required TResult Function(T failedValue) passwordsNotEqual,
     required TResult Function(T failedValue) currencyValueNotInteger,
@@ -543,6 +583,8 @@ class _$CurrencyTooBig<T> implements CurrencyTooBig<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(T failedValue)? unknownEnum,
     TResult Function(double max, T failedValue)? currencyValueTooBig,
+    TResult Function(T failedValue)? invalidUid,
+    TResult Function(T failedValue)? invalidTransactionId,
     TResult Function(double min, T failedValue)? currencyValueTooSmall,
     TResult Function(T failedValue)? passwordsNotEqual,
     TResult Function(T failedValue)? currencyValueNotInteger,
@@ -562,6 +604,8 @@ class _$CurrencyTooBig<T> implements CurrencyTooBig<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(T failedValue)? unknownEnum,
     TResult Function(double max, T failedValue)? currencyValueTooBig,
+    TResult Function(T failedValue)? invalidUid,
+    TResult Function(T failedValue)? invalidTransactionId,
     TResult Function(double min, T failedValue)? currencyValueTooSmall,
     TResult Function(T failedValue)? passwordsNotEqual,
     TResult Function(T failedValue)? currencyValueNotInteger,
@@ -585,6 +629,9 @@ class _$CurrencyTooBig<T> implements CurrencyTooBig<T> {
   TResult map<TResult extends Object?>({
     required TResult Function(UnknownCurrency<T> value) unknownEnum,
     required TResult Function(CurrencyTooBig<T> value) currencyValueTooBig,
+    required TResult Function(InvalidUid<T> value) invalidUid,
+    required TResult Function(InvalidTransactionId<T> value)
+        invalidTransactionId,
     required TResult Function(CurrencyTooSmall<T> value) currencyValueTooSmall,
     required TResult Function(PasswordsNotEqual<T> value) passwordsNotEqual,
     required TResult Function(CurrencyValueNotInteger<T> value)
@@ -607,6 +654,8 @@ class _$CurrencyTooBig<T> implements CurrencyTooBig<T> {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(UnknownCurrency<T> value)? unknownEnum,
     TResult Function(CurrencyTooBig<T> value)? currencyValueTooBig,
+    TResult Function(InvalidUid<T> value)? invalidUid,
+    TResult Function(InvalidTransactionId<T> value)? invalidTransactionId,
     TResult Function(CurrencyTooSmall<T> value)? currencyValueTooSmall,
     TResult Function(PasswordsNotEqual<T> value)? passwordsNotEqual,
     TResult Function(CurrencyValueNotInteger<T> value)? currencyValueNotInteger,
@@ -626,6 +675,8 @@ class _$CurrencyTooBig<T> implements CurrencyTooBig<T> {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(UnknownCurrency<T> value)? unknownEnum,
     TResult Function(CurrencyTooBig<T> value)? currencyValueTooBig,
+    TResult Function(InvalidUid<T> value)? invalidUid,
+    TResult Function(InvalidTransactionId<T> value)? invalidTransactionId,
     TResult Function(CurrencyTooSmall<T> value)? currencyValueTooSmall,
     TResult Function(PasswordsNotEqual<T> value)? passwordsNotEqual,
     TResult Function(CurrencyValueNotInteger<T> value)? currencyValueNotInteger,
@@ -655,6 +706,438 @@ abstract class CurrencyTooBig<T> implements ValueFailure<T> {
   @override
   @JsonKey(ignore: true)
   $CurrencyTooBigCopyWith<T, CurrencyTooBig<T>> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $InvalidUidCopyWith<T, $Res>
+    implements $ValueFailureCopyWith<T, $Res> {
+  factory $InvalidUidCopyWith(
+          InvalidUid<T> value, $Res Function(InvalidUid<T>) then) =
+      _$InvalidUidCopyWithImpl<T, $Res>;
+  @override
+  $Res call({T failedValue});
+}
+
+/// @nodoc
+class _$InvalidUidCopyWithImpl<T, $Res>
+    extends _$ValueFailureCopyWithImpl<T, $Res>
+    implements $InvalidUidCopyWith<T, $Res> {
+  _$InvalidUidCopyWithImpl(
+      InvalidUid<T> _value, $Res Function(InvalidUid<T>) _then)
+      : super(_value, (v) => _then(v as InvalidUid<T>));
+
+  @override
+  InvalidUid<T> get _value => super._value as InvalidUid<T>;
+
+  @override
+  $Res call({
+    Object? failedValue = freezed,
+  }) {
+    return _then(InvalidUid<T>(
+      failedValue: failedValue == freezed
+          ? _value.failedValue
+          : failedValue // ignore: cast_nullable_to_non_nullable
+              as T,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$InvalidUid<T> implements InvalidUid<T> {
+  const _$InvalidUid({required this.failedValue});
+
+  @override
+  final T failedValue;
+
+  @override
+  String toString() {
+    return 'ValueFailure<$T>.invalidUid(failedValue: $failedValue)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is InvalidUid<T> &&
+            const DeepCollectionEquality()
+                .equals(other.failedValue, failedValue));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(failedValue));
+
+  @JsonKey(ignore: true)
+  @override
+  $InvalidUidCopyWith<T, InvalidUid<T>> get copyWith =>
+      _$InvalidUidCopyWithImpl<T, InvalidUid<T>>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(T failedValue) unknownEnum,
+    required TResult Function(double max, T failedValue) currencyValueTooBig,
+    required TResult Function(T failedValue) invalidUid,
+    required TResult Function(T failedValue) invalidTransactionId,
+    required TResult Function(double min, T failedValue) currencyValueTooSmall,
+    required TResult Function(T failedValue) passwordsNotEqual,
+    required TResult Function(T failedValue) currencyValueNotInteger,
+    required TResult Function(double max, T failedValue) currencyPriceTooBig,
+    required TResult Function(T failedValue) currencyPriceTooSmall,
+    required TResult Function(T failedValue) invalidStringToDouble,
+    required TResult Function(T failedValue) invalidEmail,
+    required TResult Function(T failedValue) shortPassword,
+    required TResult Function(T failedValue) invalidDate,
+    required TResult Function(T failedValue) dateIsUTC,
+  }) {
+    return invalidUid(failedValue);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(T failedValue)? unknownEnum,
+    TResult Function(double max, T failedValue)? currencyValueTooBig,
+    TResult Function(T failedValue)? invalidUid,
+    TResult Function(T failedValue)? invalidTransactionId,
+    TResult Function(double min, T failedValue)? currencyValueTooSmall,
+    TResult Function(T failedValue)? passwordsNotEqual,
+    TResult Function(T failedValue)? currencyValueNotInteger,
+    TResult Function(double max, T failedValue)? currencyPriceTooBig,
+    TResult Function(T failedValue)? currencyPriceTooSmall,
+    TResult Function(T failedValue)? invalidStringToDouble,
+    TResult Function(T failedValue)? invalidEmail,
+    TResult Function(T failedValue)? shortPassword,
+    TResult Function(T failedValue)? invalidDate,
+    TResult Function(T failedValue)? dateIsUTC,
+  }) {
+    return invalidUid?.call(failedValue);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(T failedValue)? unknownEnum,
+    TResult Function(double max, T failedValue)? currencyValueTooBig,
+    TResult Function(T failedValue)? invalidUid,
+    TResult Function(T failedValue)? invalidTransactionId,
+    TResult Function(double min, T failedValue)? currencyValueTooSmall,
+    TResult Function(T failedValue)? passwordsNotEqual,
+    TResult Function(T failedValue)? currencyValueNotInteger,
+    TResult Function(double max, T failedValue)? currencyPriceTooBig,
+    TResult Function(T failedValue)? currencyPriceTooSmall,
+    TResult Function(T failedValue)? invalidStringToDouble,
+    TResult Function(T failedValue)? invalidEmail,
+    TResult Function(T failedValue)? shortPassword,
+    TResult Function(T failedValue)? invalidDate,
+    TResult Function(T failedValue)? dateIsUTC,
+    required TResult orElse(),
+  }) {
+    if (invalidUid != null) {
+      return invalidUid(failedValue);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(UnknownCurrency<T> value) unknownEnum,
+    required TResult Function(CurrencyTooBig<T> value) currencyValueTooBig,
+    required TResult Function(InvalidUid<T> value) invalidUid,
+    required TResult Function(InvalidTransactionId<T> value)
+        invalidTransactionId,
+    required TResult Function(CurrencyTooSmall<T> value) currencyValueTooSmall,
+    required TResult Function(PasswordsNotEqual<T> value) passwordsNotEqual,
+    required TResult Function(CurrencyValueNotInteger<T> value)
+        currencyValueNotInteger,
+    required TResult Function(CurrencyPriceTooBig<T> value) currencyPriceTooBig,
+    required TResult Function(CurrencyPriceTooSmall<T> value)
+        currencyPriceTooSmall,
+    required TResult Function(InvalidStringToDouble<T> value)
+        invalidStringToDouble,
+    required TResult Function(InvalidEmail<T> value) invalidEmail,
+    required TResult Function(ShortPassword<T> value) shortPassword,
+    required TResult Function(InvalidDate<T> value) invalidDate,
+    required TResult Function(DateIsUTC<T> value) dateIsUTC,
+  }) {
+    return invalidUid(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(UnknownCurrency<T> value)? unknownEnum,
+    TResult Function(CurrencyTooBig<T> value)? currencyValueTooBig,
+    TResult Function(InvalidUid<T> value)? invalidUid,
+    TResult Function(InvalidTransactionId<T> value)? invalidTransactionId,
+    TResult Function(CurrencyTooSmall<T> value)? currencyValueTooSmall,
+    TResult Function(PasswordsNotEqual<T> value)? passwordsNotEqual,
+    TResult Function(CurrencyValueNotInteger<T> value)? currencyValueNotInteger,
+    TResult Function(CurrencyPriceTooBig<T> value)? currencyPriceTooBig,
+    TResult Function(CurrencyPriceTooSmall<T> value)? currencyPriceTooSmall,
+    TResult Function(InvalidStringToDouble<T> value)? invalidStringToDouble,
+    TResult Function(InvalidEmail<T> value)? invalidEmail,
+    TResult Function(ShortPassword<T> value)? shortPassword,
+    TResult Function(InvalidDate<T> value)? invalidDate,
+    TResult Function(DateIsUTC<T> value)? dateIsUTC,
+  }) {
+    return invalidUid?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(UnknownCurrency<T> value)? unknownEnum,
+    TResult Function(CurrencyTooBig<T> value)? currencyValueTooBig,
+    TResult Function(InvalidUid<T> value)? invalidUid,
+    TResult Function(InvalidTransactionId<T> value)? invalidTransactionId,
+    TResult Function(CurrencyTooSmall<T> value)? currencyValueTooSmall,
+    TResult Function(PasswordsNotEqual<T> value)? passwordsNotEqual,
+    TResult Function(CurrencyValueNotInteger<T> value)? currencyValueNotInteger,
+    TResult Function(CurrencyPriceTooBig<T> value)? currencyPriceTooBig,
+    TResult Function(CurrencyPriceTooSmall<T> value)? currencyPriceTooSmall,
+    TResult Function(InvalidStringToDouble<T> value)? invalidStringToDouble,
+    TResult Function(InvalidEmail<T> value)? invalidEmail,
+    TResult Function(ShortPassword<T> value)? shortPassword,
+    TResult Function(InvalidDate<T> value)? invalidDate,
+    TResult Function(DateIsUTC<T> value)? dateIsUTC,
+    required TResult orElse(),
+  }) {
+    if (invalidUid != null) {
+      return invalidUid(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class InvalidUid<T> implements ValueFailure<T> {
+  const factory InvalidUid({required T failedValue}) = _$InvalidUid<T>;
+
+  @override
+  T get failedValue;
+  @override
+  @JsonKey(ignore: true)
+  $InvalidUidCopyWith<T, InvalidUid<T>> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $InvalidTransactionIdCopyWith<T, $Res>
+    implements $ValueFailureCopyWith<T, $Res> {
+  factory $InvalidTransactionIdCopyWith(InvalidTransactionId<T> value,
+          $Res Function(InvalidTransactionId<T>) then) =
+      _$InvalidTransactionIdCopyWithImpl<T, $Res>;
+  @override
+  $Res call({T failedValue});
+}
+
+/// @nodoc
+class _$InvalidTransactionIdCopyWithImpl<T, $Res>
+    extends _$ValueFailureCopyWithImpl<T, $Res>
+    implements $InvalidTransactionIdCopyWith<T, $Res> {
+  _$InvalidTransactionIdCopyWithImpl(InvalidTransactionId<T> _value,
+      $Res Function(InvalidTransactionId<T>) _then)
+      : super(_value, (v) => _then(v as InvalidTransactionId<T>));
+
+  @override
+  InvalidTransactionId<T> get _value => super._value as InvalidTransactionId<T>;
+
+  @override
+  $Res call({
+    Object? failedValue = freezed,
+  }) {
+    return _then(InvalidTransactionId<T>(
+      failedValue: failedValue == freezed
+          ? _value.failedValue
+          : failedValue // ignore: cast_nullable_to_non_nullable
+              as T,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$InvalidTransactionId<T> implements InvalidTransactionId<T> {
+  const _$InvalidTransactionId({required this.failedValue});
+
+  @override
+  final T failedValue;
+
+  @override
+  String toString() {
+    return 'ValueFailure<$T>.invalidTransactionId(failedValue: $failedValue)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is InvalidTransactionId<T> &&
+            const DeepCollectionEquality()
+                .equals(other.failedValue, failedValue));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(failedValue));
+
+  @JsonKey(ignore: true)
+  @override
+  $InvalidTransactionIdCopyWith<T, InvalidTransactionId<T>> get copyWith =>
+      _$InvalidTransactionIdCopyWithImpl<T, InvalidTransactionId<T>>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(T failedValue) unknownEnum,
+    required TResult Function(double max, T failedValue) currencyValueTooBig,
+    required TResult Function(T failedValue) invalidUid,
+    required TResult Function(T failedValue) invalidTransactionId,
+    required TResult Function(double min, T failedValue) currencyValueTooSmall,
+    required TResult Function(T failedValue) passwordsNotEqual,
+    required TResult Function(T failedValue) currencyValueNotInteger,
+    required TResult Function(double max, T failedValue) currencyPriceTooBig,
+    required TResult Function(T failedValue) currencyPriceTooSmall,
+    required TResult Function(T failedValue) invalidStringToDouble,
+    required TResult Function(T failedValue) invalidEmail,
+    required TResult Function(T failedValue) shortPassword,
+    required TResult Function(T failedValue) invalidDate,
+    required TResult Function(T failedValue) dateIsUTC,
+  }) {
+    return invalidTransactionId(failedValue);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(T failedValue)? unknownEnum,
+    TResult Function(double max, T failedValue)? currencyValueTooBig,
+    TResult Function(T failedValue)? invalidUid,
+    TResult Function(T failedValue)? invalidTransactionId,
+    TResult Function(double min, T failedValue)? currencyValueTooSmall,
+    TResult Function(T failedValue)? passwordsNotEqual,
+    TResult Function(T failedValue)? currencyValueNotInteger,
+    TResult Function(double max, T failedValue)? currencyPriceTooBig,
+    TResult Function(T failedValue)? currencyPriceTooSmall,
+    TResult Function(T failedValue)? invalidStringToDouble,
+    TResult Function(T failedValue)? invalidEmail,
+    TResult Function(T failedValue)? shortPassword,
+    TResult Function(T failedValue)? invalidDate,
+    TResult Function(T failedValue)? dateIsUTC,
+  }) {
+    return invalidTransactionId?.call(failedValue);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(T failedValue)? unknownEnum,
+    TResult Function(double max, T failedValue)? currencyValueTooBig,
+    TResult Function(T failedValue)? invalidUid,
+    TResult Function(T failedValue)? invalidTransactionId,
+    TResult Function(double min, T failedValue)? currencyValueTooSmall,
+    TResult Function(T failedValue)? passwordsNotEqual,
+    TResult Function(T failedValue)? currencyValueNotInteger,
+    TResult Function(double max, T failedValue)? currencyPriceTooBig,
+    TResult Function(T failedValue)? currencyPriceTooSmall,
+    TResult Function(T failedValue)? invalidStringToDouble,
+    TResult Function(T failedValue)? invalidEmail,
+    TResult Function(T failedValue)? shortPassword,
+    TResult Function(T failedValue)? invalidDate,
+    TResult Function(T failedValue)? dateIsUTC,
+    required TResult orElse(),
+  }) {
+    if (invalidTransactionId != null) {
+      return invalidTransactionId(failedValue);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(UnknownCurrency<T> value) unknownEnum,
+    required TResult Function(CurrencyTooBig<T> value) currencyValueTooBig,
+    required TResult Function(InvalidUid<T> value) invalidUid,
+    required TResult Function(InvalidTransactionId<T> value)
+        invalidTransactionId,
+    required TResult Function(CurrencyTooSmall<T> value) currencyValueTooSmall,
+    required TResult Function(PasswordsNotEqual<T> value) passwordsNotEqual,
+    required TResult Function(CurrencyValueNotInteger<T> value)
+        currencyValueNotInteger,
+    required TResult Function(CurrencyPriceTooBig<T> value) currencyPriceTooBig,
+    required TResult Function(CurrencyPriceTooSmall<T> value)
+        currencyPriceTooSmall,
+    required TResult Function(InvalidStringToDouble<T> value)
+        invalidStringToDouble,
+    required TResult Function(InvalidEmail<T> value) invalidEmail,
+    required TResult Function(ShortPassword<T> value) shortPassword,
+    required TResult Function(InvalidDate<T> value) invalidDate,
+    required TResult Function(DateIsUTC<T> value) dateIsUTC,
+  }) {
+    return invalidTransactionId(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(UnknownCurrency<T> value)? unknownEnum,
+    TResult Function(CurrencyTooBig<T> value)? currencyValueTooBig,
+    TResult Function(InvalidUid<T> value)? invalidUid,
+    TResult Function(InvalidTransactionId<T> value)? invalidTransactionId,
+    TResult Function(CurrencyTooSmall<T> value)? currencyValueTooSmall,
+    TResult Function(PasswordsNotEqual<T> value)? passwordsNotEqual,
+    TResult Function(CurrencyValueNotInteger<T> value)? currencyValueNotInteger,
+    TResult Function(CurrencyPriceTooBig<T> value)? currencyPriceTooBig,
+    TResult Function(CurrencyPriceTooSmall<T> value)? currencyPriceTooSmall,
+    TResult Function(InvalidStringToDouble<T> value)? invalidStringToDouble,
+    TResult Function(InvalidEmail<T> value)? invalidEmail,
+    TResult Function(ShortPassword<T> value)? shortPassword,
+    TResult Function(InvalidDate<T> value)? invalidDate,
+    TResult Function(DateIsUTC<T> value)? dateIsUTC,
+  }) {
+    return invalidTransactionId?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(UnknownCurrency<T> value)? unknownEnum,
+    TResult Function(CurrencyTooBig<T> value)? currencyValueTooBig,
+    TResult Function(InvalidUid<T> value)? invalidUid,
+    TResult Function(InvalidTransactionId<T> value)? invalidTransactionId,
+    TResult Function(CurrencyTooSmall<T> value)? currencyValueTooSmall,
+    TResult Function(PasswordsNotEqual<T> value)? passwordsNotEqual,
+    TResult Function(CurrencyValueNotInteger<T> value)? currencyValueNotInteger,
+    TResult Function(CurrencyPriceTooBig<T> value)? currencyPriceTooBig,
+    TResult Function(CurrencyPriceTooSmall<T> value)? currencyPriceTooSmall,
+    TResult Function(InvalidStringToDouble<T> value)? invalidStringToDouble,
+    TResult Function(InvalidEmail<T> value)? invalidEmail,
+    TResult Function(ShortPassword<T> value)? shortPassword,
+    TResult Function(InvalidDate<T> value)? invalidDate,
+    TResult Function(DateIsUTC<T> value)? dateIsUTC,
+    required TResult orElse(),
+  }) {
+    if (invalidTransactionId != null) {
+      return invalidTransactionId(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class InvalidTransactionId<T> implements ValueFailure<T> {
+  const factory InvalidTransactionId({required T failedValue}) =
+      _$InvalidTransactionId<T>;
+
+  @override
+  T get failedValue;
+  @override
+  @JsonKey(ignore: true)
+  $InvalidTransactionIdCopyWith<T, InvalidTransactionId<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -738,6 +1221,8 @@ class _$CurrencyTooSmall<T> implements CurrencyTooSmall<T> {
   TResult when<TResult extends Object?>({
     required TResult Function(T failedValue) unknownEnum,
     required TResult Function(double max, T failedValue) currencyValueTooBig,
+    required TResult Function(T failedValue) invalidUid,
+    required TResult Function(T failedValue) invalidTransactionId,
     required TResult Function(double min, T failedValue) currencyValueTooSmall,
     required TResult Function(T failedValue) passwordsNotEqual,
     required TResult Function(T failedValue) currencyValueNotInteger,
@@ -757,6 +1242,8 @@ class _$CurrencyTooSmall<T> implements CurrencyTooSmall<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(T failedValue)? unknownEnum,
     TResult Function(double max, T failedValue)? currencyValueTooBig,
+    TResult Function(T failedValue)? invalidUid,
+    TResult Function(T failedValue)? invalidTransactionId,
     TResult Function(double min, T failedValue)? currencyValueTooSmall,
     TResult Function(T failedValue)? passwordsNotEqual,
     TResult Function(T failedValue)? currencyValueNotInteger,
@@ -776,6 +1263,8 @@ class _$CurrencyTooSmall<T> implements CurrencyTooSmall<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(T failedValue)? unknownEnum,
     TResult Function(double max, T failedValue)? currencyValueTooBig,
+    TResult Function(T failedValue)? invalidUid,
+    TResult Function(T failedValue)? invalidTransactionId,
     TResult Function(double min, T failedValue)? currencyValueTooSmall,
     TResult Function(T failedValue)? passwordsNotEqual,
     TResult Function(T failedValue)? currencyValueNotInteger,
@@ -799,6 +1288,9 @@ class _$CurrencyTooSmall<T> implements CurrencyTooSmall<T> {
   TResult map<TResult extends Object?>({
     required TResult Function(UnknownCurrency<T> value) unknownEnum,
     required TResult Function(CurrencyTooBig<T> value) currencyValueTooBig,
+    required TResult Function(InvalidUid<T> value) invalidUid,
+    required TResult Function(InvalidTransactionId<T> value)
+        invalidTransactionId,
     required TResult Function(CurrencyTooSmall<T> value) currencyValueTooSmall,
     required TResult Function(PasswordsNotEqual<T> value) passwordsNotEqual,
     required TResult Function(CurrencyValueNotInteger<T> value)
@@ -821,6 +1313,8 @@ class _$CurrencyTooSmall<T> implements CurrencyTooSmall<T> {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(UnknownCurrency<T> value)? unknownEnum,
     TResult Function(CurrencyTooBig<T> value)? currencyValueTooBig,
+    TResult Function(InvalidUid<T> value)? invalidUid,
+    TResult Function(InvalidTransactionId<T> value)? invalidTransactionId,
     TResult Function(CurrencyTooSmall<T> value)? currencyValueTooSmall,
     TResult Function(PasswordsNotEqual<T> value)? passwordsNotEqual,
     TResult Function(CurrencyValueNotInteger<T> value)? currencyValueNotInteger,
@@ -840,6 +1334,8 @@ class _$CurrencyTooSmall<T> implements CurrencyTooSmall<T> {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(UnknownCurrency<T> value)? unknownEnum,
     TResult Function(CurrencyTooBig<T> value)? currencyValueTooBig,
+    TResult Function(InvalidUid<T> value)? invalidUid,
+    TResult Function(InvalidTransactionId<T> value)? invalidTransactionId,
     TResult Function(CurrencyTooSmall<T> value)? currencyValueTooSmall,
     TResult Function(PasswordsNotEqual<T> value)? passwordsNotEqual,
     TResult Function(CurrencyValueNotInteger<T> value)? currencyValueNotInteger,
@@ -943,6 +1439,8 @@ class _$PasswordsNotEqual<T> implements PasswordsNotEqual<T> {
   TResult when<TResult extends Object?>({
     required TResult Function(T failedValue) unknownEnum,
     required TResult Function(double max, T failedValue) currencyValueTooBig,
+    required TResult Function(T failedValue) invalidUid,
+    required TResult Function(T failedValue) invalidTransactionId,
     required TResult Function(double min, T failedValue) currencyValueTooSmall,
     required TResult Function(T failedValue) passwordsNotEqual,
     required TResult Function(T failedValue) currencyValueNotInteger,
@@ -962,6 +1460,8 @@ class _$PasswordsNotEqual<T> implements PasswordsNotEqual<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(T failedValue)? unknownEnum,
     TResult Function(double max, T failedValue)? currencyValueTooBig,
+    TResult Function(T failedValue)? invalidUid,
+    TResult Function(T failedValue)? invalidTransactionId,
     TResult Function(double min, T failedValue)? currencyValueTooSmall,
     TResult Function(T failedValue)? passwordsNotEqual,
     TResult Function(T failedValue)? currencyValueNotInteger,
@@ -981,6 +1481,8 @@ class _$PasswordsNotEqual<T> implements PasswordsNotEqual<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(T failedValue)? unknownEnum,
     TResult Function(double max, T failedValue)? currencyValueTooBig,
+    TResult Function(T failedValue)? invalidUid,
+    TResult Function(T failedValue)? invalidTransactionId,
     TResult Function(double min, T failedValue)? currencyValueTooSmall,
     TResult Function(T failedValue)? passwordsNotEqual,
     TResult Function(T failedValue)? currencyValueNotInteger,
@@ -1004,6 +1506,9 @@ class _$PasswordsNotEqual<T> implements PasswordsNotEqual<T> {
   TResult map<TResult extends Object?>({
     required TResult Function(UnknownCurrency<T> value) unknownEnum,
     required TResult Function(CurrencyTooBig<T> value) currencyValueTooBig,
+    required TResult Function(InvalidUid<T> value) invalidUid,
+    required TResult Function(InvalidTransactionId<T> value)
+        invalidTransactionId,
     required TResult Function(CurrencyTooSmall<T> value) currencyValueTooSmall,
     required TResult Function(PasswordsNotEqual<T> value) passwordsNotEqual,
     required TResult Function(CurrencyValueNotInteger<T> value)
@@ -1026,6 +1531,8 @@ class _$PasswordsNotEqual<T> implements PasswordsNotEqual<T> {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(UnknownCurrency<T> value)? unknownEnum,
     TResult Function(CurrencyTooBig<T> value)? currencyValueTooBig,
+    TResult Function(InvalidUid<T> value)? invalidUid,
+    TResult Function(InvalidTransactionId<T> value)? invalidTransactionId,
     TResult Function(CurrencyTooSmall<T> value)? currencyValueTooSmall,
     TResult Function(PasswordsNotEqual<T> value)? passwordsNotEqual,
     TResult Function(CurrencyValueNotInteger<T> value)? currencyValueNotInteger,
@@ -1045,6 +1552,8 @@ class _$PasswordsNotEqual<T> implements PasswordsNotEqual<T> {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(UnknownCurrency<T> value)? unknownEnum,
     TResult Function(CurrencyTooBig<T> value)? currencyValueTooBig,
+    TResult Function(InvalidUid<T> value)? invalidUid,
+    TResult Function(InvalidTransactionId<T> value)? invalidTransactionId,
     TResult Function(CurrencyTooSmall<T> value)? currencyValueTooSmall,
     TResult Function(PasswordsNotEqual<T> value)? passwordsNotEqual,
     TResult Function(CurrencyValueNotInteger<T> value)? currencyValueNotInteger,
@@ -1149,6 +1658,8 @@ class _$CurrencyValueNotInteger<T> implements CurrencyValueNotInteger<T> {
   TResult when<TResult extends Object?>({
     required TResult Function(T failedValue) unknownEnum,
     required TResult Function(double max, T failedValue) currencyValueTooBig,
+    required TResult Function(T failedValue) invalidUid,
+    required TResult Function(T failedValue) invalidTransactionId,
     required TResult Function(double min, T failedValue) currencyValueTooSmall,
     required TResult Function(T failedValue) passwordsNotEqual,
     required TResult Function(T failedValue) currencyValueNotInteger,
@@ -1168,6 +1679,8 @@ class _$CurrencyValueNotInteger<T> implements CurrencyValueNotInteger<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(T failedValue)? unknownEnum,
     TResult Function(double max, T failedValue)? currencyValueTooBig,
+    TResult Function(T failedValue)? invalidUid,
+    TResult Function(T failedValue)? invalidTransactionId,
     TResult Function(double min, T failedValue)? currencyValueTooSmall,
     TResult Function(T failedValue)? passwordsNotEqual,
     TResult Function(T failedValue)? currencyValueNotInteger,
@@ -1187,6 +1700,8 @@ class _$CurrencyValueNotInteger<T> implements CurrencyValueNotInteger<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(T failedValue)? unknownEnum,
     TResult Function(double max, T failedValue)? currencyValueTooBig,
+    TResult Function(T failedValue)? invalidUid,
+    TResult Function(T failedValue)? invalidTransactionId,
     TResult Function(double min, T failedValue)? currencyValueTooSmall,
     TResult Function(T failedValue)? passwordsNotEqual,
     TResult Function(T failedValue)? currencyValueNotInteger,
@@ -1210,6 +1725,9 @@ class _$CurrencyValueNotInteger<T> implements CurrencyValueNotInteger<T> {
   TResult map<TResult extends Object?>({
     required TResult Function(UnknownCurrency<T> value) unknownEnum,
     required TResult Function(CurrencyTooBig<T> value) currencyValueTooBig,
+    required TResult Function(InvalidUid<T> value) invalidUid,
+    required TResult Function(InvalidTransactionId<T> value)
+        invalidTransactionId,
     required TResult Function(CurrencyTooSmall<T> value) currencyValueTooSmall,
     required TResult Function(PasswordsNotEqual<T> value) passwordsNotEqual,
     required TResult Function(CurrencyValueNotInteger<T> value)
@@ -1232,6 +1750,8 @@ class _$CurrencyValueNotInteger<T> implements CurrencyValueNotInteger<T> {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(UnknownCurrency<T> value)? unknownEnum,
     TResult Function(CurrencyTooBig<T> value)? currencyValueTooBig,
+    TResult Function(InvalidUid<T> value)? invalidUid,
+    TResult Function(InvalidTransactionId<T> value)? invalidTransactionId,
     TResult Function(CurrencyTooSmall<T> value)? currencyValueTooSmall,
     TResult Function(PasswordsNotEqual<T> value)? passwordsNotEqual,
     TResult Function(CurrencyValueNotInteger<T> value)? currencyValueNotInteger,
@@ -1251,6 +1771,8 @@ class _$CurrencyValueNotInteger<T> implements CurrencyValueNotInteger<T> {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(UnknownCurrency<T> value)? unknownEnum,
     TResult Function(CurrencyTooBig<T> value)? currencyValueTooBig,
+    TResult Function(InvalidUid<T> value)? invalidUid,
+    TResult Function(InvalidTransactionId<T> value)? invalidTransactionId,
     TResult Function(CurrencyTooSmall<T> value)? currencyValueTooSmall,
     TResult Function(PasswordsNotEqual<T> value)? passwordsNotEqual,
     TResult Function(CurrencyValueNotInteger<T> value)? currencyValueNotInteger,
@@ -1363,6 +1885,8 @@ class _$CurrencyPriceTooBig<T> implements CurrencyPriceTooBig<T> {
   TResult when<TResult extends Object?>({
     required TResult Function(T failedValue) unknownEnum,
     required TResult Function(double max, T failedValue) currencyValueTooBig,
+    required TResult Function(T failedValue) invalidUid,
+    required TResult Function(T failedValue) invalidTransactionId,
     required TResult Function(double min, T failedValue) currencyValueTooSmall,
     required TResult Function(T failedValue) passwordsNotEqual,
     required TResult Function(T failedValue) currencyValueNotInteger,
@@ -1382,6 +1906,8 @@ class _$CurrencyPriceTooBig<T> implements CurrencyPriceTooBig<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(T failedValue)? unknownEnum,
     TResult Function(double max, T failedValue)? currencyValueTooBig,
+    TResult Function(T failedValue)? invalidUid,
+    TResult Function(T failedValue)? invalidTransactionId,
     TResult Function(double min, T failedValue)? currencyValueTooSmall,
     TResult Function(T failedValue)? passwordsNotEqual,
     TResult Function(T failedValue)? currencyValueNotInteger,
@@ -1401,6 +1927,8 @@ class _$CurrencyPriceTooBig<T> implements CurrencyPriceTooBig<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(T failedValue)? unknownEnum,
     TResult Function(double max, T failedValue)? currencyValueTooBig,
+    TResult Function(T failedValue)? invalidUid,
+    TResult Function(T failedValue)? invalidTransactionId,
     TResult Function(double min, T failedValue)? currencyValueTooSmall,
     TResult Function(T failedValue)? passwordsNotEqual,
     TResult Function(T failedValue)? currencyValueNotInteger,
@@ -1424,6 +1952,9 @@ class _$CurrencyPriceTooBig<T> implements CurrencyPriceTooBig<T> {
   TResult map<TResult extends Object?>({
     required TResult Function(UnknownCurrency<T> value) unknownEnum,
     required TResult Function(CurrencyTooBig<T> value) currencyValueTooBig,
+    required TResult Function(InvalidUid<T> value) invalidUid,
+    required TResult Function(InvalidTransactionId<T> value)
+        invalidTransactionId,
     required TResult Function(CurrencyTooSmall<T> value) currencyValueTooSmall,
     required TResult Function(PasswordsNotEqual<T> value) passwordsNotEqual,
     required TResult Function(CurrencyValueNotInteger<T> value)
@@ -1446,6 +1977,8 @@ class _$CurrencyPriceTooBig<T> implements CurrencyPriceTooBig<T> {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(UnknownCurrency<T> value)? unknownEnum,
     TResult Function(CurrencyTooBig<T> value)? currencyValueTooBig,
+    TResult Function(InvalidUid<T> value)? invalidUid,
+    TResult Function(InvalidTransactionId<T> value)? invalidTransactionId,
     TResult Function(CurrencyTooSmall<T> value)? currencyValueTooSmall,
     TResult Function(PasswordsNotEqual<T> value)? passwordsNotEqual,
     TResult Function(CurrencyValueNotInteger<T> value)? currencyValueNotInteger,
@@ -1465,6 +1998,8 @@ class _$CurrencyPriceTooBig<T> implements CurrencyPriceTooBig<T> {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(UnknownCurrency<T> value)? unknownEnum,
     TResult Function(CurrencyTooBig<T> value)? currencyValueTooBig,
+    TResult Function(InvalidUid<T> value)? invalidUid,
+    TResult Function(InvalidTransactionId<T> value)? invalidTransactionId,
     TResult Function(CurrencyTooSmall<T> value)? currencyValueTooSmall,
     TResult Function(PasswordsNotEqual<T> value)? passwordsNotEqual,
     TResult Function(CurrencyValueNotInteger<T> value)? currencyValueNotInteger,
@@ -1569,6 +2104,8 @@ class _$CurrencyPriceTooSmall<T> implements CurrencyPriceTooSmall<T> {
   TResult when<TResult extends Object?>({
     required TResult Function(T failedValue) unknownEnum,
     required TResult Function(double max, T failedValue) currencyValueTooBig,
+    required TResult Function(T failedValue) invalidUid,
+    required TResult Function(T failedValue) invalidTransactionId,
     required TResult Function(double min, T failedValue) currencyValueTooSmall,
     required TResult Function(T failedValue) passwordsNotEqual,
     required TResult Function(T failedValue) currencyValueNotInteger,
@@ -1588,6 +2125,8 @@ class _$CurrencyPriceTooSmall<T> implements CurrencyPriceTooSmall<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(T failedValue)? unknownEnum,
     TResult Function(double max, T failedValue)? currencyValueTooBig,
+    TResult Function(T failedValue)? invalidUid,
+    TResult Function(T failedValue)? invalidTransactionId,
     TResult Function(double min, T failedValue)? currencyValueTooSmall,
     TResult Function(T failedValue)? passwordsNotEqual,
     TResult Function(T failedValue)? currencyValueNotInteger,
@@ -1607,6 +2146,8 @@ class _$CurrencyPriceTooSmall<T> implements CurrencyPriceTooSmall<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(T failedValue)? unknownEnum,
     TResult Function(double max, T failedValue)? currencyValueTooBig,
+    TResult Function(T failedValue)? invalidUid,
+    TResult Function(T failedValue)? invalidTransactionId,
     TResult Function(double min, T failedValue)? currencyValueTooSmall,
     TResult Function(T failedValue)? passwordsNotEqual,
     TResult Function(T failedValue)? currencyValueNotInteger,
@@ -1630,6 +2171,9 @@ class _$CurrencyPriceTooSmall<T> implements CurrencyPriceTooSmall<T> {
   TResult map<TResult extends Object?>({
     required TResult Function(UnknownCurrency<T> value) unknownEnum,
     required TResult Function(CurrencyTooBig<T> value) currencyValueTooBig,
+    required TResult Function(InvalidUid<T> value) invalidUid,
+    required TResult Function(InvalidTransactionId<T> value)
+        invalidTransactionId,
     required TResult Function(CurrencyTooSmall<T> value) currencyValueTooSmall,
     required TResult Function(PasswordsNotEqual<T> value) passwordsNotEqual,
     required TResult Function(CurrencyValueNotInteger<T> value)
@@ -1652,6 +2196,8 @@ class _$CurrencyPriceTooSmall<T> implements CurrencyPriceTooSmall<T> {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(UnknownCurrency<T> value)? unknownEnum,
     TResult Function(CurrencyTooBig<T> value)? currencyValueTooBig,
+    TResult Function(InvalidUid<T> value)? invalidUid,
+    TResult Function(InvalidTransactionId<T> value)? invalidTransactionId,
     TResult Function(CurrencyTooSmall<T> value)? currencyValueTooSmall,
     TResult Function(PasswordsNotEqual<T> value)? passwordsNotEqual,
     TResult Function(CurrencyValueNotInteger<T> value)? currencyValueNotInteger,
@@ -1671,6 +2217,8 @@ class _$CurrencyPriceTooSmall<T> implements CurrencyPriceTooSmall<T> {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(UnknownCurrency<T> value)? unknownEnum,
     TResult Function(CurrencyTooBig<T> value)? currencyValueTooBig,
+    TResult Function(InvalidUid<T> value)? invalidUid,
+    TResult Function(InvalidTransactionId<T> value)? invalidTransactionId,
     TResult Function(CurrencyTooSmall<T> value)? currencyValueTooSmall,
     TResult Function(PasswordsNotEqual<T> value)? passwordsNotEqual,
     TResult Function(CurrencyValueNotInteger<T> value)? currencyValueNotInteger,
@@ -1774,6 +2322,8 @@ class _$InvalidStringToDouble<T> implements InvalidStringToDouble<T> {
   TResult when<TResult extends Object?>({
     required TResult Function(T failedValue) unknownEnum,
     required TResult Function(double max, T failedValue) currencyValueTooBig,
+    required TResult Function(T failedValue) invalidUid,
+    required TResult Function(T failedValue) invalidTransactionId,
     required TResult Function(double min, T failedValue) currencyValueTooSmall,
     required TResult Function(T failedValue) passwordsNotEqual,
     required TResult Function(T failedValue) currencyValueNotInteger,
@@ -1793,6 +2343,8 @@ class _$InvalidStringToDouble<T> implements InvalidStringToDouble<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(T failedValue)? unknownEnum,
     TResult Function(double max, T failedValue)? currencyValueTooBig,
+    TResult Function(T failedValue)? invalidUid,
+    TResult Function(T failedValue)? invalidTransactionId,
     TResult Function(double min, T failedValue)? currencyValueTooSmall,
     TResult Function(T failedValue)? passwordsNotEqual,
     TResult Function(T failedValue)? currencyValueNotInteger,
@@ -1812,6 +2364,8 @@ class _$InvalidStringToDouble<T> implements InvalidStringToDouble<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(T failedValue)? unknownEnum,
     TResult Function(double max, T failedValue)? currencyValueTooBig,
+    TResult Function(T failedValue)? invalidUid,
+    TResult Function(T failedValue)? invalidTransactionId,
     TResult Function(double min, T failedValue)? currencyValueTooSmall,
     TResult Function(T failedValue)? passwordsNotEqual,
     TResult Function(T failedValue)? currencyValueNotInteger,
@@ -1835,6 +2389,9 @@ class _$InvalidStringToDouble<T> implements InvalidStringToDouble<T> {
   TResult map<TResult extends Object?>({
     required TResult Function(UnknownCurrency<T> value) unknownEnum,
     required TResult Function(CurrencyTooBig<T> value) currencyValueTooBig,
+    required TResult Function(InvalidUid<T> value) invalidUid,
+    required TResult Function(InvalidTransactionId<T> value)
+        invalidTransactionId,
     required TResult Function(CurrencyTooSmall<T> value) currencyValueTooSmall,
     required TResult Function(PasswordsNotEqual<T> value) passwordsNotEqual,
     required TResult Function(CurrencyValueNotInteger<T> value)
@@ -1857,6 +2414,8 @@ class _$InvalidStringToDouble<T> implements InvalidStringToDouble<T> {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(UnknownCurrency<T> value)? unknownEnum,
     TResult Function(CurrencyTooBig<T> value)? currencyValueTooBig,
+    TResult Function(InvalidUid<T> value)? invalidUid,
+    TResult Function(InvalidTransactionId<T> value)? invalidTransactionId,
     TResult Function(CurrencyTooSmall<T> value)? currencyValueTooSmall,
     TResult Function(PasswordsNotEqual<T> value)? passwordsNotEqual,
     TResult Function(CurrencyValueNotInteger<T> value)? currencyValueNotInteger,
@@ -1876,6 +2435,8 @@ class _$InvalidStringToDouble<T> implements InvalidStringToDouble<T> {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(UnknownCurrency<T> value)? unknownEnum,
     TResult Function(CurrencyTooBig<T> value)? currencyValueTooBig,
+    TResult Function(InvalidUid<T> value)? invalidUid,
+    TResult Function(InvalidTransactionId<T> value)? invalidTransactionId,
     TResult Function(CurrencyTooSmall<T> value)? currencyValueTooSmall,
     TResult Function(PasswordsNotEqual<T> value)? passwordsNotEqual,
     TResult Function(CurrencyValueNotInteger<T> value)? currencyValueNotInteger,
@@ -1977,6 +2538,8 @@ class _$InvalidEmail<T> implements InvalidEmail<T> {
   TResult when<TResult extends Object?>({
     required TResult Function(T failedValue) unknownEnum,
     required TResult Function(double max, T failedValue) currencyValueTooBig,
+    required TResult Function(T failedValue) invalidUid,
+    required TResult Function(T failedValue) invalidTransactionId,
     required TResult Function(double min, T failedValue) currencyValueTooSmall,
     required TResult Function(T failedValue) passwordsNotEqual,
     required TResult Function(T failedValue) currencyValueNotInteger,
@@ -1996,6 +2559,8 @@ class _$InvalidEmail<T> implements InvalidEmail<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(T failedValue)? unknownEnum,
     TResult Function(double max, T failedValue)? currencyValueTooBig,
+    TResult Function(T failedValue)? invalidUid,
+    TResult Function(T failedValue)? invalidTransactionId,
     TResult Function(double min, T failedValue)? currencyValueTooSmall,
     TResult Function(T failedValue)? passwordsNotEqual,
     TResult Function(T failedValue)? currencyValueNotInteger,
@@ -2015,6 +2580,8 @@ class _$InvalidEmail<T> implements InvalidEmail<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(T failedValue)? unknownEnum,
     TResult Function(double max, T failedValue)? currencyValueTooBig,
+    TResult Function(T failedValue)? invalidUid,
+    TResult Function(T failedValue)? invalidTransactionId,
     TResult Function(double min, T failedValue)? currencyValueTooSmall,
     TResult Function(T failedValue)? passwordsNotEqual,
     TResult Function(T failedValue)? currencyValueNotInteger,
@@ -2038,6 +2605,9 @@ class _$InvalidEmail<T> implements InvalidEmail<T> {
   TResult map<TResult extends Object?>({
     required TResult Function(UnknownCurrency<T> value) unknownEnum,
     required TResult Function(CurrencyTooBig<T> value) currencyValueTooBig,
+    required TResult Function(InvalidUid<T> value) invalidUid,
+    required TResult Function(InvalidTransactionId<T> value)
+        invalidTransactionId,
     required TResult Function(CurrencyTooSmall<T> value) currencyValueTooSmall,
     required TResult Function(PasswordsNotEqual<T> value) passwordsNotEqual,
     required TResult Function(CurrencyValueNotInteger<T> value)
@@ -2060,6 +2630,8 @@ class _$InvalidEmail<T> implements InvalidEmail<T> {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(UnknownCurrency<T> value)? unknownEnum,
     TResult Function(CurrencyTooBig<T> value)? currencyValueTooBig,
+    TResult Function(InvalidUid<T> value)? invalidUid,
+    TResult Function(InvalidTransactionId<T> value)? invalidTransactionId,
     TResult Function(CurrencyTooSmall<T> value)? currencyValueTooSmall,
     TResult Function(PasswordsNotEqual<T> value)? passwordsNotEqual,
     TResult Function(CurrencyValueNotInteger<T> value)? currencyValueNotInteger,
@@ -2079,6 +2651,8 @@ class _$InvalidEmail<T> implements InvalidEmail<T> {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(UnknownCurrency<T> value)? unknownEnum,
     TResult Function(CurrencyTooBig<T> value)? currencyValueTooBig,
+    TResult Function(InvalidUid<T> value)? invalidUid,
+    TResult Function(InvalidTransactionId<T> value)? invalidTransactionId,
     TResult Function(CurrencyTooSmall<T> value)? currencyValueTooSmall,
     TResult Function(PasswordsNotEqual<T> value)? passwordsNotEqual,
     TResult Function(CurrencyValueNotInteger<T> value)? currencyValueNotInteger,
@@ -2179,6 +2753,8 @@ class _$ShortPassword<T> implements ShortPassword<T> {
   TResult when<TResult extends Object?>({
     required TResult Function(T failedValue) unknownEnum,
     required TResult Function(double max, T failedValue) currencyValueTooBig,
+    required TResult Function(T failedValue) invalidUid,
+    required TResult Function(T failedValue) invalidTransactionId,
     required TResult Function(double min, T failedValue) currencyValueTooSmall,
     required TResult Function(T failedValue) passwordsNotEqual,
     required TResult Function(T failedValue) currencyValueNotInteger,
@@ -2198,6 +2774,8 @@ class _$ShortPassword<T> implements ShortPassword<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(T failedValue)? unknownEnum,
     TResult Function(double max, T failedValue)? currencyValueTooBig,
+    TResult Function(T failedValue)? invalidUid,
+    TResult Function(T failedValue)? invalidTransactionId,
     TResult Function(double min, T failedValue)? currencyValueTooSmall,
     TResult Function(T failedValue)? passwordsNotEqual,
     TResult Function(T failedValue)? currencyValueNotInteger,
@@ -2217,6 +2795,8 @@ class _$ShortPassword<T> implements ShortPassword<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(T failedValue)? unknownEnum,
     TResult Function(double max, T failedValue)? currencyValueTooBig,
+    TResult Function(T failedValue)? invalidUid,
+    TResult Function(T failedValue)? invalidTransactionId,
     TResult Function(double min, T failedValue)? currencyValueTooSmall,
     TResult Function(T failedValue)? passwordsNotEqual,
     TResult Function(T failedValue)? currencyValueNotInteger,
@@ -2240,6 +2820,9 @@ class _$ShortPassword<T> implements ShortPassword<T> {
   TResult map<TResult extends Object?>({
     required TResult Function(UnknownCurrency<T> value) unknownEnum,
     required TResult Function(CurrencyTooBig<T> value) currencyValueTooBig,
+    required TResult Function(InvalidUid<T> value) invalidUid,
+    required TResult Function(InvalidTransactionId<T> value)
+        invalidTransactionId,
     required TResult Function(CurrencyTooSmall<T> value) currencyValueTooSmall,
     required TResult Function(PasswordsNotEqual<T> value) passwordsNotEqual,
     required TResult Function(CurrencyValueNotInteger<T> value)
@@ -2262,6 +2845,8 @@ class _$ShortPassword<T> implements ShortPassword<T> {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(UnknownCurrency<T> value)? unknownEnum,
     TResult Function(CurrencyTooBig<T> value)? currencyValueTooBig,
+    TResult Function(InvalidUid<T> value)? invalidUid,
+    TResult Function(InvalidTransactionId<T> value)? invalidTransactionId,
     TResult Function(CurrencyTooSmall<T> value)? currencyValueTooSmall,
     TResult Function(PasswordsNotEqual<T> value)? passwordsNotEqual,
     TResult Function(CurrencyValueNotInteger<T> value)? currencyValueNotInteger,
@@ -2281,6 +2866,8 @@ class _$ShortPassword<T> implements ShortPassword<T> {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(UnknownCurrency<T> value)? unknownEnum,
     TResult Function(CurrencyTooBig<T> value)? currencyValueTooBig,
+    TResult Function(InvalidUid<T> value)? invalidUid,
+    TResult Function(InvalidTransactionId<T> value)? invalidTransactionId,
     TResult Function(CurrencyTooSmall<T> value)? currencyValueTooSmall,
     TResult Function(PasswordsNotEqual<T> value)? passwordsNotEqual,
     TResult Function(CurrencyValueNotInteger<T> value)? currencyValueNotInteger,
@@ -2381,6 +2968,8 @@ class _$InvalidDate<T> implements InvalidDate<T> {
   TResult when<TResult extends Object?>({
     required TResult Function(T failedValue) unknownEnum,
     required TResult Function(double max, T failedValue) currencyValueTooBig,
+    required TResult Function(T failedValue) invalidUid,
+    required TResult Function(T failedValue) invalidTransactionId,
     required TResult Function(double min, T failedValue) currencyValueTooSmall,
     required TResult Function(T failedValue) passwordsNotEqual,
     required TResult Function(T failedValue) currencyValueNotInteger,
@@ -2400,6 +2989,8 @@ class _$InvalidDate<T> implements InvalidDate<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(T failedValue)? unknownEnum,
     TResult Function(double max, T failedValue)? currencyValueTooBig,
+    TResult Function(T failedValue)? invalidUid,
+    TResult Function(T failedValue)? invalidTransactionId,
     TResult Function(double min, T failedValue)? currencyValueTooSmall,
     TResult Function(T failedValue)? passwordsNotEqual,
     TResult Function(T failedValue)? currencyValueNotInteger,
@@ -2419,6 +3010,8 @@ class _$InvalidDate<T> implements InvalidDate<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(T failedValue)? unknownEnum,
     TResult Function(double max, T failedValue)? currencyValueTooBig,
+    TResult Function(T failedValue)? invalidUid,
+    TResult Function(T failedValue)? invalidTransactionId,
     TResult Function(double min, T failedValue)? currencyValueTooSmall,
     TResult Function(T failedValue)? passwordsNotEqual,
     TResult Function(T failedValue)? currencyValueNotInteger,
@@ -2442,6 +3035,9 @@ class _$InvalidDate<T> implements InvalidDate<T> {
   TResult map<TResult extends Object?>({
     required TResult Function(UnknownCurrency<T> value) unknownEnum,
     required TResult Function(CurrencyTooBig<T> value) currencyValueTooBig,
+    required TResult Function(InvalidUid<T> value) invalidUid,
+    required TResult Function(InvalidTransactionId<T> value)
+        invalidTransactionId,
     required TResult Function(CurrencyTooSmall<T> value) currencyValueTooSmall,
     required TResult Function(PasswordsNotEqual<T> value) passwordsNotEqual,
     required TResult Function(CurrencyValueNotInteger<T> value)
@@ -2464,6 +3060,8 @@ class _$InvalidDate<T> implements InvalidDate<T> {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(UnknownCurrency<T> value)? unknownEnum,
     TResult Function(CurrencyTooBig<T> value)? currencyValueTooBig,
+    TResult Function(InvalidUid<T> value)? invalidUid,
+    TResult Function(InvalidTransactionId<T> value)? invalidTransactionId,
     TResult Function(CurrencyTooSmall<T> value)? currencyValueTooSmall,
     TResult Function(PasswordsNotEqual<T> value)? passwordsNotEqual,
     TResult Function(CurrencyValueNotInteger<T> value)? currencyValueNotInteger,
@@ -2483,6 +3081,8 @@ class _$InvalidDate<T> implements InvalidDate<T> {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(UnknownCurrency<T> value)? unknownEnum,
     TResult Function(CurrencyTooBig<T> value)? currencyValueTooBig,
+    TResult Function(InvalidUid<T> value)? invalidUid,
+    TResult Function(InvalidTransactionId<T> value)? invalidTransactionId,
     TResult Function(CurrencyTooSmall<T> value)? currencyValueTooSmall,
     TResult Function(PasswordsNotEqual<T> value)? passwordsNotEqual,
     TResult Function(CurrencyValueNotInteger<T> value)? currencyValueNotInteger,
@@ -2583,6 +3183,8 @@ class _$DateIsUTC<T> implements DateIsUTC<T> {
   TResult when<TResult extends Object?>({
     required TResult Function(T failedValue) unknownEnum,
     required TResult Function(double max, T failedValue) currencyValueTooBig,
+    required TResult Function(T failedValue) invalidUid,
+    required TResult Function(T failedValue) invalidTransactionId,
     required TResult Function(double min, T failedValue) currencyValueTooSmall,
     required TResult Function(T failedValue) passwordsNotEqual,
     required TResult Function(T failedValue) currencyValueNotInteger,
@@ -2602,6 +3204,8 @@ class _$DateIsUTC<T> implements DateIsUTC<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(T failedValue)? unknownEnum,
     TResult Function(double max, T failedValue)? currencyValueTooBig,
+    TResult Function(T failedValue)? invalidUid,
+    TResult Function(T failedValue)? invalidTransactionId,
     TResult Function(double min, T failedValue)? currencyValueTooSmall,
     TResult Function(T failedValue)? passwordsNotEqual,
     TResult Function(T failedValue)? currencyValueNotInteger,
@@ -2621,6 +3225,8 @@ class _$DateIsUTC<T> implements DateIsUTC<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(T failedValue)? unknownEnum,
     TResult Function(double max, T failedValue)? currencyValueTooBig,
+    TResult Function(T failedValue)? invalidUid,
+    TResult Function(T failedValue)? invalidTransactionId,
     TResult Function(double min, T failedValue)? currencyValueTooSmall,
     TResult Function(T failedValue)? passwordsNotEqual,
     TResult Function(T failedValue)? currencyValueNotInteger,
@@ -2644,6 +3250,9 @@ class _$DateIsUTC<T> implements DateIsUTC<T> {
   TResult map<TResult extends Object?>({
     required TResult Function(UnknownCurrency<T> value) unknownEnum,
     required TResult Function(CurrencyTooBig<T> value) currencyValueTooBig,
+    required TResult Function(InvalidUid<T> value) invalidUid,
+    required TResult Function(InvalidTransactionId<T> value)
+        invalidTransactionId,
     required TResult Function(CurrencyTooSmall<T> value) currencyValueTooSmall,
     required TResult Function(PasswordsNotEqual<T> value) passwordsNotEqual,
     required TResult Function(CurrencyValueNotInteger<T> value)
@@ -2666,6 +3275,8 @@ class _$DateIsUTC<T> implements DateIsUTC<T> {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(UnknownCurrency<T> value)? unknownEnum,
     TResult Function(CurrencyTooBig<T> value)? currencyValueTooBig,
+    TResult Function(InvalidUid<T> value)? invalidUid,
+    TResult Function(InvalidTransactionId<T> value)? invalidTransactionId,
     TResult Function(CurrencyTooSmall<T> value)? currencyValueTooSmall,
     TResult Function(PasswordsNotEqual<T> value)? passwordsNotEqual,
     TResult Function(CurrencyValueNotInteger<T> value)? currencyValueNotInteger,
@@ -2685,6 +3296,8 @@ class _$DateIsUTC<T> implements DateIsUTC<T> {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(UnknownCurrency<T> value)? unknownEnum,
     TResult Function(CurrencyTooBig<T> value)? currencyValueTooBig,
+    TResult Function(InvalidUid<T> value)? invalidUid,
+    TResult Function(InvalidTransactionId<T> value)? invalidTransactionId,
     TResult Function(CurrencyTooSmall<T> value)? currencyValueTooSmall,
     TResult Function(PasswordsNotEqual<T> value)? passwordsNotEqual,
     TResult Function(CurrencyValueNotInteger<T> value)? currencyValueNotInteger,

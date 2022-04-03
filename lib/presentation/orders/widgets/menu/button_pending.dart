@@ -14,7 +14,7 @@ class MenuButtonPending extends StatelessWidget {
 
   OutlinedButton _buildPendingButton(BuildContext context) => OutlinedButton(
         onPressed: () {
-          context.read<TransactionWatcherBloc>().add(const TransactionWatcherEvent.watchPendingTransaction());
+         // context.read<TransactionWatcherBloc>().add(const TransactionWatcherEvent.getPendingTransaction());
         },
         child: const FittedBox(child: Text(OrdersConstants.pending)),
         style: OutlinedButton.styleFrom(backgroundColor: Colors.yellow),
