@@ -5,61 +5,69 @@ import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
+import 'package:kantor_tukan/domain/queue/i_queue_repository.dart';
 import 'package:kantor_tukan/domain/queue/queue.dart';
+import 'package:kantor_tukan/domain/queue/queue_failure.dart';
 import 'package:kantor_tukan/domain/transaction/transaction.dart';
 import 'package:kantor_tukan/domain/transaction/i_transaction_repository.dart';
 import 'package:kantor_tukan/domain/transaction/transaction_failure.dart';
 import 'package:kt_dart/kt.dart';
 
 part 'transaction_watcher_event.dart';
+
 part 'transaction_watcher_state.dart';
+
 part 'transaction_watcher_bloc.freezed.dart';
 
 @injectable
 class TransactionWatcherBloc extends Bloc<TransactionWatcherEvent, TransactionWatcherState> {
   final ITransactionRepository _transactionRepository;
+  final IQueueRepository _queueRepository;
   StreamSubscription<Either<TransactionFailure, KtList>>? _transactionStreamSubscription;
 
-  TransactionWatcherBloc(this._transactionRepository) : super(const TransactionWatcherState.initial()) {
+  TransactionWatcherBloc(this._transactionRepository, this._queueRepository)
+      : super(const TransactionWatcherState.initial()) {
     on<TransactionWatcherEvent>(
-      (event, emit) {
+      (event, emitClass) {
         event.map(
-          transactionReceived: _transactionReceived,
-          getPendingTransaction: (_GetPendingTransaction value) {
-
-          },
-          watchQueue: (_WatchQueue value) {
-
-
-
-
-
-          },
-        );
+            watchPendingTransactions: _watchPendingTransactions,
+            watchPendingTransactionsHelper: _watchPendingTransactionsHelper);
       },
     );
   }
 
-  // void _watchAllTransaction(_WatchAllTransaction _) async {
-  //   emit(const TransactionWatcherState.loadInProgress());
-  //   await _transactionStreamSubscription?.cancel();
-  //   Stream<Either<TransactionFailure, KtList<Transaction>>> stream = _transactionRepository.watchAll();
-  //   _transactionStreamSubscription = stream.listen((Either<TransactionFailure, KtList<Transaction>> failureOrNotes) {
-  //     return add(TransactionWatcherEvent.transactionReceived(failureOrNotes));
-  //   });
-  // }
+  void _watchPendingTransactionsHelper(queues) async {
+    KtList<Queue> queueList = queues.queue as KtList<Queue>;
+    List<Transaction> transactionList = [];
 
-  void _transactionReceived(_TransactionReceived e) {
-    // emit(
-    //   e.failureOrTransaction.fold(
-    //     (TransactionFailure failure) {
-    //       return TransactionWatcherState.loadFailure(failure);
-    //     },
-    //     (KtList<Transaction> transaction) {
-    //       return TransactionWatcherState.loadQueueSuccess(transaction);
-    //     },
-    //   ),
-    // );
+    queueList.forEach((queue) async {
+      var transaction = await _transactionRepository.getPending(queue);
+      Transaction? foldTransaction = transaction.fold((l) => null, (r) => r);
+
+      if (foldTransaction != null) {
+        transactionList.add(foldTransaction);
+        emit(TransactionWatcherState.loadTransactionsSuccess(transactionList.toImmutableList(), queueList));
+      }
+    });
+  }
+
+  void _watchPendingTransactions(_) async {
+    emit(const TransactionWatcherState.loadInProgress());
+
+    Stream<Either<QueueFailure, KtList<Queue>>> queues = _queueRepository.watchQueue();
+
+    print('dostalem kolejke');
+    KtList<Queue> queueList;
+
+    queues.listen((queues) {
+      if (queues.isRight()) {
+        queueList = queues.getOrElse(() => const KtList.empty());
+        print('add helper');
+        add(TransactionWatcherEvent.watchPendingTransactionsHelper(queueList));
+      } else {
+        emit(const TransactionWatcherState.loadFailure(TransactionFailure.unexpected()));
+      }
+    });
   }
 
   @override

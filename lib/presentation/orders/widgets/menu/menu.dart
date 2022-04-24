@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kantor_tukan/presentation/orders/constants.dart';
-import 'package:kantor_tukan/presentation/orders/widgets/menu/button_all.dart';
-import 'package:kantor_tukan/presentation/orders/widgets/menu/button_decline.dart';
 import 'package:kantor_tukan/presentation/orders/widgets/menu/button_pending.dart';
-
-import 'button_accept.dart';
 
 class OrdersMenu extends StatelessWidget {
   const OrdersMenu({Key? key}) : super(key: key);
@@ -22,19 +18,8 @@ class OrdersMenu extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        _buildFirstRowMenu(context),
         _buildSecondRowMenu(context),
       ],
-    );
-  }
-
-  Expanded _buildFirstRowMenu(BuildContext context) {
-    return Expanded(
-      child: Row(
-        children: [
-          _decorate(const MenuButtonAll()),
-        ],
-      ),
     );
   }
 
@@ -42,9 +27,7 @@ class OrdersMenu extends StatelessWidget {
     return Expanded(
       child: Row(
         children: [
-          _decorate(const MenuButtonAccept()),
           _decorate(const MenuButtonPending()),
-          _decorate(const MenuButtonDecline())
         ],
       ),
     );
@@ -52,10 +35,11 @@ class OrdersMenu extends StatelessWidget {
 
   Expanded _decorate(Widget button) {
     return Expanded(
-        child: Padding(
-      padding: _getPadding(),
-      child: button,
-    ));
+      child: Padding(
+        padding: _getPadding(),
+        child: button,
+      ),
+    );
   }
 
   EdgeInsets _getPadding() => const EdgeInsets.all(OrdersConstants.padding);

@@ -66,8 +66,8 @@ _i1.GetIt $initGetIt(_i1.GetIt get,
       () => _i15.SignInFormBloc(get<_i8.IAuthFacade>()));
   gh.factory<_i16.TransactionActorBloc>(
       () => _i16.TransactionActorBloc(get<_i12.ITransactionRepository>()));
-  gh.factory<_i17.TransactionWatcherBloc>(
-      () => _i17.TransactionWatcherBloc(get<_i12.ITransactionRepository>()));
+  gh.factory<_i17.TransactionWatcherBloc>(() => _i17.TransactionWatcherBloc(
+      get<_i12.ITransactionRepository>(), get<_i10.IQueueRepository>()));
   gh.factory<_i18.AppAuthBloc>(() => _i18.AppAuthBloc(get<_i8.IAuthFacade>()));
   gh.singleton<_i19.IInternetConnectionChecker>(
       _i20.InternetChecker(get<_i14.InternetConnectionChecker>()));

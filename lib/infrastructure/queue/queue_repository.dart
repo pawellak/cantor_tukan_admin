@@ -17,12 +17,15 @@ class QueueRepository implements IQueueRepository {
   @override
   Stream<Either<QueueFailure, KtList<Queue>>> watchQueue() async* {
     var queueCollection = await _firebaseFirestore.queueCollection();
-
     var snapshots = queueCollection.snapshots();
-    yield* snapshots
-        .map((snapshot) => right<QueueFailure, KtList<Queue>>(
-            snapshot.docs.map((doc) => QueueDto.fromFirestore(doc).toDomain()).toImmutableList()))
-        .handleError(_transactionError);
+
+    yield* snapshots.map((snapshot) {
+      return right<QueueFailure, KtList<Queue>>(
+        snapshot.docs.map((doc) {
+          return QueueDto.fromFirestore(doc).toDomain();
+        }).toImmutableList(),
+      );
+    }).handleError(_transactionError);
   }
 
   _transactionError(error) {

@@ -1,3 +1,6 @@
+import 'dart:async';
+
+import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kantor_tukan/application/transaction/transaction_watcher/transaction_watcher_bloc.dart';
@@ -5,6 +8,7 @@ import 'package:kantor_tukan/presentation/orders/constants.dart';
 import 'package:kt_dart/collection.dart';
 
 import '../../../domain/transaction/transaction.dart';
+import '../../../domain/transaction/transaction_failure.dart';
 import 'expanded_tile.dart';
 
 class OrdersList extends StatelessWidget {
@@ -25,15 +29,27 @@ class OrdersList extends StatelessWidget {
         initial: _buildInitialState,
         loadInProgress: _buildLoadingState,
         loadFailure: _buildFailureState,
-        loadTransactionsSuccess: (_) {
-          return const Text('');
-        },
-        loadQueueSuccess: (_) {
-          return const Text('');
+        loadTransactionsSuccess: (transaction){
+
+          KtList<Transaction> trans = transaction.transaction;
+          var queue = transaction.queue;
+
+            return _loadSuccess(trans);
+
         },
       );
     });
   }
+
+  // Widget _load(loadTransactionsSuccess) {
+  //
+  //   loadTransactionsSuccess.transaction
+  //
+  //
+  //   var transactions = loadTransactionsSuccess as KtList<Future<Transaction?>>;
+  //
+
+  // }
 
   Widget _buildInitialState(_) {
     return const Center(child: Text(OrdersConstants.chooseCategory));
@@ -43,7 +59,7 @@ class OrdersList extends StatelessWidget {
     return const Center(child: CircularProgressIndicator());
   }
 
-  Widget _loadSuccess(state) {
+  Widget _loadSuccess(KtList<Transaction> state) {
     if (_isListEmpty(state)) {
       return _buildEmptyBody();
     } else {
@@ -53,16 +69,16 @@ class OrdersList extends StatelessWidget {
 
   Center _buildEmptyBody() => const Center(child: Text(OrdersConstants.emptyCategory));
 
-  ListView _buildListBody(state) {
+  ListView _buildListBody(KtList<Transaction> transaction) {
     return ListView.builder(
-      itemCount: state.transaction.size,
+      itemCount: transaction.size,
       itemBuilder: (context, index) {
-        return _buildExpandedTile(index, state.transaction);
+        return _buildExpandedTile(index, transaction);
       },
     );
   }
 
-  bool _isListEmpty(state) => state.transaction.size == 0;
+  bool _isListEmpty(transaction) => transaction.size == 0;
 
   ExpandedTile _buildExpandedTile(int index, KtList<Transaction> userTransactions) {
     return ExpandedTile(

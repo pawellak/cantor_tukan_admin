@@ -21,8 +21,10 @@ abstract class QueueDto with _$QueueDto {
   factory QueueDto.fromJson(Map<String, dynamic> json) => _$QueueDtoFromJson(json);
 
   factory QueueDto.fromFirestore(fs.DocumentSnapshot doc) {
-    final docData = doc.data() as Map<String, dynamic>;
-    return QueueDto.fromJson(docData);
+    final Map<String, dynamic> docData = doc.data() as Map<String, dynamic>;
+    docData["transactionUid"] = doc.reference.id;
+    var queue =  QueueDto.fromJson(docData);
+    return queue;
   }
 
   Queue toDomain() {
