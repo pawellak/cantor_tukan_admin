@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kantor_tukan/domain/queue/queue.dart';
 import 'package:kantor_tukan/domain/transaction/transaction.dart';
 
 import '../constants.dart';
@@ -7,9 +8,12 @@ import 'header_tile.dart';
 
 class ExpandedTile extends StatefulWidget {
   final Transaction userTransaction;
+  final Queue userDetails;
   final int indexOfTransaction;
 
-  const ExpandedTile({Key? key, required this.userTransaction, required this.indexOfTransaction}) : super(key: key);
+  const ExpandedTile(
+      {Key? key, required this.userTransaction, required this.indexOfTransaction, required this.userDetails})
+      : super(key: key);
 
   @override
   _ExpandedTileState createState() => _ExpandedTileState();
@@ -41,7 +45,7 @@ class _ExpandedTileState extends State<ExpandedTile> {
       headerBuilder: (_, __) {
         return HeaderTile(userTransaction: widget.userTransaction);
       },
-      body: BodyTile(userTransaction: widget.userTransaction),
+      body: BodyTile(userTransaction: widget.userTransaction, queue: widget.userDetails),
       isExpanded: _expanded,
       canTapOnHeader: true,
     );

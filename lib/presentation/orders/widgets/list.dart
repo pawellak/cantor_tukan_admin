@@ -1,14 +1,11 @@
-import 'dart:async';
-
-import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kantor_tukan/application/transaction/transaction_watcher/transaction_watcher_bloc.dart';
+import 'package:kantor_tukan/domain/queue/queue.dart';
 import 'package:kantor_tukan/presentation/orders/constants.dart';
 import 'package:kt_dart/collection.dart';
 
 import '../../../domain/transaction/transaction.dart';
-import '../../../domain/transaction/transaction_failure.dart';
 import 'expanded_tile.dart';
 
 class OrdersList extends StatelessWidget {
@@ -32,24 +29,16 @@ class OrdersList extends StatelessWidget {
         loadTransactionsSuccess: (transaction){
 
           KtList<Transaction> trans = transaction.transaction;
-          var queue = transaction.queue;
+          KtList<Queue> queue = transaction.queue;
 
-            return _loadSuccess(trans);
+            return _loadSuccess(trans,queue);
 
         },
       );
     });
   }
 
-  // Widget _load(loadTransactionsSuccess) {
-  //
-  //   loadTransactionsSuccess.transaction
-  //
-  //
-  //   var transactions = loadTransactionsSuccess as KtList<Future<Transaction?>>;
-  //
 
-  // }
 
   Widget _buildInitialState(_) {
     return const Center(child: Text(OrdersConstants.chooseCategory));
@@ -59,31 +48,32 @@ class OrdersList extends StatelessWidget {
     return const Center(child: CircularProgressIndicator());
   }
 
-  Widget _loadSuccess(KtList<Transaction> state) {
-    if (_isListEmpty(state)) {
+  Widget _loadSuccess(KtList<Transaction> transaction,KtList<Queue> queue) {
+    if (_isListEmpty(transaction)) {
       return _buildEmptyBody();
     } else {
-      return _buildListBody(state);
+      return _buildListBody(transaction,queue);
     }
   }
 
   Center _buildEmptyBody() => const Center(child: Text(OrdersConstants.emptyCategory));
 
-  ListView _buildListBody(KtList<Transaction> transaction) {
+  ListView _buildListBody(KtList<Transaction> transaction,KtList<Queue> queue) {
     return ListView.builder(
       itemCount: transaction.size,
       itemBuilder: (context, index) {
-        return _buildExpandedTile(index, transaction);
+        return _buildExpandedTile(index, transaction,queue);
       },
     );
   }
 
   bool _isListEmpty(transaction) => transaction.size == 0;
 
-  ExpandedTile _buildExpandedTile(int index, KtList<Transaction> userTransactions) {
+  ExpandedTile _buildExpandedTile(int index, KtList<Transaction> userTransactions,KtList<Queue> queue) {
     return ExpandedTile(
       indexOfTransaction: index,
       userTransaction: userTransactions[index],
+      userDetails: queue[index],
     );
   }
 
