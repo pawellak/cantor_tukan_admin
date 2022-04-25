@@ -31,7 +31,15 @@ class TransactionWatcherBloc extends Bloc<TransactionWatcherEvent, TransactionWa
       (event, emitClass) {
         event.map(
             watchPendingTransactions: _watchPendingTransactions,
-            watchPendingTransactionsHelper: _watchPendingTransactionsHelper);
+            watchPendingTransactionsHelper: _watchPendingTransactionsHelper,
+            declineTransaction: (_DeclineTransaction _declineTransaction) {
+             Queue queue =  _declineTransaction.queue;
+             _transactionRepository.decline(queue);
+            },
+            acceptTransaction: (_AcceptTransaction _acceptTransaction) {
+              Queue queue =  _acceptTransaction.queue;
+              _transactionRepository.accept(queue);
+            });
       },
     );
   }
@@ -53,16 +61,12 @@ class TransactionWatcherBloc extends Bloc<TransactionWatcherEvent, TransactionWa
 
   void _watchPendingTransactions(_) async {
     emit(const TransactionWatcherState.loadInProgress());
-
     Stream<Either<QueueFailure, KtList<Queue>>> queues = _queueRepository.watchQueue();
-
-    print('dostalem kolejke');
     KtList<Queue> queueList;
 
     queues.listen((queues) {
       if (queues.isRight()) {
         queueList = queues.getOrElse(() => const KtList.empty());
-        print('add helper');
         add(TransactionWatcherEvent.watchPendingTransactionsHelper(queueList));
       } else {
         emit(const TransactionWatcherState.loadFailure(TransactionFailure.unexpected()));

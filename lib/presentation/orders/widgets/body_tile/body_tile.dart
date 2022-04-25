@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:kantor_tukan/application/transaction/transaction_watcher/transaction_watcher_bloc.dart';
 import 'package:kantor_tukan/domain/queue/queue.dart';
 import 'package:kantor_tukan/domain/transaction/transaction.dart';
 
@@ -16,10 +18,10 @@ class BodyTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return _buildBodyOfTile(userTransaction);
+    return _buildBodyOfTile(context, userTransaction);
   }
 
-  Column _buildBodyOfTile(Transaction userTransaction) {
+  Column _buildBodyOfTile(BuildContext context, Transaction userTransaction) {
     return Column(
       children: [
         TransactionBill().call(userTransaction),
@@ -32,20 +34,22 @@ class BodyTile extends StatelessWidget {
           children: [
             Expanded(
               child: OutlinedButton(
-                onPressed: () {},
+                onPressed: () {
+                  context.read<TransactionWatcherBloc>().add(TransactionWatcherEvent.declineTransaction(queue));
+                },
                 child: const Text('Odrzuć'),
                 style: OutlinedButton.styleFrom(backgroundColor: Colors.red),
               ),
             ),
             Expanded(
               child: OutlinedButton(
-                onPressed: () {},
+                onPressed: () {
+                  context.read<TransactionWatcherBloc>().add(TransactionWatcherEvent.acceptTransaction(queue));
+                },
                 child: const Text('Ackeptuj'),
                 style: OutlinedButton.styleFrom(backgroundColor: Colors.green),
               ),
             ),
-
-
           ],
         )
       ],

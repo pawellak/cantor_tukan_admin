@@ -10,27 +10,17 @@ import 'package:kantor_tukan/domain/transaction/transaction_failure.dart';
 import 'package:kantor_tukan/infrastructure/transaction/transaction_dtos.dart';
 import 'package:kantor_tukan/infrastructure/core/firestore_helpers.dart';
 
+import '../../domain/core/enums.dart';
+
 @LazySingleton(as: ITransactionRepository)
 class TransactionRepository implements ITransactionRepository {
   final fs.FirebaseFirestore _firebaseFirestore;
 
   TransactionRepository(this._firebaseFirestore);
 
-  Future<Either<TransactionFailure, Unit>> delete(Transaction transaction) async {
-    try {
-      final userDoc = await _firebaseFirestore.userDocument();
-      final transactionId = transaction.uId.getOrCrash();
-      await userDoc.transactionCollection.doc(transactionId).delete();
-      return right(unit);
-    } on fs.FirebaseException catch (e) {
-      return _transactionError(e);
-    }
-  }
-
   @override
-  Future<Either<TransactionFailure, Unit>> decline(Queue transaction) {
-    // TODO: implement decline
-    throw UnimplementedError();
+  Future<Either<TransactionFailure, Unit>> decline(Queue queue) {
+    return _firebaseFirestore.updateUserTransaction(queue, EnumTransactionStatus.decline);
   }
 
   @override
@@ -40,16 +30,14 @@ class TransactionRepository implements ITransactionRepository {
   }
 
   @override
-  Future<Either<TransactionFailure, Unit>> accept(Queue transaction) {
-    // TODO: implement accept
-    throw UnimplementedError();
+  Future<Either<TransactionFailure, Unit>> accept(Queue queue) {
+    return _firebaseFirestore.updateUserTransaction(queue, EnumTransactionStatus.accepted);
   }
 
   @override
   Future<Either<TransactionFailure, Transaction>> getPending(Queue queue) async {
     try {
-      final userTransaction = await _firebaseFirestore.userTransaction(queue);
-
+      final userTransaction = await _firebaseFirestore.getUserTransaction(queue);
       final Map<String, dynamic>? userTransactionJson = userTransaction.data();
 
       if (userTransactionJson != null) {

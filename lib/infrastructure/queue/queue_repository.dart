@@ -16,7 +16,7 @@ class QueueRepository implements IQueueRepository {
 
   @override
   Stream<Either<QueueFailure, KtList<Queue>>> watchQueue() async* {
-    var queueCollection = await _firebaseFirestore.queueCollection();
+    var queueCollection = await _firebaseFirestore.getQueueCollection();
     var snapshots = queueCollection.snapshots();
 
     yield* snapshots.map((snapshot) {
