@@ -25,7 +25,27 @@ extension FirestoreUsersUpdateTransaction on FirebaseFirestore {
           .doc(queue.uid.getOrCrash())
           .collection(FirebaseConst.docTransactions)
           .doc(queue.transactionUid.getOrCrash())
-          .update({dateAcceptation: dateOfAccept, transactionStatus: type.toShortString()},);
+          .update(
+        {dateAcceptation: dateOfAccept, transactionStatus: type.toShortString()},
+      );
+
+      return right(unit);
+    } catch (error) {
+      return left(const TransactionFailure.notFound());
+    }
+  }
+}
+
+extension FirestoreUsersDeleteTransaction on FirebaseFirestore {
+  Future<Either<TransactionFailure, Unit>> deleteTransactionFromQueue(Queue queue) async {
+    final userOption = await getIt<IAuthFacade>().getSignedInUser();
+    userOption.getOrElse(() => throw NotAuthenticatedError());
+
+    try {
+      await FirebaseFirestore.instance
+          .collection(FirebaseConst.docQueue)
+          .doc(queue.transactionUid.getOrCrash())
+          .delete();
 
       return right(unit);
     } catch (error) {

@@ -49,6 +49,11 @@ class TransactionRepository implements ITransactionRepository {
       return _transactionError(e);
     }
   }
+
+  @override
+  Future<Either<TransactionFailure, Unit>> delete(Queue queue) {
+    return _firebaseFirestore.deleteTransactionFromQueue(queue);
+  }
 }
 
 _transactionError(error) {

@@ -20,6 +20,10 @@ class OrdersConstants {
   static const chooseCategory = 'wybierz rodzaj kategorii';
   static const emptyCategory = 'brak rekorów';
 
+  static const acceptButton = 'akceptuj';
+  static const declineButton = 'odrzuć';
+  static const deleteButton = 'usuń z listy';
+
   static const headerSize = 15.0;
   static const padding = 8.0;
   static const verySmallLine = 1.0;

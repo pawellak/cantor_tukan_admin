@@ -33,12 +33,16 @@ class TransactionWatcherBloc extends Bloc<TransactionWatcherEvent, TransactionWa
             watchPendingTransactions: _watchPendingTransactions,
             watchPendingTransactionsHelper: _watchPendingTransactionsHelper,
             declineTransaction: (_DeclineTransaction _declineTransaction) {
-             Queue queue =  _declineTransaction.queue;
-             _transactionRepository.decline(queue);
+              Queue queue = _declineTransaction.queue;
+              _transactionRepository.decline(queue);
             },
             acceptTransaction: (_AcceptTransaction _acceptTransaction) {
-              Queue queue =  _acceptTransaction.queue;
+              Queue queue = _acceptTransaction.queue;
               _transactionRepository.accept(queue);
+            },
+            deleteFromQueue: (_DeleteFromQueue _deleteFromQueue) {
+              Queue queue = _deleteFromQueue.queue;
+              _transactionRepository.delete(queue);
             });
       },
     );

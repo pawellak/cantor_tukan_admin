@@ -29,6 +29,12 @@ class _$TransactionWatcherEventTearOff {
     );
   }
 
+  _DeleteFromQueue deleteFromQueue(Queue queue) {
+    return _DeleteFromQueue(
+      queue,
+    );
+  }
+
   _WatchPendingTransactions watchPendingTransactions() {
     return const _WatchPendingTransactions();
   }
@@ -50,6 +56,7 @@ mixin _$TransactionWatcherEvent {
   TResult when<TResult extends Object?>({
     required TResult Function(Queue queue) acceptTransaction,
     required TResult Function(Queue queue) declineTransaction,
+    required TResult Function(Queue queue) deleteFromQueue,
     required TResult Function() watchPendingTransactions,
     required TResult Function(KtList<Queue> queue)
         watchPendingTransactionsHelper,
@@ -59,6 +66,7 @@ mixin _$TransactionWatcherEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(Queue queue)? acceptTransaction,
     TResult Function(Queue queue)? declineTransaction,
+    TResult Function(Queue queue)? deleteFromQueue,
     TResult Function()? watchPendingTransactions,
     TResult Function(KtList<Queue> queue)? watchPendingTransactionsHelper,
   }) =>
@@ -67,6 +75,7 @@ mixin _$TransactionWatcherEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Queue queue)? acceptTransaction,
     TResult Function(Queue queue)? declineTransaction,
+    TResult Function(Queue queue)? deleteFromQueue,
     TResult Function()? watchPendingTransactions,
     TResult Function(KtList<Queue> queue)? watchPendingTransactionsHelper,
     required TResult orElse(),
@@ -76,6 +85,7 @@ mixin _$TransactionWatcherEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_AcceptTransaction value) acceptTransaction,
     required TResult Function(_DeclineTransaction value) declineTransaction,
+    required TResult Function(_DeleteFromQueue value) deleteFromQueue,
     required TResult Function(_WatchPendingTransactions value)
         watchPendingTransactions,
     required TResult Function(_WatchPendingTransactionsHelper value)
@@ -86,6 +96,7 @@ mixin _$TransactionWatcherEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_AcceptTransaction value)? acceptTransaction,
     TResult Function(_DeclineTransaction value)? declineTransaction,
+    TResult Function(_DeleteFromQueue value)? deleteFromQueue,
     TResult Function(_WatchPendingTransactions value)? watchPendingTransactions,
     TResult Function(_WatchPendingTransactionsHelper value)?
         watchPendingTransactionsHelper,
@@ -95,6 +106,7 @@ mixin _$TransactionWatcherEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_AcceptTransaction value)? acceptTransaction,
     TResult Function(_DeclineTransaction value)? declineTransaction,
+    TResult Function(_DeleteFromQueue value)? deleteFromQueue,
     TResult Function(_WatchPendingTransactions value)? watchPendingTransactions,
     TResult Function(_WatchPendingTransactionsHelper value)?
         watchPendingTransactionsHelper,
@@ -196,6 +208,7 @@ class _$_AcceptTransaction implements _AcceptTransaction {
   TResult when<TResult extends Object?>({
     required TResult Function(Queue queue) acceptTransaction,
     required TResult Function(Queue queue) declineTransaction,
+    required TResult Function(Queue queue) deleteFromQueue,
     required TResult Function() watchPendingTransactions,
     required TResult Function(KtList<Queue> queue)
         watchPendingTransactionsHelper,
@@ -208,6 +221,7 @@ class _$_AcceptTransaction implements _AcceptTransaction {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(Queue queue)? acceptTransaction,
     TResult Function(Queue queue)? declineTransaction,
+    TResult Function(Queue queue)? deleteFromQueue,
     TResult Function()? watchPendingTransactions,
     TResult Function(KtList<Queue> queue)? watchPendingTransactionsHelper,
   }) {
@@ -219,6 +233,7 @@ class _$_AcceptTransaction implements _AcceptTransaction {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Queue queue)? acceptTransaction,
     TResult Function(Queue queue)? declineTransaction,
+    TResult Function(Queue queue)? deleteFromQueue,
     TResult Function()? watchPendingTransactions,
     TResult Function(KtList<Queue> queue)? watchPendingTransactionsHelper,
     required TResult orElse(),
@@ -234,6 +249,7 @@ class _$_AcceptTransaction implements _AcceptTransaction {
   TResult map<TResult extends Object?>({
     required TResult Function(_AcceptTransaction value) acceptTransaction,
     required TResult Function(_DeclineTransaction value) declineTransaction,
+    required TResult Function(_DeleteFromQueue value) deleteFromQueue,
     required TResult Function(_WatchPendingTransactions value)
         watchPendingTransactions,
     required TResult Function(_WatchPendingTransactionsHelper value)
@@ -247,6 +263,7 @@ class _$_AcceptTransaction implements _AcceptTransaction {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_AcceptTransaction value)? acceptTransaction,
     TResult Function(_DeclineTransaction value)? declineTransaction,
+    TResult Function(_DeleteFromQueue value)? deleteFromQueue,
     TResult Function(_WatchPendingTransactions value)? watchPendingTransactions,
     TResult Function(_WatchPendingTransactionsHelper value)?
         watchPendingTransactionsHelper,
@@ -259,6 +276,7 @@ class _$_AcceptTransaction implements _AcceptTransaction {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_AcceptTransaction value)? acceptTransaction,
     TResult Function(_DeclineTransaction value)? declineTransaction,
+    TResult Function(_DeleteFromQueue value)? deleteFromQueue,
     TResult Function(_WatchPendingTransactions value)? watchPendingTransactions,
     TResult Function(_WatchPendingTransactionsHelper value)?
         watchPendingTransactionsHelper,
@@ -356,6 +374,7 @@ class _$_DeclineTransaction implements _DeclineTransaction {
   TResult when<TResult extends Object?>({
     required TResult Function(Queue queue) acceptTransaction,
     required TResult Function(Queue queue) declineTransaction,
+    required TResult Function(Queue queue) deleteFromQueue,
     required TResult Function() watchPendingTransactions,
     required TResult Function(KtList<Queue> queue)
         watchPendingTransactionsHelper,
@@ -368,6 +387,7 @@ class _$_DeclineTransaction implements _DeclineTransaction {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(Queue queue)? acceptTransaction,
     TResult Function(Queue queue)? declineTransaction,
+    TResult Function(Queue queue)? deleteFromQueue,
     TResult Function()? watchPendingTransactions,
     TResult Function(KtList<Queue> queue)? watchPendingTransactionsHelper,
   }) {
@@ -379,6 +399,7 @@ class _$_DeclineTransaction implements _DeclineTransaction {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Queue queue)? acceptTransaction,
     TResult Function(Queue queue)? declineTransaction,
+    TResult Function(Queue queue)? deleteFromQueue,
     TResult Function()? watchPendingTransactions,
     TResult Function(KtList<Queue> queue)? watchPendingTransactionsHelper,
     required TResult orElse(),
@@ -394,6 +415,7 @@ class _$_DeclineTransaction implements _DeclineTransaction {
   TResult map<TResult extends Object?>({
     required TResult Function(_AcceptTransaction value) acceptTransaction,
     required TResult Function(_DeclineTransaction value) declineTransaction,
+    required TResult Function(_DeleteFromQueue value) deleteFromQueue,
     required TResult Function(_WatchPendingTransactions value)
         watchPendingTransactions,
     required TResult Function(_WatchPendingTransactionsHelper value)
@@ -407,6 +429,7 @@ class _$_DeclineTransaction implements _DeclineTransaction {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_AcceptTransaction value)? acceptTransaction,
     TResult Function(_DeclineTransaction value)? declineTransaction,
+    TResult Function(_DeleteFromQueue value)? deleteFromQueue,
     TResult Function(_WatchPendingTransactions value)? watchPendingTransactions,
     TResult Function(_WatchPendingTransactionsHelper value)?
         watchPendingTransactionsHelper,
@@ -419,6 +442,7 @@ class _$_DeclineTransaction implements _DeclineTransaction {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_AcceptTransaction value)? acceptTransaction,
     TResult Function(_DeclineTransaction value)? declineTransaction,
+    TResult Function(_DeleteFromQueue value)? deleteFromQueue,
     TResult Function(_WatchPendingTransactions value)? watchPendingTransactions,
     TResult Function(_WatchPendingTransactionsHelper value)?
         watchPendingTransactionsHelper,
@@ -437,6 +461,172 @@ abstract class _DeclineTransaction implements TransactionWatcherEvent {
   Queue get queue;
   @JsonKey(ignore: true)
   _$DeclineTransactionCopyWith<_DeclineTransaction> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$DeleteFromQueueCopyWith<$Res> {
+  factory _$DeleteFromQueueCopyWith(
+          _DeleteFromQueue value, $Res Function(_DeleteFromQueue) then) =
+      __$DeleteFromQueueCopyWithImpl<$Res>;
+  $Res call({Queue queue});
+
+  $QueueCopyWith<$Res> get queue;
+}
+
+/// @nodoc
+class __$DeleteFromQueueCopyWithImpl<$Res>
+    extends _$TransactionWatcherEventCopyWithImpl<$Res>
+    implements _$DeleteFromQueueCopyWith<$Res> {
+  __$DeleteFromQueueCopyWithImpl(
+      _DeleteFromQueue _value, $Res Function(_DeleteFromQueue) _then)
+      : super(_value, (v) => _then(v as _DeleteFromQueue));
+
+  @override
+  _DeleteFromQueue get _value => super._value as _DeleteFromQueue;
+
+  @override
+  $Res call({
+    Object? queue = freezed,
+  }) {
+    return _then(_DeleteFromQueue(
+      queue == freezed
+          ? _value.queue
+          : queue // ignore: cast_nullable_to_non_nullable
+              as Queue,
+    ));
+  }
+
+  @override
+  $QueueCopyWith<$Res> get queue {
+    return $QueueCopyWith<$Res>(_value.queue, (value) {
+      return _then(_value.copyWith(queue: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$_DeleteFromQueue implements _DeleteFromQueue {
+  const _$_DeleteFromQueue(this.queue);
+
+  @override
+  final Queue queue;
+
+  @override
+  String toString() {
+    return 'TransactionWatcherEvent.deleteFromQueue(queue: $queue)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _DeleteFromQueue &&
+            const DeepCollectionEquality().equals(other.queue, queue));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(queue));
+
+  @JsonKey(ignore: true)
+  @override
+  _$DeleteFromQueueCopyWith<_DeleteFromQueue> get copyWith =>
+      __$DeleteFromQueueCopyWithImpl<_DeleteFromQueue>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Queue queue) acceptTransaction,
+    required TResult Function(Queue queue) declineTransaction,
+    required TResult Function(Queue queue) deleteFromQueue,
+    required TResult Function() watchPendingTransactions,
+    required TResult Function(KtList<Queue> queue)
+        watchPendingTransactionsHelper,
+  }) {
+    return deleteFromQueue(queue);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(Queue queue)? acceptTransaction,
+    TResult Function(Queue queue)? declineTransaction,
+    TResult Function(Queue queue)? deleteFromQueue,
+    TResult Function()? watchPendingTransactions,
+    TResult Function(KtList<Queue> queue)? watchPendingTransactionsHelper,
+  }) {
+    return deleteFromQueue?.call(queue);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Queue queue)? acceptTransaction,
+    TResult Function(Queue queue)? declineTransaction,
+    TResult Function(Queue queue)? deleteFromQueue,
+    TResult Function()? watchPendingTransactions,
+    TResult Function(KtList<Queue> queue)? watchPendingTransactionsHelper,
+    required TResult orElse(),
+  }) {
+    if (deleteFromQueue != null) {
+      return deleteFromQueue(queue);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_AcceptTransaction value) acceptTransaction,
+    required TResult Function(_DeclineTransaction value) declineTransaction,
+    required TResult Function(_DeleteFromQueue value) deleteFromQueue,
+    required TResult Function(_WatchPendingTransactions value)
+        watchPendingTransactions,
+    required TResult Function(_WatchPendingTransactionsHelper value)
+        watchPendingTransactionsHelper,
+  }) {
+    return deleteFromQueue(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_AcceptTransaction value)? acceptTransaction,
+    TResult Function(_DeclineTransaction value)? declineTransaction,
+    TResult Function(_DeleteFromQueue value)? deleteFromQueue,
+    TResult Function(_WatchPendingTransactions value)? watchPendingTransactions,
+    TResult Function(_WatchPendingTransactionsHelper value)?
+        watchPendingTransactionsHelper,
+  }) {
+    return deleteFromQueue?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_AcceptTransaction value)? acceptTransaction,
+    TResult Function(_DeclineTransaction value)? declineTransaction,
+    TResult Function(_DeleteFromQueue value)? deleteFromQueue,
+    TResult Function(_WatchPendingTransactions value)? watchPendingTransactions,
+    TResult Function(_WatchPendingTransactionsHelper value)?
+        watchPendingTransactionsHelper,
+    required TResult orElse(),
+  }) {
+    if (deleteFromQueue != null) {
+      return deleteFromQueue(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _DeleteFromQueue implements TransactionWatcherEvent {
+  const factory _DeleteFromQueue(Queue queue) = _$_DeleteFromQueue;
+
+  Queue get queue;
+  @JsonKey(ignore: true)
+  _$DeleteFromQueueCopyWith<_DeleteFromQueue> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -485,6 +675,7 @@ class _$_WatchPendingTransactions implements _WatchPendingTransactions {
   TResult when<TResult extends Object?>({
     required TResult Function(Queue queue) acceptTransaction,
     required TResult Function(Queue queue) declineTransaction,
+    required TResult Function(Queue queue) deleteFromQueue,
     required TResult Function() watchPendingTransactions,
     required TResult Function(KtList<Queue> queue)
         watchPendingTransactionsHelper,
@@ -497,6 +688,7 @@ class _$_WatchPendingTransactions implements _WatchPendingTransactions {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(Queue queue)? acceptTransaction,
     TResult Function(Queue queue)? declineTransaction,
+    TResult Function(Queue queue)? deleteFromQueue,
     TResult Function()? watchPendingTransactions,
     TResult Function(KtList<Queue> queue)? watchPendingTransactionsHelper,
   }) {
@@ -508,6 +700,7 @@ class _$_WatchPendingTransactions implements _WatchPendingTransactions {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Queue queue)? acceptTransaction,
     TResult Function(Queue queue)? declineTransaction,
+    TResult Function(Queue queue)? deleteFromQueue,
     TResult Function()? watchPendingTransactions,
     TResult Function(KtList<Queue> queue)? watchPendingTransactionsHelper,
     required TResult orElse(),
@@ -523,6 +716,7 @@ class _$_WatchPendingTransactions implements _WatchPendingTransactions {
   TResult map<TResult extends Object?>({
     required TResult Function(_AcceptTransaction value) acceptTransaction,
     required TResult Function(_DeclineTransaction value) declineTransaction,
+    required TResult Function(_DeleteFromQueue value) deleteFromQueue,
     required TResult Function(_WatchPendingTransactions value)
         watchPendingTransactions,
     required TResult Function(_WatchPendingTransactionsHelper value)
@@ -536,6 +730,7 @@ class _$_WatchPendingTransactions implements _WatchPendingTransactions {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_AcceptTransaction value)? acceptTransaction,
     TResult Function(_DeclineTransaction value)? declineTransaction,
+    TResult Function(_DeleteFromQueue value)? deleteFromQueue,
     TResult Function(_WatchPendingTransactions value)? watchPendingTransactions,
     TResult Function(_WatchPendingTransactionsHelper value)?
         watchPendingTransactionsHelper,
@@ -548,6 +743,7 @@ class _$_WatchPendingTransactions implements _WatchPendingTransactions {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_AcceptTransaction value)? acceptTransaction,
     TResult Function(_DeclineTransaction value)? declineTransaction,
+    TResult Function(_DeleteFromQueue value)? deleteFromQueue,
     TResult Function(_WatchPendingTransactions value)? watchPendingTransactions,
     TResult Function(_WatchPendingTransactionsHelper value)?
         watchPendingTransactionsHelper,
@@ -636,6 +832,7 @@ class _$_WatchPendingTransactionsHelper
   TResult when<TResult extends Object?>({
     required TResult Function(Queue queue) acceptTransaction,
     required TResult Function(Queue queue) declineTransaction,
+    required TResult Function(Queue queue) deleteFromQueue,
     required TResult Function() watchPendingTransactions,
     required TResult Function(KtList<Queue> queue)
         watchPendingTransactionsHelper,
@@ -648,6 +845,7 @@ class _$_WatchPendingTransactionsHelper
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(Queue queue)? acceptTransaction,
     TResult Function(Queue queue)? declineTransaction,
+    TResult Function(Queue queue)? deleteFromQueue,
     TResult Function()? watchPendingTransactions,
     TResult Function(KtList<Queue> queue)? watchPendingTransactionsHelper,
   }) {
@@ -659,6 +857,7 @@ class _$_WatchPendingTransactionsHelper
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Queue queue)? acceptTransaction,
     TResult Function(Queue queue)? declineTransaction,
+    TResult Function(Queue queue)? deleteFromQueue,
     TResult Function()? watchPendingTransactions,
     TResult Function(KtList<Queue> queue)? watchPendingTransactionsHelper,
     required TResult orElse(),
@@ -674,6 +873,7 @@ class _$_WatchPendingTransactionsHelper
   TResult map<TResult extends Object?>({
     required TResult Function(_AcceptTransaction value) acceptTransaction,
     required TResult Function(_DeclineTransaction value) declineTransaction,
+    required TResult Function(_DeleteFromQueue value) deleteFromQueue,
     required TResult Function(_WatchPendingTransactions value)
         watchPendingTransactions,
     required TResult Function(_WatchPendingTransactionsHelper value)
@@ -687,6 +887,7 @@ class _$_WatchPendingTransactionsHelper
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_AcceptTransaction value)? acceptTransaction,
     TResult Function(_DeclineTransaction value)? declineTransaction,
+    TResult Function(_DeleteFromQueue value)? deleteFromQueue,
     TResult Function(_WatchPendingTransactions value)? watchPendingTransactions,
     TResult Function(_WatchPendingTransactionsHelper value)?
         watchPendingTransactionsHelper,
@@ -699,6 +900,7 @@ class _$_WatchPendingTransactionsHelper
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_AcceptTransaction value)? acceptTransaction,
     TResult Function(_DeclineTransaction value)? declineTransaction,
+    TResult Function(_DeleteFromQueue value)? deleteFromQueue,
     TResult Function(_WatchPendingTransactions value)? watchPendingTransactions,
     TResult Function(_WatchPendingTransactionsHelper value)?
         watchPendingTransactionsHelper,
