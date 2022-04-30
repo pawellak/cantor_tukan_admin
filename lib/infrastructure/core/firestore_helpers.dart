@@ -5,6 +5,7 @@ import 'package:kantor_tukan/domain/core/enums.dart';
 import 'package:kantor_tukan/domain/core/errors.dart';
 import 'package:kantor_tukan/domain/core/firebase_const.dart';
 import 'package:kantor_tukan/domain/queue/queue.dart';
+import 'package:kantor_tukan/domain/queue/queue_failure.dart';
 import 'package:kantor_tukan/injection.dart';
 
 import '../../domain/transaction/transaction_failure.dart';
@@ -13,7 +14,7 @@ const dateAcceptation = "dateAcceptation";
 const transactionStatus = "transactionStatus";
 
 extension FirestoreUsersUpdateTransaction on FirebaseFirestore {
-  Future<Either<TransactionFailure, Unit>> updateUserTransaction(Queue queue, EnumTransactionStatus type) async {
+  Future<Either<TransactionFailure, Unit>> updateUserTransaction(TransactionsQueue transactionsQueue, EnumTransactionStatus type) async {
     final userOption = await getIt<IAuthFacade>().getSignedInUser();
     userOption.getOrElse(() => throw NotAuthenticatedError());
 
@@ -22,9 +23,9 @@ extension FirestoreUsersUpdateTransaction on FirebaseFirestore {
     try {
       await FirebaseFirestore.instance
           .collection(FirebaseConst.docUsers)
-          .doc(queue.uid.getOrCrash())
+          .doc(transactionsQueue.uid.getOrCrash())
           .collection(FirebaseConst.docTransactions)
-          .doc(queue.transactionUid.getOrCrash())
+          .doc(transactionsQueue.transactionUid.getOrCrash())
           .update(
         {dateAcceptation: dateOfAccept, transactionStatus: type.toShortString()},
       );
@@ -37,19 +38,19 @@ extension FirestoreUsersUpdateTransaction on FirebaseFirestore {
 }
 
 extension FirestoreUsersDeleteTransaction on FirebaseFirestore {
-  Future<Either<TransactionFailure, Unit>> deleteTransactionFromQueue(Queue queue) async {
+  Future<Either<TransactionsQueueFailure, Unit>> deleteTransactionFromQueue(TransactionsQueue transactionsQueue) async {
     final userOption = await getIt<IAuthFacade>().getSignedInUser();
     userOption.getOrElse(() => throw NotAuthenticatedError());
 
     try {
       await FirebaseFirestore.instance
           .collection(FirebaseConst.docQueue)
-          .doc(queue.transactionUid.getOrCrash())
+          .doc(transactionsQueue.transactionUid.getOrCrash())
           .delete();
 
       return right(unit);
     } catch (error) {
-      return left(const TransactionFailure.notFound());
+      return left(const TransactionsQueueFailure.notFound());
     }
   }
 }
@@ -63,15 +64,15 @@ extension FirestoreX on FirebaseFirestore {
 }
 
 extension FirestoreUsersXX on FirebaseFirestore {
-  Future<DocumentSnapshot<Map<String, dynamic>>> getUserTransaction(Queue queue) async {
+  Future<DocumentSnapshot<Map<String, dynamic>>> getUserTransaction(TransactionsQueue transactionsQueue) async {
     final userOption = await getIt<IAuthFacade>().getSignedInUser();
     userOption.getOrElse(() => throw NotAuthenticatedError());
 
     var collection = await FirebaseFirestore.instance
         .collection(FirebaseConst.docUsers)
-        .doc(queue.uid.getOrCrash())
+        .doc(transactionsQueue.uid.getOrCrash())
         .collection(FirebaseConst.docTransactions)
-        .doc(queue.transactionUid.getOrCrash())
+        .doc(transactionsQueue.transactionUid.getOrCrash())
         .get();
 
     return collection;

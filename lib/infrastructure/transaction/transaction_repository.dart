@@ -19,25 +19,24 @@ class TransactionRepository implements ITransactionRepository {
   TransactionRepository(this._firebaseFirestore);
 
   @override
-  Future<Either<TransactionFailure, Unit>> decline(Queue queue) {
-    return _firebaseFirestore.updateUserTransaction(queue, EnumTransactionStatus.decline);
+  Future<Either<TransactionFailure, Unit>> decline(TransactionsQueue transactionsQueue) {
+    return _firebaseFirestore.updateUserTransaction(transactionsQueue, EnumTransactionStatus.decline);
   }
 
   @override
   Future<Either<TransactionFailure, Unit>> declineAll() {
-    // TODO: implement declineAll
     throw UnimplementedError();
   }
 
   @override
-  Future<Either<TransactionFailure, Unit>> accept(Queue queue) {
-    return _firebaseFirestore.updateUserTransaction(queue, EnumTransactionStatus.accepted);
+  Future<Either<TransactionFailure, Unit>> accept(TransactionsQueue transactionsQueue) {
+    return _firebaseFirestore.updateUserTransaction(transactionsQueue, EnumTransactionStatus.accepted);
   }
 
   @override
-  Future<Either<TransactionFailure, Transaction>> getPending(Queue queue) async {
+  Future<Either<TransactionFailure, Transaction>> getPending(TransactionsQueue transactionsQueue) async {
     try {
-      final userTransaction = await _firebaseFirestore.getUserTransaction(queue);
+      final userTransaction = await _firebaseFirestore.getUserTransaction(transactionsQueue);
       final Map<String, dynamic>? userTransactionJson = userTransaction.data();
 
       if (userTransactionJson != null) {
@@ -51,8 +50,9 @@ class TransactionRepository implements ITransactionRepository {
   }
 
   @override
-  Future<Either<TransactionFailure, Unit>> delete(Queue queue) {
-    return _firebaseFirestore.deleteTransactionFromQueue(queue);
+  Future<Either<TransactionFailure, Unit>> delete(TransactionsQueue transactionsQueue) {
+    // TODO: implement delete
+    throw UnimplementedError();
   }
 }
 

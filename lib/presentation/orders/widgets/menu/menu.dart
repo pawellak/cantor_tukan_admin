@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kantor_tukan/presentation/orders/constants.dart';
+import 'package:kantor_tukan/presentation/orders/widgets/menu/button_alarm.dart';
 import 'package:kantor_tukan/presentation/orders/widgets/menu/button_pending.dart';
 
 class OrdersMenu extends StatelessWidget {
@@ -28,6 +29,7 @@ class OrdersMenu extends StatelessWidget {
       child: Row(
         children: [
           _decorate(const MenuButtonPending()),
+          _decorate(const MenuButtonAlarm()),
         ],
       ),
     );

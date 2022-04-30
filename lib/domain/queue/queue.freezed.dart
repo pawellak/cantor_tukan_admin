@@ -14,8 +14,8 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-class _$QueueTearOff {
-  const _$QueueTearOff();
+class _$TransactionsQueueTearOff {
+  const _$TransactionsQueueTearOff();
 
   _Queue call({required Uid uid, required TransactionUid transactionUid}) {
     return _Queue(
@@ -26,31 +26,34 @@ class _$QueueTearOff {
 }
 
 /// @nodoc
-const $Queue = _$QueueTearOff();
+const $TransactionsQueue = _$TransactionsQueueTearOff();
 
 /// @nodoc
-mixin _$Queue {
+mixin _$TransactionsQueue {
   Uid get uid => throw _privateConstructorUsedError;
   TransactionUid get transactionUid => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $QueueCopyWith<Queue> get copyWith => throw _privateConstructorUsedError;
+  $TransactionsQueueCopyWith<TransactionsQueue> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $QueueCopyWith<$Res> {
-  factory $QueueCopyWith(Queue value, $Res Function(Queue) then) =
-      _$QueueCopyWithImpl<$Res>;
+abstract class $TransactionsQueueCopyWith<$Res> {
+  factory $TransactionsQueueCopyWith(
+          TransactionsQueue value, $Res Function(TransactionsQueue) then) =
+      _$TransactionsQueueCopyWithImpl<$Res>;
   $Res call({Uid uid, TransactionUid transactionUid});
 }
 
 /// @nodoc
-class _$QueueCopyWithImpl<$Res> implements $QueueCopyWith<$Res> {
-  _$QueueCopyWithImpl(this._value, this._then);
+class _$TransactionsQueueCopyWithImpl<$Res>
+    implements $TransactionsQueueCopyWith<$Res> {
+  _$TransactionsQueueCopyWithImpl(this._value, this._then);
 
-  final Queue _value;
+  final TransactionsQueue _value;
   // ignore: unused_field
-  final $Res Function(Queue) _then;
+  final $Res Function(TransactionsQueue) _then;
 
   @override
   $Res call({
@@ -71,7 +74,8 @@ class _$QueueCopyWithImpl<$Res> implements $QueueCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$QueueCopyWith<$Res> implements $QueueCopyWith<$Res> {
+abstract class _$QueueCopyWith<$Res>
+    implements $TransactionsQueueCopyWith<$Res> {
   factory _$QueueCopyWith(_Queue value, $Res Function(_Queue) then) =
       __$QueueCopyWithImpl<$Res>;
   @override
@@ -79,7 +83,7 @@ abstract class _$QueueCopyWith<$Res> implements $QueueCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$QueueCopyWithImpl<$Res> extends _$QueueCopyWithImpl<$Res>
+class __$QueueCopyWithImpl<$Res> extends _$TransactionsQueueCopyWithImpl<$Res>
     implements _$QueueCopyWith<$Res> {
   __$QueueCopyWithImpl(_Queue _value, $Res Function(_Queue) _then)
       : super(_value, (v) => _then(v as _Queue));
@@ -117,7 +121,7 @@ class _$_Queue extends _Queue {
 
   @override
   String toString() {
-    return 'Queue(uid: $uid, transactionUid: $transactionUid)';
+    return 'TransactionsQueue(uid: $uid, transactionUid: $transactionUid)';
   }
 
   @override
@@ -142,7 +146,7 @@ class _$_Queue extends _Queue {
       __$QueueCopyWithImpl<_Queue>(this, _$identity);
 }
 
-abstract class _Queue extends Queue {
+abstract class _Queue extends TransactionsQueue {
   const factory _Queue(
       {required Uid uid, required TransactionUid transactionUid}) = _$_Queue;
   const _Queue._() : super._();

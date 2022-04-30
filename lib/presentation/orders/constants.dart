@@ -3,6 +3,9 @@ class OrdersConstants {
   static const transactionNotAccepted = 'brak akceptacji';
   static const accepted = 'akceptowane';
   static const pending = 'oczekujące';
+  static const refresh = 'odśwież';
+  static const turnOffAlarm = 'wyłącz alarm';
+
   static const decline = 'odrzucone';
   static const all = 'wszystkie';
   static const loadingFailure = 'błąd serwera, spróbuj ponownie później';

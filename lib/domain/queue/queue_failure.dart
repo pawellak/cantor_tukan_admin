@@ -3,9 +3,9 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'queue_failure.freezed.dart';
 
 @freezed
-abstract class QueueFailure with _$QueueFailure
+abstract class TransactionsQueueFailure with _$TransactionsQueueFailure
 {
-  const factory QueueFailure.unexpected() = _Unexpected;
-  const factory QueueFailure.notFound() = _NotFound;
-  const factory QueueFailure.noInternet() = _noInternet;
+  const factory TransactionsQueueFailure.unexpected() = _Unexpected;
+  const factory TransactionsQueueFailure.notFound() = _NotFound;
+  const factory TransactionsQueueFailure.noInternet() = _noInternet;
 }

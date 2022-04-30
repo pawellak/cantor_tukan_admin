@@ -27,7 +27,7 @@ abstract class QueueDto with _$QueueDto {
     return queue;
   }
 
-  Queue toDomain() {
-    return Queue(uid: Uid(uid), transactionUid: TransactionUid(transactionUid));
+  TransactionsQueue toDomain() {
+    return TransactionsQueue(uid: Uid(uid), transactionUid: TransactionUid(transactionUid));
   }
 }

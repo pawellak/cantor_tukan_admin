@@ -15,12 +15,12 @@ class QueueRepository implements IQueueRepository {
   QueueRepository(this._firebaseFirestore);
 
   @override
-  Stream<Either<QueueFailure, KtList<Queue>>> watchQueue() async* {
+  Stream<Either<TransactionsQueueFailure, KtList<TransactionsQueue>>> watchQueue() async* {
     var queueCollection = await _firebaseFirestore.getQueueCollection();
     var snapshots = queueCollection.snapshots();
 
     yield* snapshots.map((snapshot) {
-      return right<QueueFailure, KtList<Queue>>(
+      return right<TransactionsQueueFailure, KtList<TransactionsQueue>>(
         snapshot.docs.map((doc) {
           return QueueDto.fromFirestore(doc).toDomain();
         }).toImmutableList(),
@@ -29,12 +29,11 @@ class QueueRepository implements IQueueRepository {
   }
 
   _transactionError(error) {
-    return left(const QueueFailure.unexpected());
+    return left(const TransactionsQueueFailure.unexpected());
   }
 
   @override
-  Future<Either<QueueFailure, Unit>> delete(Queue transaction) {
-    // TODO: implement delete
-    throw UnimplementedError();
+  Future<Either<TransactionsQueueFailure, Unit>> delete(TransactionsQueue transactionsQueue) {
+    return _firebaseFirestore.deleteTransactionFromQueue(transactionsQueue);
   }
 }

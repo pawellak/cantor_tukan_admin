@@ -14,8 +14,8 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-class _$QueueFailureTearOff {
-  const _$QueueFailureTearOff();
+class _$TransactionsQueueFailureTearOff {
+  const _$TransactionsQueueFailureTearOff();
 
   _Unexpected unexpected() {
     return const _Unexpected();
@@ -31,10 +31,10 @@ class _$QueueFailureTearOff {
 }
 
 /// @nodoc
-const $QueueFailure = _$QueueFailureTearOff();
+const $TransactionsQueueFailure = _$TransactionsQueueFailureTearOff();
 
 /// @nodoc
-mixin _$QueueFailure {
+mixin _$TransactionsQueueFailure {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() unexpected,
@@ -82,19 +82,20 @@ mixin _$QueueFailure {
 }
 
 /// @nodoc
-abstract class $QueueFailureCopyWith<$Res> {
-  factory $QueueFailureCopyWith(
-          QueueFailure value, $Res Function(QueueFailure) then) =
-      _$QueueFailureCopyWithImpl<$Res>;
+abstract class $TransactionsQueueFailureCopyWith<$Res> {
+  factory $TransactionsQueueFailureCopyWith(TransactionsQueueFailure value,
+          $Res Function(TransactionsQueueFailure) then) =
+      _$TransactionsQueueFailureCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$QueueFailureCopyWithImpl<$Res> implements $QueueFailureCopyWith<$Res> {
-  _$QueueFailureCopyWithImpl(this._value, this._then);
+class _$TransactionsQueueFailureCopyWithImpl<$Res>
+    implements $TransactionsQueueFailureCopyWith<$Res> {
+  _$TransactionsQueueFailureCopyWithImpl(this._value, this._then);
 
-  final QueueFailure _value;
+  final TransactionsQueueFailure _value;
   // ignore: unused_field
-  final $Res Function(QueueFailure) _then;
+  final $Res Function(TransactionsQueueFailure) _then;
 }
 
 /// @nodoc
@@ -105,7 +106,8 @@ abstract class _$UnexpectedCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$UnexpectedCopyWithImpl<$Res> extends _$QueueFailureCopyWithImpl<$Res>
+class __$UnexpectedCopyWithImpl<$Res>
+    extends _$TransactionsQueueFailureCopyWithImpl<$Res>
     implements _$UnexpectedCopyWith<$Res> {
   __$UnexpectedCopyWithImpl(
       _Unexpected _value, $Res Function(_Unexpected) _then)
@@ -122,7 +124,7 @@ class _$_Unexpected implements _Unexpected {
 
   @override
   String toString() {
-    return 'QueueFailure.unexpected()';
+    return 'TransactionsQueueFailure.unexpected()';
   }
 
   @override
@@ -203,7 +205,7 @@ class _$_Unexpected implements _Unexpected {
   }
 }
 
-abstract class _Unexpected implements QueueFailure {
+abstract class _Unexpected implements TransactionsQueueFailure {
   const factory _Unexpected() = _$_Unexpected;
 }
 
@@ -214,7 +216,8 @@ abstract class _$NotFoundCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$NotFoundCopyWithImpl<$Res> extends _$QueueFailureCopyWithImpl<$Res>
+class __$NotFoundCopyWithImpl<$Res>
+    extends _$TransactionsQueueFailureCopyWithImpl<$Res>
     implements _$NotFoundCopyWith<$Res> {
   __$NotFoundCopyWithImpl(_NotFound _value, $Res Function(_NotFound) _then)
       : super(_value, (v) => _then(v as _NotFound));
@@ -230,7 +233,7 @@ class _$_NotFound implements _NotFound {
 
   @override
   String toString() {
-    return 'QueueFailure.notFound()';
+    return 'TransactionsQueueFailure.notFound()';
   }
 
   @override
@@ -311,7 +314,7 @@ class _$_NotFound implements _NotFound {
   }
 }
 
-abstract class _NotFound implements QueueFailure {
+abstract class _NotFound implements TransactionsQueueFailure {
   const factory _NotFound() = _$_NotFound;
 }
 
@@ -323,7 +326,8 @@ abstract class _$noInternetCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$noInternetCopyWithImpl<$Res> extends _$QueueFailureCopyWithImpl<$Res>
+class __$noInternetCopyWithImpl<$Res>
+    extends _$TransactionsQueueFailureCopyWithImpl<$Res>
     implements _$noInternetCopyWith<$Res> {
   __$noInternetCopyWithImpl(
       _noInternet _value, $Res Function(_noInternet) _then)
@@ -340,7 +344,7 @@ class _$_noInternet implements _noInternet {
 
   @override
   String toString() {
-    return 'QueueFailure.noInternet()';
+    return 'TransactionsQueueFailure.noInternet()';
   }
 
   @override
@@ -421,6 +425,6 @@ class _$_noInternet implements _noInternet {
   }
 }
 
-abstract class _noInternet implements QueueFailure {
+abstract class _noInternet implements TransactionsQueueFailure {
   const factory _noInternet() = _$_noInternet;
 }

@@ -6,10 +6,10 @@ import '../core/failures.dart';
 part 'queue.freezed.dart';
 
 @freezed
-abstract class Queue implements _$Queue {
-  const Queue._();
+abstract class TransactionsQueue implements _$TransactionsQueue {
+  const TransactionsQueue._();
 
-  const factory Queue({required Uid uid, required TransactionUid transactionUid}) = _Queue;
+  const factory TransactionsQueue({required Uid uid, required TransactionUid transactionUid}) = _Queue;
 
   Option<ValueFailure<dynamic>> get failureOption {
     return uid.failureOrUnit.andThen(transactionUid.failureOrUnit).fold((f) => some(f), (r) => none());

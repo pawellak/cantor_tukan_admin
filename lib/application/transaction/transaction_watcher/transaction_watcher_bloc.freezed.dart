@@ -17,32 +17,35 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$TransactionWatcherEventTearOff {
   const _$TransactionWatcherEventTearOff();
 
-  _AcceptTransaction acceptTransaction(Queue queue) {
+  _AcceptTransaction acceptTransaction(TransactionsQueue transactionsQueue) {
     return _AcceptTransaction(
-      queue,
+      transactionsQueue,
     );
   }
 
-  _DeclineTransaction declineTransaction(Queue queue) {
+  _DeclineTransaction declineTransaction(TransactionsQueue transactionsQueue) {
     return _DeclineTransaction(
-      queue,
+      transactionsQueue,
     );
   }
 
-  _DeleteFromQueue deleteFromQueue(Queue queue) {
+  _DeleteFromQueue deleteFromQueue(TransactionsQueue transactionsQueue) {
     return _DeleteFromQueue(
-      queue,
+      transactionsQueue,
     );
   }
 
-  _WatchPendingTransactions watchPendingTransactions() {
-    return const _WatchPendingTransactions();
+  _WatchTransactionsInQueue watchTransactionsInQueue(
+      {required bool isSoundPlay}) {
+    return _WatchTransactionsInQueue(
+      isSoundPlay: isSoundPlay,
+    );
   }
 
-  _WatchPendingTransactionsHelper watchPendingTransactionsHelper(
-      KtList<Queue> queue) {
-    return _WatchPendingTransactionsHelper(
-      queue,
+  _GetTransactionsBasedOnQueue getTransactionsBasedOnQueue(
+      KtList<TransactionsQueue> transactionsQueue) {
+    return _GetTransactionsBasedOnQueue(
+      transactionsQueue,
     );
   }
 }
@@ -54,30 +57,35 @@ const $TransactionWatcherEvent = _$TransactionWatcherEventTearOff();
 mixin _$TransactionWatcherEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Queue queue) acceptTransaction,
-    required TResult Function(Queue queue) declineTransaction,
-    required TResult Function(Queue queue) deleteFromQueue,
-    required TResult Function() watchPendingTransactions,
-    required TResult Function(KtList<Queue> queue)
-        watchPendingTransactionsHelper,
+    required TResult Function(TransactionsQueue transactionsQueue)
+        acceptTransaction,
+    required TResult Function(TransactionsQueue transactionsQueue)
+        declineTransaction,
+    required TResult Function(TransactionsQueue transactionsQueue)
+        deleteFromQueue,
+    required TResult Function(bool isSoundPlay) watchTransactionsInQueue,
+    required TResult Function(KtList<TransactionsQueue> transactionsQueue)
+        getTransactionsBasedOnQueue,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(Queue queue)? acceptTransaction,
-    TResult Function(Queue queue)? declineTransaction,
-    TResult Function(Queue queue)? deleteFromQueue,
-    TResult Function()? watchPendingTransactions,
-    TResult Function(KtList<Queue> queue)? watchPendingTransactionsHelper,
+    TResult Function(TransactionsQueue transactionsQueue)? acceptTransaction,
+    TResult Function(TransactionsQueue transactionsQueue)? declineTransaction,
+    TResult Function(TransactionsQueue transactionsQueue)? deleteFromQueue,
+    TResult Function(bool isSoundPlay)? watchTransactionsInQueue,
+    TResult Function(KtList<TransactionsQueue> transactionsQueue)?
+        getTransactionsBasedOnQueue,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Queue queue)? acceptTransaction,
-    TResult Function(Queue queue)? declineTransaction,
-    TResult Function(Queue queue)? deleteFromQueue,
-    TResult Function()? watchPendingTransactions,
-    TResult Function(KtList<Queue> queue)? watchPendingTransactionsHelper,
+    TResult Function(TransactionsQueue transactionsQueue)? acceptTransaction,
+    TResult Function(TransactionsQueue transactionsQueue)? declineTransaction,
+    TResult Function(TransactionsQueue transactionsQueue)? deleteFromQueue,
+    TResult Function(bool isSoundPlay)? watchTransactionsInQueue,
+    TResult Function(KtList<TransactionsQueue> transactionsQueue)?
+        getTransactionsBasedOnQueue,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -86,10 +94,10 @@ mixin _$TransactionWatcherEvent {
     required TResult Function(_AcceptTransaction value) acceptTransaction,
     required TResult Function(_DeclineTransaction value) declineTransaction,
     required TResult Function(_DeleteFromQueue value) deleteFromQueue,
-    required TResult Function(_WatchPendingTransactions value)
-        watchPendingTransactions,
-    required TResult Function(_WatchPendingTransactionsHelper value)
-        watchPendingTransactionsHelper,
+    required TResult Function(_WatchTransactionsInQueue value)
+        watchTransactionsInQueue,
+    required TResult Function(_GetTransactionsBasedOnQueue value)
+        getTransactionsBasedOnQueue,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -97,9 +105,9 @@ mixin _$TransactionWatcherEvent {
     TResult Function(_AcceptTransaction value)? acceptTransaction,
     TResult Function(_DeclineTransaction value)? declineTransaction,
     TResult Function(_DeleteFromQueue value)? deleteFromQueue,
-    TResult Function(_WatchPendingTransactions value)? watchPendingTransactions,
-    TResult Function(_WatchPendingTransactionsHelper value)?
-        watchPendingTransactionsHelper,
+    TResult Function(_WatchTransactionsInQueue value)? watchTransactionsInQueue,
+    TResult Function(_GetTransactionsBasedOnQueue value)?
+        getTransactionsBasedOnQueue,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -107,9 +115,9 @@ mixin _$TransactionWatcherEvent {
     TResult Function(_AcceptTransaction value)? acceptTransaction,
     TResult Function(_DeclineTransaction value)? declineTransaction,
     TResult Function(_DeleteFromQueue value)? deleteFromQueue,
-    TResult Function(_WatchPendingTransactions value)? watchPendingTransactions,
-    TResult Function(_WatchPendingTransactionsHelper value)?
-        watchPendingTransactionsHelper,
+    TResult Function(_WatchTransactionsInQueue value)? watchTransactionsInQueue,
+    TResult Function(_GetTransactionsBasedOnQueue value)?
+        getTransactionsBasedOnQueue,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -137,9 +145,9 @@ abstract class _$AcceptTransactionCopyWith<$Res> {
   factory _$AcceptTransactionCopyWith(
           _AcceptTransaction value, $Res Function(_AcceptTransaction) then) =
       __$AcceptTransactionCopyWithImpl<$Res>;
-  $Res call({Queue queue});
+  $Res call({TransactionsQueue transactionsQueue});
 
-  $QueueCopyWith<$Res> get queue;
+  $TransactionsQueueCopyWith<$Res> get transactionsQueue;
 }
 
 /// @nodoc
@@ -155,20 +163,20 @@ class __$AcceptTransactionCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? queue = freezed,
+    Object? transactionsQueue = freezed,
   }) {
     return _then(_AcceptTransaction(
-      queue == freezed
-          ? _value.queue
-          : queue // ignore: cast_nullable_to_non_nullable
-              as Queue,
+      transactionsQueue == freezed
+          ? _value.transactionsQueue
+          : transactionsQueue // ignore: cast_nullable_to_non_nullable
+              as TransactionsQueue,
     ));
   }
 
   @override
-  $QueueCopyWith<$Res> get queue {
-    return $QueueCopyWith<$Res>(_value.queue, (value) {
-      return _then(_value.copyWith(queue: value));
+  $TransactionsQueueCopyWith<$Res> get transactionsQueue {
+    return $TransactionsQueueCopyWith<$Res>(_value.transactionsQueue, (value) {
+      return _then(_value.copyWith(transactionsQueue: value));
     });
   }
 }
@@ -176,14 +184,14 @@ class __$AcceptTransactionCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_AcceptTransaction implements _AcceptTransaction {
-  const _$_AcceptTransaction(this.queue);
+  const _$_AcceptTransaction(this.transactionsQueue);
 
   @override
-  final Queue queue;
+  final TransactionsQueue transactionsQueue;
 
   @override
   String toString() {
-    return 'TransactionWatcherEvent.acceptTransaction(queue: $queue)';
+    return 'TransactionWatcherEvent.acceptTransaction(transactionsQueue: $transactionsQueue)';
   }
 
   @override
@@ -191,12 +199,13 @@ class _$_AcceptTransaction implements _AcceptTransaction {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _AcceptTransaction &&
-            const DeepCollectionEquality().equals(other.queue, queue));
+            const DeepCollectionEquality()
+                .equals(other.transactionsQueue, transactionsQueue));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(queue));
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(transactionsQueue));
 
   @JsonKey(ignore: true)
   @override
@@ -206,40 +215,45 @@ class _$_AcceptTransaction implements _AcceptTransaction {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Queue queue) acceptTransaction,
-    required TResult Function(Queue queue) declineTransaction,
-    required TResult Function(Queue queue) deleteFromQueue,
-    required TResult Function() watchPendingTransactions,
-    required TResult Function(KtList<Queue> queue)
-        watchPendingTransactionsHelper,
+    required TResult Function(TransactionsQueue transactionsQueue)
+        acceptTransaction,
+    required TResult Function(TransactionsQueue transactionsQueue)
+        declineTransaction,
+    required TResult Function(TransactionsQueue transactionsQueue)
+        deleteFromQueue,
+    required TResult Function(bool isSoundPlay) watchTransactionsInQueue,
+    required TResult Function(KtList<TransactionsQueue> transactionsQueue)
+        getTransactionsBasedOnQueue,
   }) {
-    return acceptTransaction(queue);
+    return acceptTransaction(transactionsQueue);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(Queue queue)? acceptTransaction,
-    TResult Function(Queue queue)? declineTransaction,
-    TResult Function(Queue queue)? deleteFromQueue,
-    TResult Function()? watchPendingTransactions,
-    TResult Function(KtList<Queue> queue)? watchPendingTransactionsHelper,
+    TResult Function(TransactionsQueue transactionsQueue)? acceptTransaction,
+    TResult Function(TransactionsQueue transactionsQueue)? declineTransaction,
+    TResult Function(TransactionsQueue transactionsQueue)? deleteFromQueue,
+    TResult Function(bool isSoundPlay)? watchTransactionsInQueue,
+    TResult Function(KtList<TransactionsQueue> transactionsQueue)?
+        getTransactionsBasedOnQueue,
   }) {
-    return acceptTransaction?.call(queue);
+    return acceptTransaction?.call(transactionsQueue);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Queue queue)? acceptTransaction,
-    TResult Function(Queue queue)? declineTransaction,
-    TResult Function(Queue queue)? deleteFromQueue,
-    TResult Function()? watchPendingTransactions,
-    TResult Function(KtList<Queue> queue)? watchPendingTransactionsHelper,
+    TResult Function(TransactionsQueue transactionsQueue)? acceptTransaction,
+    TResult Function(TransactionsQueue transactionsQueue)? declineTransaction,
+    TResult Function(TransactionsQueue transactionsQueue)? deleteFromQueue,
+    TResult Function(bool isSoundPlay)? watchTransactionsInQueue,
+    TResult Function(KtList<TransactionsQueue> transactionsQueue)?
+        getTransactionsBasedOnQueue,
     required TResult orElse(),
   }) {
     if (acceptTransaction != null) {
-      return acceptTransaction(queue);
+      return acceptTransaction(transactionsQueue);
     }
     return orElse();
   }
@@ -250,10 +264,10 @@ class _$_AcceptTransaction implements _AcceptTransaction {
     required TResult Function(_AcceptTransaction value) acceptTransaction,
     required TResult Function(_DeclineTransaction value) declineTransaction,
     required TResult Function(_DeleteFromQueue value) deleteFromQueue,
-    required TResult Function(_WatchPendingTransactions value)
-        watchPendingTransactions,
-    required TResult Function(_WatchPendingTransactionsHelper value)
-        watchPendingTransactionsHelper,
+    required TResult Function(_WatchTransactionsInQueue value)
+        watchTransactionsInQueue,
+    required TResult Function(_GetTransactionsBasedOnQueue value)
+        getTransactionsBasedOnQueue,
   }) {
     return acceptTransaction(this);
   }
@@ -264,9 +278,9 @@ class _$_AcceptTransaction implements _AcceptTransaction {
     TResult Function(_AcceptTransaction value)? acceptTransaction,
     TResult Function(_DeclineTransaction value)? declineTransaction,
     TResult Function(_DeleteFromQueue value)? deleteFromQueue,
-    TResult Function(_WatchPendingTransactions value)? watchPendingTransactions,
-    TResult Function(_WatchPendingTransactionsHelper value)?
-        watchPendingTransactionsHelper,
+    TResult Function(_WatchTransactionsInQueue value)? watchTransactionsInQueue,
+    TResult Function(_GetTransactionsBasedOnQueue value)?
+        getTransactionsBasedOnQueue,
   }) {
     return acceptTransaction?.call(this);
   }
@@ -277,9 +291,9 @@ class _$_AcceptTransaction implements _AcceptTransaction {
     TResult Function(_AcceptTransaction value)? acceptTransaction,
     TResult Function(_DeclineTransaction value)? declineTransaction,
     TResult Function(_DeleteFromQueue value)? deleteFromQueue,
-    TResult Function(_WatchPendingTransactions value)? watchPendingTransactions,
-    TResult Function(_WatchPendingTransactionsHelper value)?
-        watchPendingTransactionsHelper,
+    TResult Function(_WatchTransactionsInQueue value)? watchTransactionsInQueue,
+    TResult Function(_GetTransactionsBasedOnQueue value)?
+        getTransactionsBasedOnQueue,
     required TResult orElse(),
   }) {
     if (acceptTransaction != null) {
@@ -290,9 +304,10 @@ class _$_AcceptTransaction implements _AcceptTransaction {
 }
 
 abstract class _AcceptTransaction implements TransactionWatcherEvent {
-  const factory _AcceptTransaction(Queue queue) = _$_AcceptTransaction;
+  const factory _AcceptTransaction(TransactionsQueue transactionsQueue) =
+      _$_AcceptTransaction;
 
-  Queue get queue;
+  TransactionsQueue get transactionsQueue;
   @JsonKey(ignore: true)
   _$AcceptTransactionCopyWith<_AcceptTransaction> get copyWith =>
       throw _privateConstructorUsedError;
@@ -303,9 +318,9 @@ abstract class _$DeclineTransactionCopyWith<$Res> {
   factory _$DeclineTransactionCopyWith(
           _DeclineTransaction value, $Res Function(_DeclineTransaction) then) =
       __$DeclineTransactionCopyWithImpl<$Res>;
-  $Res call({Queue queue});
+  $Res call({TransactionsQueue transactionsQueue});
 
-  $QueueCopyWith<$Res> get queue;
+  $TransactionsQueueCopyWith<$Res> get transactionsQueue;
 }
 
 /// @nodoc
@@ -321,20 +336,20 @@ class __$DeclineTransactionCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? queue = freezed,
+    Object? transactionsQueue = freezed,
   }) {
     return _then(_DeclineTransaction(
-      queue == freezed
-          ? _value.queue
-          : queue // ignore: cast_nullable_to_non_nullable
-              as Queue,
+      transactionsQueue == freezed
+          ? _value.transactionsQueue
+          : transactionsQueue // ignore: cast_nullable_to_non_nullable
+              as TransactionsQueue,
     ));
   }
 
   @override
-  $QueueCopyWith<$Res> get queue {
-    return $QueueCopyWith<$Res>(_value.queue, (value) {
-      return _then(_value.copyWith(queue: value));
+  $TransactionsQueueCopyWith<$Res> get transactionsQueue {
+    return $TransactionsQueueCopyWith<$Res>(_value.transactionsQueue, (value) {
+      return _then(_value.copyWith(transactionsQueue: value));
     });
   }
 }
@@ -342,14 +357,14 @@ class __$DeclineTransactionCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_DeclineTransaction implements _DeclineTransaction {
-  const _$_DeclineTransaction(this.queue);
+  const _$_DeclineTransaction(this.transactionsQueue);
 
   @override
-  final Queue queue;
+  final TransactionsQueue transactionsQueue;
 
   @override
   String toString() {
-    return 'TransactionWatcherEvent.declineTransaction(queue: $queue)';
+    return 'TransactionWatcherEvent.declineTransaction(transactionsQueue: $transactionsQueue)';
   }
 
   @override
@@ -357,12 +372,13 @@ class _$_DeclineTransaction implements _DeclineTransaction {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _DeclineTransaction &&
-            const DeepCollectionEquality().equals(other.queue, queue));
+            const DeepCollectionEquality()
+                .equals(other.transactionsQueue, transactionsQueue));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(queue));
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(transactionsQueue));
 
   @JsonKey(ignore: true)
   @override
@@ -372,40 +388,45 @@ class _$_DeclineTransaction implements _DeclineTransaction {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Queue queue) acceptTransaction,
-    required TResult Function(Queue queue) declineTransaction,
-    required TResult Function(Queue queue) deleteFromQueue,
-    required TResult Function() watchPendingTransactions,
-    required TResult Function(KtList<Queue> queue)
-        watchPendingTransactionsHelper,
+    required TResult Function(TransactionsQueue transactionsQueue)
+        acceptTransaction,
+    required TResult Function(TransactionsQueue transactionsQueue)
+        declineTransaction,
+    required TResult Function(TransactionsQueue transactionsQueue)
+        deleteFromQueue,
+    required TResult Function(bool isSoundPlay) watchTransactionsInQueue,
+    required TResult Function(KtList<TransactionsQueue> transactionsQueue)
+        getTransactionsBasedOnQueue,
   }) {
-    return declineTransaction(queue);
+    return declineTransaction(transactionsQueue);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(Queue queue)? acceptTransaction,
-    TResult Function(Queue queue)? declineTransaction,
-    TResult Function(Queue queue)? deleteFromQueue,
-    TResult Function()? watchPendingTransactions,
-    TResult Function(KtList<Queue> queue)? watchPendingTransactionsHelper,
+    TResult Function(TransactionsQueue transactionsQueue)? acceptTransaction,
+    TResult Function(TransactionsQueue transactionsQueue)? declineTransaction,
+    TResult Function(TransactionsQueue transactionsQueue)? deleteFromQueue,
+    TResult Function(bool isSoundPlay)? watchTransactionsInQueue,
+    TResult Function(KtList<TransactionsQueue> transactionsQueue)?
+        getTransactionsBasedOnQueue,
   }) {
-    return declineTransaction?.call(queue);
+    return declineTransaction?.call(transactionsQueue);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Queue queue)? acceptTransaction,
-    TResult Function(Queue queue)? declineTransaction,
-    TResult Function(Queue queue)? deleteFromQueue,
-    TResult Function()? watchPendingTransactions,
-    TResult Function(KtList<Queue> queue)? watchPendingTransactionsHelper,
+    TResult Function(TransactionsQueue transactionsQueue)? acceptTransaction,
+    TResult Function(TransactionsQueue transactionsQueue)? declineTransaction,
+    TResult Function(TransactionsQueue transactionsQueue)? deleteFromQueue,
+    TResult Function(bool isSoundPlay)? watchTransactionsInQueue,
+    TResult Function(KtList<TransactionsQueue> transactionsQueue)?
+        getTransactionsBasedOnQueue,
     required TResult orElse(),
   }) {
     if (declineTransaction != null) {
-      return declineTransaction(queue);
+      return declineTransaction(transactionsQueue);
     }
     return orElse();
   }
@@ -416,10 +437,10 @@ class _$_DeclineTransaction implements _DeclineTransaction {
     required TResult Function(_AcceptTransaction value) acceptTransaction,
     required TResult Function(_DeclineTransaction value) declineTransaction,
     required TResult Function(_DeleteFromQueue value) deleteFromQueue,
-    required TResult Function(_WatchPendingTransactions value)
-        watchPendingTransactions,
-    required TResult Function(_WatchPendingTransactionsHelper value)
-        watchPendingTransactionsHelper,
+    required TResult Function(_WatchTransactionsInQueue value)
+        watchTransactionsInQueue,
+    required TResult Function(_GetTransactionsBasedOnQueue value)
+        getTransactionsBasedOnQueue,
   }) {
     return declineTransaction(this);
   }
@@ -430,9 +451,9 @@ class _$_DeclineTransaction implements _DeclineTransaction {
     TResult Function(_AcceptTransaction value)? acceptTransaction,
     TResult Function(_DeclineTransaction value)? declineTransaction,
     TResult Function(_DeleteFromQueue value)? deleteFromQueue,
-    TResult Function(_WatchPendingTransactions value)? watchPendingTransactions,
-    TResult Function(_WatchPendingTransactionsHelper value)?
-        watchPendingTransactionsHelper,
+    TResult Function(_WatchTransactionsInQueue value)? watchTransactionsInQueue,
+    TResult Function(_GetTransactionsBasedOnQueue value)?
+        getTransactionsBasedOnQueue,
   }) {
     return declineTransaction?.call(this);
   }
@@ -443,9 +464,9 @@ class _$_DeclineTransaction implements _DeclineTransaction {
     TResult Function(_AcceptTransaction value)? acceptTransaction,
     TResult Function(_DeclineTransaction value)? declineTransaction,
     TResult Function(_DeleteFromQueue value)? deleteFromQueue,
-    TResult Function(_WatchPendingTransactions value)? watchPendingTransactions,
-    TResult Function(_WatchPendingTransactionsHelper value)?
-        watchPendingTransactionsHelper,
+    TResult Function(_WatchTransactionsInQueue value)? watchTransactionsInQueue,
+    TResult Function(_GetTransactionsBasedOnQueue value)?
+        getTransactionsBasedOnQueue,
     required TResult orElse(),
   }) {
     if (declineTransaction != null) {
@@ -456,9 +477,10 @@ class _$_DeclineTransaction implements _DeclineTransaction {
 }
 
 abstract class _DeclineTransaction implements TransactionWatcherEvent {
-  const factory _DeclineTransaction(Queue queue) = _$_DeclineTransaction;
+  const factory _DeclineTransaction(TransactionsQueue transactionsQueue) =
+      _$_DeclineTransaction;
 
-  Queue get queue;
+  TransactionsQueue get transactionsQueue;
   @JsonKey(ignore: true)
   _$DeclineTransactionCopyWith<_DeclineTransaction> get copyWith =>
       throw _privateConstructorUsedError;
@@ -469,9 +491,9 @@ abstract class _$DeleteFromQueueCopyWith<$Res> {
   factory _$DeleteFromQueueCopyWith(
           _DeleteFromQueue value, $Res Function(_DeleteFromQueue) then) =
       __$DeleteFromQueueCopyWithImpl<$Res>;
-  $Res call({Queue queue});
+  $Res call({TransactionsQueue transactionsQueue});
 
-  $QueueCopyWith<$Res> get queue;
+  $TransactionsQueueCopyWith<$Res> get transactionsQueue;
 }
 
 /// @nodoc
@@ -487,20 +509,20 @@ class __$DeleteFromQueueCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? queue = freezed,
+    Object? transactionsQueue = freezed,
   }) {
     return _then(_DeleteFromQueue(
-      queue == freezed
-          ? _value.queue
-          : queue // ignore: cast_nullable_to_non_nullable
-              as Queue,
+      transactionsQueue == freezed
+          ? _value.transactionsQueue
+          : transactionsQueue // ignore: cast_nullable_to_non_nullable
+              as TransactionsQueue,
     ));
   }
 
   @override
-  $QueueCopyWith<$Res> get queue {
-    return $QueueCopyWith<$Res>(_value.queue, (value) {
-      return _then(_value.copyWith(queue: value));
+  $TransactionsQueueCopyWith<$Res> get transactionsQueue {
+    return $TransactionsQueueCopyWith<$Res>(_value.transactionsQueue, (value) {
+      return _then(_value.copyWith(transactionsQueue: value));
     });
   }
 }
@@ -508,14 +530,14 @@ class __$DeleteFromQueueCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_DeleteFromQueue implements _DeleteFromQueue {
-  const _$_DeleteFromQueue(this.queue);
+  const _$_DeleteFromQueue(this.transactionsQueue);
 
   @override
-  final Queue queue;
+  final TransactionsQueue transactionsQueue;
 
   @override
   String toString() {
-    return 'TransactionWatcherEvent.deleteFromQueue(queue: $queue)';
+    return 'TransactionWatcherEvent.deleteFromQueue(transactionsQueue: $transactionsQueue)';
   }
 
   @override
@@ -523,12 +545,13 @@ class _$_DeleteFromQueue implements _DeleteFromQueue {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _DeleteFromQueue &&
-            const DeepCollectionEquality().equals(other.queue, queue));
+            const DeepCollectionEquality()
+                .equals(other.transactionsQueue, transactionsQueue));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(queue));
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(transactionsQueue));
 
   @JsonKey(ignore: true)
   @override
@@ -538,40 +561,45 @@ class _$_DeleteFromQueue implements _DeleteFromQueue {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Queue queue) acceptTransaction,
-    required TResult Function(Queue queue) declineTransaction,
-    required TResult Function(Queue queue) deleteFromQueue,
-    required TResult Function() watchPendingTransactions,
-    required TResult Function(KtList<Queue> queue)
-        watchPendingTransactionsHelper,
+    required TResult Function(TransactionsQueue transactionsQueue)
+        acceptTransaction,
+    required TResult Function(TransactionsQueue transactionsQueue)
+        declineTransaction,
+    required TResult Function(TransactionsQueue transactionsQueue)
+        deleteFromQueue,
+    required TResult Function(bool isSoundPlay) watchTransactionsInQueue,
+    required TResult Function(KtList<TransactionsQueue> transactionsQueue)
+        getTransactionsBasedOnQueue,
   }) {
-    return deleteFromQueue(queue);
+    return deleteFromQueue(transactionsQueue);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(Queue queue)? acceptTransaction,
-    TResult Function(Queue queue)? declineTransaction,
-    TResult Function(Queue queue)? deleteFromQueue,
-    TResult Function()? watchPendingTransactions,
-    TResult Function(KtList<Queue> queue)? watchPendingTransactionsHelper,
+    TResult Function(TransactionsQueue transactionsQueue)? acceptTransaction,
+    TResult Function(TransactionsQueue transactionsQueue)? declineTransaction,
+    TResult Function(TransactionsQueue transactionsQueue)? deleteFromQueue,
+    TResult Function(bool isSoundPlay)? watchTransactionsInQueue,
+    TResult Function(KtList<TransactionsQueue> transactionsQueue)?
+        getTransactionsBasedOnQueue,
   }) {
-    return deleteFromQueue?.call(queue);
+    return deleteFromQueue?.call(transactionsQueue);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Queue queue)? acceptTransaction,
-    TResult Function(Queue queue)? declineTransaction,
-    TResult Function(Queue queue)? deleteFromQueue,
-    TResult Function()? watchPendingTransactions,
-    TResult Function(KtList<Queue> queue)? watchPendingTransactionsHelper,
+    TResult Function(TransactionsQueue transactionsQueue)? acceptTransaction,
+    TResult Function(TransactionsQueue transactionsQueue)? declineTransaction,
+    TResult Function(TransactionsQueue transactionsQueue)? deleteFromQueue,
+    TResult Function(bool isSoundPlay)? watchTransactionsInQueue,
+    TResult Function(KtList<TransactionsQueue> transactionsQueue)?
+        getTransactionsBasedOnQueue,
     required TResult orElse(),
   }) {
     if (deleteFromQueue != null) {
-      return deleteFromQueue(queue);
+      return deleteFromQueue(transactionsQueue);
     }
     return orElse();
   }
@@ -582,10 +610,10 @@ class _$_DeleteFromQueue implements _DeleteFromQueue {
     required TResult Function(_AcceptTransaction value) acceptTransaction,
     required TResult Function(_DeclineTransaction value) declineTransaction,
     required TResult Function(_DeleteFromQueue value) deleteFromQueue,
-    required TResult Function(_WatchPendingTransactions value)
-        watchPendingTransactions,
-    required TResult Function(_WatchPendingTransactionsHelper value)
-        watchPendingTransactionsHelper,
+    required TResult Function(_WatchTransactionsInQueue value)
+        watchTransactionsInQueue,
+    required TResult Function(_GetTransactionsBasedOnQueue value)
+        getTransactionsBasedOnQueue,
   }) {
     return deleteFromQueue(this);
   }
@@ -596,9 +624,9 @@ class _$_DeleteFromQueue implements _DeleteFromQueue {
     TResult Function(_AcceptTransaction value)? acceptTransaction,
     TResult Function(_DeclineTransaction value)? declineTransaction,
     TResult Function(_DeleteFromQueue value)? deleteFromQueue,
-    TResult Function(_WatchPendingTransactions value)? watchPendingTransactions,
-    TResult Function(_WatchPendingTransactionsHelper value)?
-        watchPendingTransactionsHelper,
+    TResult Function(_WatchTransactionsInQueue value)? watchTransactionsInQueue,
+    TResult Function(_GetTransactionsBasedOnQueue value)?
+        getTransactionsBasedOnQueue,
   }) {
     return deleteFromQueue?.call(this);
   }
@@ -609,9 +637,9 @@ class _$_DeleteFromQueue implements _DeleteFromQueue {
     TResult Function(_AcceptTransaction value)? acceptTransaction,
     TResult Function(_DeclineTransaction value)? declineTransaction,
     TResult Function(_DeleteFromQueue value)? deleteFromQueue,
-    TResult Function(_WatchPendingTransactions value)? watchPendingTransactions,
-    TResult Function(_WatchPendingTransactionsHelper value)?
-        watchPendingTransactionsHelper,
+    TResult Function(_WatchTransactionsInQueue value)? watchTransactionsInQueue,
+    TResult Function(_GetTransactionsBasedOnQueue value)?
+        getTransactionsBasedOnQueue,
     required TResult orElse(),
   }) {
     if (deleteFromQueue != null) {
@@ -622,248 +650,122 @@ class _$_DeleteFromQueue implements _DeleteFromQueue {
 }
 
 abstract class _DeleteFromQueue implements TransactionWatcherEvent {
-  const factory _DeleteFromQueue(Queue queue) = _$_DeleteFromQueue;
+  const factory _DeleteFromQueue(TransactionsQueue transactionsQueue) =
+      _$_DeleteFromQueue;
 
-  Queue get queue;
+  TransactionsQueue get transactionsQueue;
   @JsonKey(ignore: true)
   _$DeleteFromQueueCopyWith<_DeleteFromQueue> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$WatchPendingTransactionsCopyWith<$Res> {
-  factory _$WatchPendingTransactionsCopyWith(_WatchPendingTransactions value,
-          $Res Function(_WatchPendingTransactions) then) =
-      __$WatchPendingTransactionsCopyWithImpl<$Res>;
+abstract class _$WatchTransactionsInQueueCopyWith<$Res> {
+  factory _$WatchTransactionsInQueueCopyWith(_WatchTransactionsInQueue value,
+          $Res Function(_WatchTransactionsInQueue) then) =
+      __$WatchTransactionsInQueueCopyWithImpl<$Res>;
+  $Res call({bool isSoundPlay});
 }
 
 /// @nodoc
-class __$WatchPendingTransactionsCopyWithImpl<$Res>
+class __$WatchTransactionsInQueueCopyWithImpl<$Res>
     extends _$TransactionWatcherEventCopyWithImpl<$Res>
-    implements _$WatchPendingTransactionsCopyWith<$Res> {
-  __$WatchPendingTransactionsCopyWithImpl(_WatchPendingTransactions _value,
-      $Res Function(_WatchPendingTransactions) _then)
-      : super(_value, (v) => _then(v as _WatchPendingTransactions));
+    implements _$WatchTransactionsInQueueCopyWith<$Res> {
+  __$WatchTransactionsInQueueCopyWithImpl(_WatchTransactionsInQueue _value,
+      $Res Function(_WatchTransactionsInQueue) _then)
+      : super(_value, (v) => _then(v as _WatchTransactionsInQueue));
 
   @override
-  _WatchPendingTransactions get _value =>
-      super._value as _WatchPendingTransactions;
-}
-
-/// @nodoc
-
-class _$_WatchPendingTransactions implements _WatchPendingTransactions {
-  const _$_WatchPendingTransactions();
-
-  @override
-  String toString() {
-    return 'TransactionWatcherEvent.watchPendingTransactions()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _WatchPendingTransactions);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(Queue queue) acceptTransaction,
-    required TResult Function(Queue queue) declineTransaction,
-    required TResult Function(Queue queue) deleteFromQueue,
-    required TResult Function() watchPendingTransactions,
-    required TResult Function(KtList<Queue> queue)
-        watchPendingTransactionsHelper,
-  }) {
-    return watchPendingTransactions();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(Queue queue)? acceptTransaction,
-    TResult Function(Queue queue)? declineTransaction,
-    TResult Function(Queue queue)? deleteFromQueue,
-    TResult Function()? watchPendingTransactions,
-    TResult Function(KtList<Queue> queue)? watchPendingTransactionsHelper,
-  }) {
-    return watchPendingTransactions?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Queue queue)? acceptTransaction,
-    TResult Function(Queue queue)? declineTransaction,
-    TResult Function(Queue queue)? deleteFromQueue,
-    TResult Function()? watchPendingTransactions,
-    TResult Function(KtList<Queue> queue)? watchPendingTransactionsHelper,
-    required TResult orElse(),
-  }) {
-    if (watchPendingTransactions != null) {
-      return watchPendingTransactions();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_AcceptTransaction value) acceptTransaction,
-    required TResult Function(_DeclineTransaction value) declineTransaction,
-    required TResult Function(_DeleteFromQueue value) deleteFromQueue,
-    required TResult Function(_WatchPendingTransactions value)
-        watchPendingTransactions,
-    required TResult Function(_WatchPendingTransactionsHelper value)
-        watchPendingTransactionsHelper,
-  }) {
-    return watchPendingTransactions(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_AcceptTransaction value)? acceptTransaction,
-    TResult Function(_DeclineTransaction value)? declineTransaction,
-    TResult Function(_DeleteFromQueue value)? deleteFromQueue,
-    TResult Function(_WatchPendingTransactions value)? watchPendingTransactions,
-    TResult Function(_WatchPendingTransactionsHelper value)?
-        watchPendingTransactionsHelper,
-  }) {
-    return watchPendingTransactions?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_AcceptTransaction value)? acceptTransaction,
-    TResult Function(_DeclineTransaction value)? declineTransaction,
-    TResult Function(_DeleteFromQueue value)? deleteFromQueue,
-    TResult Function(_WatchPendingTransactions value)? watchPendingTransactions,
-    TResult Function(_WatchPendingTransactionsHelper value)?
-        watchPendingTransactionsHelper,
-    required TResult orElse(),
-  }) {
-    if (watchPendingTransactions != null) {
-      return watchPendingTransactions(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _WatchPendingTransactions implements TransactionWatcherEvent {
-  const factory _WatchPendingTransactions() = _$_WatchPendingTransactions;
-}
-
-/// @nodoc
-abstract class _$WatchPendingTransactionsHelperCopyWith<$Res> {
-  factory _$WatchPendingTransactionsHelperCopyWith(
-          _WatchPendingTransactionsHelper value,
-          $Res Function(_WatchPendingTransactionsHelper) then) =
-      __$WatchPendingTransactionsHelperCopyWithImpl<$Res>;
-  $Res call({KtList<Queue> queue});
-}
-
-/// @nodoc
-class __$WatchPendingTransactionsHelperCopyWithImpl<$Res>
-    extends _$TransactionWatcherEventCopyWithImpl<$Res>
-    implements _$WatchPendingTransactionsHelperCopyWith<$Res> {
-  __$WatchPendingTransactionsHelperCopyWithImpl(
-      _WatchPendingTransactionsHelper _value,
-      $Res Function(_WatchPendingTransactionsHelper) _then)
-      : super(_value, (v) => _then(v as _WatchPendingTransactionsHelper));
-
-  @override
-  _WatchPendingTransactionsHelper get _value =>
-      super._value as _WatchPendingTransactionsHelper;
+  _WatchTransactionsInQueue get _value =>
+      super._value as _WatchTransactionsInQueue;
 
   @override
   $Res call({
-    Object? queue = freezed,
+    Object? isSoundPlay = freezed,
   }) {
-    return _then(_WatchPendingTransactionsHelper(
-      queue == freezed
-          ? _value.queue
-          : queue // ignore: cast_nullable_to_non_nullable
-              as KtList<Queue>,
+    return _then(_WatchTransactionsInQueue(
+      isSoundPlay: isSoundPlay == freezed
+          ? _value.isSoundPlay
+          : isSoundPlay // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
 
 /// @nodoc
 
-class _$_WatchPendingTransactionsHelper
-    implements _WatchPendingTransactionsHelper {
-  const _$_WatchPendingTransactionsHelper(this.queue);
+class _$_WatchTransactionsInQueue implements _WatchTransactionsInQueue {
+  const _$_WatchTransactionsInQueue({required this.isSoundPlay});
 
   @override
-  final KtList<Queue> queue;
+  final bool isSoundPlay;
 
   @override
   String toString() {
-    return 'TransactionWatcherEvent.watchPendingTransactionsHelper(queue: $queue)';
+    return 'TransactionWatcherEvent.watchTransactionsInQueue(isSoundPlay: $isSoundPlay)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _WatchPendingTransactionsHelper &&
-            const DeepCollectionEquality().equals(other.queue, queue));
+            other is _WatchTransactionsInQueue &&
+            const DeepCollectionEquality()
+                .equals(other.isSoundPlay, isSoundPlay));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(queue));
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(isSoundPlay));
 
   @JsonKey(ignore: true)
   @override
-  _$WatchPendingTransactionsHelperCopyWith<_WatchPendingTransactionsHelper>
-      get copyWith => __$WatchPendingTransactionsHelperCopyWithImpl<
-          _WatchPendingTransactionsHelper>(this, _$identity);
+  _$WatchTransactionsInQueueCopyWith<_WatchTransactionsInQueue> get copyWith =>
+      __$WatchTransactionsInQueueCopyWithImpl<_WatchTransactionsInQueue>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Queue queue) acceptTransaction,
-    required TResult Function(Queue queue) declineTransaction,
-    required TResult Function(Queue queue) deleteFromQueue,
-    required TResult Function() watchPendingTransactions,
-    required TResult Function(KtList<Queue> queue)
-        watchPendingTransactionsHelper,
+    required TResult Function(TransactionsQueue transactionsQueue)
+        acceptTransaction,
+    required TResult Function(TransactionsQueue transactionsQueue)
+        declineTransaction,
+    required TResult Function(TransactionsQueue transactionsQueue)
+        deleteFromQueue,
+    required TResult Function(bool isSoundPlay) watchTransactionsInQueue,
+    required TResult Function(KtList<TransactionsQueue> transactionsQueue)
+        getTransactionsBasedOnQueue,
   }) {
-    return watchPendingTransactionsHelper(queue);
+    return watchTransactionsInQueue(isSoundPlay);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(Queue queue)? acceptTransaction,
-    TResult Function(Queue queue)? declineTransaction,
-    TResult Function(Queue queue)? deleteFromQueue,
-    TResult Function()? watchPendingTransactions,
-    TResult Function(KtList<Queue> queue)? watchPendingTransactionsHelper,
+    TResult Function(TransactionsQueue transactionsQueue)? acceptTransaction,
+    TResult Function(TransactionsQueue transactionsQueue)? declineTransaction,
+    TResult Function(TransactionsQueue transactionsQueue)? deleteFromQueue,
+    TResult Function(bool isSoundPlay)? watchTransactionsInQueue,
+    TResult Function(KtList<TransactionsQueue> transactionsQueue)?
+        getTransactionsBasedOnQueue,
   }) {
-    return watchPendingTransactionsHelper?.call(queue);
+    return watchTransactionsInQueue?.call(isSoundPlay);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Queue queue)? acceptTransaction,
-    TResult Function(Queue queue)? declineTransaction,
-    TResult Function(Queue queue)? deleteFromQueue,
-    TResult Function()? watchPendingTransactions,
-    TResult Function(KtList<Queue> queue)? watchPendingTransactionsHelper,
+    TResult Function(TransactionsQueue transactionsQueue)? acceptTransaction,
+    TResult Function(TransactionsQueue transactionsQueue)? declineTransaction,
+    TResult Function(TransactionsQueue transactionsQueue)? deleteFromQueue,
+    TResult Function(bool isSoundPlay)? watchTransactionsInQueue,
+    TResult Function(KtList<TransactionsQueue> transactionsQueue)?
+        getTransactionsBasedOnQueue,
     required TResult orElse(),
   }) {
-    if (watchPendingTransactionsHelper != null) {
-      return watchPendingTransactionsHelper(queue);
+    if (watchTransactionsInQueue != null) {
+      return watchTransactionsInQueue(isSoundPlay);
     }
     return orElse();
   }
@@ -874,12 +776,12 @@ class _$_WatchPendingTransactionsHelper
     required TResult Function(_AcceptTransaction value) acceptTransaction,
     required TResult Function(_DeclineTransaction value) declineTransaction,
     required TResult Function(_DeleteFromQueue value) deleteFromQueue,
-    required TResult Function(_WatchPendingTransactions value)
-        watchPendingTransactions,
-    required TResult Function(_WatchPendingTransactionsHelper value)
-        watchPendingTransactionsHelper,
+    required TResult Function(_WatchTransactionsInQueue value)
+        watchTransactionsInQueue,
+    required TResult Function(_GetTransactionsBasedOnQueue value)
+        getTransactionsBasedOnQueue,
   }) {
-    return watchPendingTransactionsHelper(this);
+    return watchTransactionsInQueue(this);
   }
 
   @override
@@ -888,11 +790,11 @@ class _$_WatchPendingTransactionsHelper
     TResult Function(_AcceptTransaction value)? acceptTransaction,
     TResult Function(_DeclineTransaction value)? declineTransaction,
     TResult Function(_DeleteFromQueue value)? deleteFromQueue,
-    TResult Function(_WatchPendingTransactions value)? watchPendingTransactions,
-    TResult Function(_WatchPendingTransactionsHelper value)?
-        watchPendingTransactionsHelper,
+    TResult Function(_WatchTransactionsInQueue value)? watchTransactionsInQueue,
+    TResult Function(_GetTransactionsBasedOnQueue value)?
+        getTransactionsBasedOnQueue,
   }) {
-    return watchPendingTransactionsHelper?.call(this);
+    return watchTransactionsInQueue?.call(this);
   }
 
   @override
@@ -901,26 +803,194 @@ class _$_WatchPendingTransactionsHelper
     TResult Function(_AcceptTransaction value)? acceptTransaction,
     TResult Function(_DeclineTransaction value)? declineTransaction,
     TResult Function(_DeleteFromQueue value)? deleteFromQueue,
-    TResult Function(_WatchPendingTransactions value)? watchPendingTransactions,
-    TResult Function(_WatchPendingTransactionsHelper value)?
-        watchPendingTransactionsHelper,
+    TResult Function(_WatchTransactionsInQueue value)? watchTransactionsInQueue,
+    TResult Function(_GetTransactionsBasedOnQueue value)?
+        getTransactionsBasedOnQueue,
     required TResult orElse(),
   }) {
-    if (watchPendingTransactionsHelper != null) {
-      return watchPendingTransactionsHelper(this);
+    if (watchTransactionsInQueue != null) {
+      return watchTransactionsInQueue(this);
     }
     return orElse();
   }
 }
 
-abstract class _WatchPendingTransactionsHelper
-    implements TransactionWatcherEvent {
-  const factory _WatchPendingTransactionsHelper(KtList<Queue> queue) =
-      _$_WatchPendingTransactionsHelper;
+abstract class _WatchTransactionsInQueue implements TransactionWatcherEvent {
+  const factory _WatchTransactionsInQueue({required bool isSoundPlay}) =
+      _$_WatchTransactionsInQueue;
 
-  KtList<Queue> get queue;
+  bool get isSoundPlay;
   @JsonKey(ignore: true)
-  _$WatchPendingTransactionsHelperCopyWith<_WatchPendingTransactionsHelper>
+  _$WatchTransactionsInQueueCopyWith<_WatchTransactionsInQueue> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$GetTransactionsBasedOnQueueCopyWith<$Res> {
+  factory _$GetTransactionsBasedOnQueueCopyWith(
+          _GetTransactionsBasedOnQueue value,
+          $Res Function(_GetTransactionsBasedOnQueue) then) =
+      __$GetTransactionsBasedOnQueueCopyWithImpl<$Res>;
+  $Res call({KtList<TransactionsQueue> transactionsQueue});
+}
+
+/// @nodoc
+class __$GetTransactionsBasedOnQueueCopyWithImpl<$Res>
+    extends _$TransactionWatcherEventCopyWithImpl<$Res>
+    implements _$GetTransactionsBasedOnQueueCopyWith<$Res> {
+  __$GetTransactionsBasedOnQueueCopyWithImpl(
+      _GetTransactionsBasedOnQueue _value,
+      $Res Function(_GetTransactionsBasedOnQueue) _then)
+      : super(_value, (v) => _then(v as _GetTransactionsBasedOnQueue));
+
+  @override
+  _GetTransactionsBasedOnQueue get _value =>
+      super._value as _GetTransactionsBasedOnQueue;
+
+  @override
+  $Res call({
+    Object? transactionsQueue = freezed,
+  }) {
+    return _then(_GetTransactionsBasedOnQueue(
+      transactionsQueue == freezed
+          ? _value.transactionsQueue
+          : transactionsQueue // ignore: cast_nullable_to_non_nullable
+              as KtList<TransactionsQueue>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_GetTransactionsBasedOnQueue implements _GetTransactionsBasedOnQueue {
+  const _$_GetTransactionsBasedOnQueue(this.transactionsQueue);
+
+  @override
+  final KtList<TransactionsQueue> transactionsQueue;
+
+  @override
+  String toString() {
+    return 'TransactionWatcherEvent.getTransactionsBasedOnQueue(transactionsQueue: $transactionsQueue)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _GetTransactionsBasedOnQueue &&
+            const DeepCollectionEquality()
+                .equals(other.transactionsQueue, transactionsQueue));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(transactionsQueue));
+
+  @JsonKey(ignore: true)
+  @override
+  _$GetTransactionsBasedOnQueueCopyWith<_GetTransactionsBasedOnQueue>
+      get copyWith => __$GetTransactionsBasedOnQueueCopyWithImpl<
+          _GetTransactionsBasedOnQueue>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(TransactionsQueue transactionsQueue)
+        acceptTransaction,
+    required TResult Function(TransactionsQueue transactionsQueue)
+        declineTransaction,
+    required TResult Function(TransactionsQueue transactionsQueue)
+        deleteFromQueue,
+    required TResult Function(bool isSoundPlay) watchTransactionsInQueue,
+    required TResult Function(KtList<TransactionsQueue> transactionsQueue)
+        getTransactionsBasedOnQueue,
+  }) {
+    return getTransactionsBasedOnQueue(transactionsQueue);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(TransactionsQueue transactionsQueue)? acceptTransaction,
+    TResult Function(TransactionsQueue transactionsQueue)? declineTransaction,
+    TResult Function(TransactionsQueue transactionsQueue)? deleteFromQueue,
+    TResult Function(bool isSoundPlay)? watchTransactionsInQueue,
+    TResult Function(KtList<TransactionsQueue> transactionsQueue)?
+        getTransactionsBasedOnQueue,
+  }) {
+    return getTransactionsBasedOnQueue?.call(transactionsQueue);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(TransactionsQueue transactionsQueue)? acceptTransaction,
+    TResult Function(TransactionsQueue transactionsQueue)? declineTransaction,
+    TResult Function(TransactionsQueue transactionsQueue)? deleteFromQueue,
+    TResult Function(bool isSoundPlay)? watchTransactionsInQueue,
+    TResult Function(KtList<TransactionsQueue> transactionsQueue)?
+        getTransactionsBasedOnQueue,
+    required TResult orElse(),
+  }) {
+    if (getTransactionsBasedOnQueue != null) {
+      return getTransactionsBasedOnQueue(transactionsQueue);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_AcceptTransaction value) acceptTransaction,
+    required TResult Function(_DeclineTransaction value) declineTransaction,
+    required TResult Function(_DeleteFromQueue value) deleteFromQueue,
+    required TResult Function(_WatchTransactionsInQueue value)
+        watchTransactionsInQueue,
+    required TResult Function(_GetTransactionsBasedOnQueue value)
+        getTransactionsBasedOnQueue,
+  }) {
+    return getTransactionsBasedOnQueue(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_AcceptTransaction value)? acceptTransaction,
+    TResult Function(_DeclineTransaction value)? declineTransaction,
+    TResult Function(_DeleteFromQueue value)? deleteFromQueue,
+    TResult Function(_WatchTransactionsInQueue value)? watchTransactionsInQueue,
+    TResult Function(_GetTransactionsBasedOnQueue value)?
+        getTransactionsBasedOnQueue,
+  }) {
+    return getTransactionsBasedOnQueue?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_AcceptTransaction value)? acceptTransaction,
+    TResult Function(_DeclineTransaction value)? declineTransaction,
+    TResult Function(_DeleteFromQueue value)? deleteFromQueue,
+    TResult Function(_WatchTransactionsInQueue value)? watchTransactionsInQueue,
+    TResult Function(_GetTransactionsBasedOnQueue value)?
+        getTransactionsBasedOnQueue,
+    required TResult orElse(),
+  }) {
+    if (getTransactionsBasedOnQueue != null) {
+      return getTransactionsBasedOnQueue(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _GetTransactionsBasedOnQueue implements TransactionWatcherEvent {
+  const factory _GetTransactionsBasedOnQueue(
+          KtList<TransactionsQueue> transactionsQueue) =
+      _$_GetTransactionsBasedOnQueue;
+
+  KtList<TransactionsQueue> get transactionsQueue;
+  @JsonKey(ignore: true)
+  _$GetTransactionsBasedOnQueueCopyWith<_GetTransactionsBasedOnQueue>
       get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -937,10 +1007,11 @@ class _$TransactionWatcherStateTearOff {
   }
 
   _LoadTransactionSuccess loadTransactionsSuccess(
-      KtList<Transaction> transaction, KtList<Queue> queue) {
+      KtList<Transaction> transaction,
+      KtList<TransactionsQueue> transactionsQueue) {
     return _LoadTransactionSuccess(
       transaction,
-      queue,
+      transactionsQueue,
     );
   }
 
@@ -960,8 +1031,8 @@ mixin _$TransactionWatcherState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loadInProgress,
-    required TResult Function(
-            KtList<Transaction> transaction, KtList<Queue> queue)
+    required TResult Function(KtList<Transaction> transaction,
+            KtList<TransactionsQueue> transactionsQueue)
         loadTransactionsSuccess,
     required TResult Function(TransactionFailure transactionFailure)
         loadFailure,
@@ -971,7 +1042,8 @@ mixin _$TransactionWatcherState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loadInProgress,
-    TResult Function(KtList<Transaction> transaction, KtList<Queue> queue)?
+    TResult Function(KtList<Transaction> transaction,
+            KtList<TransactionsQueue> transactionsQueue)?
         loadTransactionsSuccess,
     TResult Function(TransactionFailure transactionFailure)? loadFailure,
   }) =>
@@ -980,7 +1052,8 @@ mixin _$TransactionWatcherState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loadInProgress,
-    TResult Function(KtList<Transaction> transaction, KtList<Queue> queue)?
+    TResult Function(KtList<Transaction> transaction,
+            KtList<TransactionsQueue> transactionsQueue)?
         loadTransactionsSuccess,
     TResult Function(TransactionFailure transactionFailure)? loadFailure,
     required TResult orElse(),
@@ -1072,8 +1145,8 @@ class _$_Initial implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loadInProgress,
-    required TResult Function(
-            KtList<Transaction> transaction, KtList<Queue> queue)
+    required TResult Function(KtList<Transaction> transaction,
+            KtList<TransactionsQueue> transactionsQueue)
         loadTransactionsSuccess,
     required TResult Function(TransactionFailure transactionFailure)
         loadFailure,
@@ -1086,7 +1159,8 @@ class _$_Initial implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loadInProgress,
-    TResult Function(KtList<Transaction> transaction, KtList<Queue> queue)?
+    TResult Function(KtList<Transaction> transaction,
+            KtList<TransactionsQueue> transactionsQueue)?
         loadTransactionsSuccess,
     TResult Function(TransactionFailure transactionFailure)? loadFailure,
   }) {
@@ -1098,7 +1172,8 @@ class _$_Initial implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loadInProgress,
-    TResult Function(KtList<Transaction> transaction, KtList<Queue> queue)?
+    TResult Function(KtList<Transaction> transaction,
+            KtList<TransactionsQueue> transactionsQueue)?
         loadTransactionsSuccess,
     TResult Function(TransactionFailure transactionFailure)? loadFailure,
     required TResult orElse(),
@@ -1195,8 +1270,8 @@ class _$_LoadInProgress implements _LoadInProgress {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loadInProgress,
-    required TResult Function(
-            KtList<Transaction> transaction, KtList<Queue> queue)
+    required TResult Function(KtList<Transaction> transaction,
+            KtList<TransactionsQueue> transactionsQueue)
         loadTransactionsSuccess,
     required TResult Function(TransactionFailure transactionFailure)
         loadFailure,
@@ -1209,7 +1284,8 @@ class _$_LoadInProgress implements _LoadInProgress {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loadInProgress,
-    TResult Function(KtList<Transaction> transaction, KtList<Queue> queue)?
+    TResult Function(KtList<Transaction> transaction,
+            KtList<TransactionsQueue> transactionsQueue)?
         loadTransactionsSuccess,
     TResult Function(TransactionFailure transactionFailure)? loadFailure,
   }) {
@@ -1221,7 +1297,8 @@ class _$_LoadInProgress implements _LoadInProgress {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loadInProgress,
-    TResult Function(KtList<Transaction> transaction, KtList<Queue> queue)?
+    TResult Function(KtList<Transaction> transaction,
+            KtList<TransactionsQueue> transactionsQueue)?
         loadTransactionsSuccess,
     TResult Function(TransactionFailure transactionFailure)? loadFailure,
     required TResult orElse(),
@@ -1280,7 +1357,9 @@ abstract class _$LoadTransactionSuccessCopyWith<$Res> {
   factory _$LoadTransactionSuccessCopyWith(_LoadTransactionSuccess value,
           $Res Function(_LoadTransactionSuccess) then) =
       __$LoadTransactionSuccessCopyWithImpl<$Res>;
-  $Res call({KtList<Transaction> transaction, KtList<Queue> queue});
+  $Res call(
+      {KtList<Transaction> transaction,
+      KtList<TransactionsQueue> transactionsQueue});
 }
 
 /// @nodoc
@@ -1297,17 +1376,17 @@ class __$LoadTransactionSuccessCopyWithImpl<$Res>
   @override
   $Res call({
     Object? transaction = freezed,
-    Object? queue = freezed,
+    Object? transactionsQueue = freezed,
   }) {
     return _then(_LoadTransactionSuccess(
       transaction == freezed
           ? _value.transaction
           : transaction // ignore: cast_nullable_to_non_nullable
               as KtList<Transaction>,
-      queue == freezed
-          ? _value.queue
-          : queue // ignore: cast_nullable_to_non_nullable
-              as KtList<Queue>,
+      transactionsQueue == freezed
+          ? _value.transactionsQueue
+          : transactionsQueue // ignore: cast_nullable_to_non_nullable
+              as KtList<TransactionsQueue>,
     ));
   }
 }
@@ -1315,16 +1394,16 @@ class __$LoadTransactionSuccessCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_LoadTransactionSuccess implements _LoadTransactionSuccess {
-  const _$_LoadTransactionSuccess(this.transaction, this.queue);
+  const _$_LoadTransactionSuccess(this.transaction, this.transactionsQueue);
 
   @override
   final KtList<Transaction> transaction;
   @override
-  final KtList<Queue> queue;
+  final KtList<TransactionsQueue> transactionsQueue;
 
   @override
   String toString() {
-    return 'TransactionWatcherState.loadTransactionsSuccess(transaction: $transaction, queue: $queue)';
+    return 'TransactionWatcherState.loadTransactionsSuccess(transaction: $transaction, transactionsQueue: $transactionsQueue)';
   }
 
   @override
@@ -1334,14 +1413,15 @@ class _$_LoadTransactionSuccess implements _LoadTransactionSuccess {
             other is _LoadTransactionSuccess &&
             const DeepCollectionEquality()
                 .equals(other.transaction, transaction) &&
-            const DeepCollectionEquality().equals(other.queue, queue));
+            const DeepCollectionEquality()
+                .equals(other.transactionsQueue, transactionsQueue));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(transaction),
-      const DeepCollectionEquality().hash(queue));
+      const DeepCollectionEquality().hash(transactionsQueue));
 
   @JsonKey(ignore: true)
   @override
@@ -1354,13 +1434,13 @@ class _$_LoadTransactionSuccess implements _LoadTransactionSuccess {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loadInProgress,
-    required TResult Function(
-            KtList<Transaction> transaction, KtList<Queue> queue)
+    required TResult Function(KtList<Transaction> transaction,
+            KtList<TransactionsQueue> transactionsQueue)
         loadTransactionsSuccess,
     required TResult Function(TransactionFailure transactionFailure)
         loadFailure,
   }) {
-    return loadTransactionsSuccess(transaction, queue);
+    return loadTransactionsSuccess(transaction, transactionsQueue);
   }
 
   @override
@@ -1368,11 +1448,12 @@ class _$_LoadTransactionSuccess implements _LoadTransactionSuccess {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loadInProgress,
-    TResult Function(KtList<Transaction> transaction, KtList<Queue> queue)?
+    TResult Function(KtList<Transaction> transaction,
+            KtList<TransactionsQueue> transactionsQueue)?
         loadTransactionsSuccess,
     TResult Function(TransactionFailure transactionFailure)? loadFailure,
   }) {
-    return loadTransactionsSuccess?.call(transaction, queue);
+    return loadTransactionsSuccess?.call(transaction, transactionsQueue);
   }
 
   @override
@@ -1380,13 +1461,14 @@ class _$_LoadTransactionSuccess implements _LoadTransactionSuccess {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loadInProgress,
-    TResult Function(KtList<Transaction> transaction, KtList<Queue> queue)?
+    TResult Function(KtList<Transaction> transaction,
+            KtList<TransactionsQueue> transactionsQueue)?
         loadTransactionsSuccess,
     TResult Function(TransactionFailure transactionFailure)? loadFailure,
     required TResult orElse(),
   }) {
     if (loadTransactionsSuccess != null) {
-      return loadTransactionsSuccess(transaction, queue);
+      return loadTransactionsSuccess(transaction, transactionsQueue);
     }
     return orElse();
   }
@@ -1431,12 +1513,11 @@ class _$_LoadTransactionSuccess implements _LoadTransactionSuccess {
 }
 
 abstract class _LoadTransactionSuccess implements TransactionWatcherState {
-  const factory _LoadTransactionSuccess(
-          KtList<Transaction> transaction, KtList<Queue> queue) =
-      _$_LoadTransactionSuccess;
+  const factory _LoadTransactionSuccess(KtList<Transaction> transaction,
+      KtList<TransactionsQueue> transactionsQueue) = _$_LoadTransactionSuccess;
 
   KtList<Transaction> get transaction;
-  KtList<Queue> get queue;
+  KtList<TransactionsQueue> get transactionsQueue;
   @JsonKey(ignore: true)
   _$LoadTransactionSuccessCopyWith<_LoadTransactionSuccess> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1520,8 +1601,8 @@ class _$_LoadFailurenitial implements _LoadFailurenitial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loadInProgress,
-    required TResult Function(
-            KtList<Transaction> transaction, KtList<Queue> queue)
+    required TResult Function(KtList<Transaction> transaction,
+            KtList<TransactionsQueue> transactionsQueue)
         loadTransactionsSuccess,
     required TResult Function(TransactionFailure transactionFailure)
         loadFailure,
@@ -1534,7 +1615,8 @@ class _$_LoadFailurenitial implements _LoadFailurenitial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loadInProgress,
-    TResult Function(KtList<Transaction> transaction, KtList<Queue> queue)?
+    TResult Function(KtList<Transaction> transaction,
+            KtList<TransactionsQueue> transactionsQueue)?
         loadTransactionsSuccess,
     TResult Function(TransactionFailure transactionFailure)? loadFailure,
   }) {
@@ -1546,7 +1628,8 @@ class _$_LoadFailurenitial implements _LoadFailurenitial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loadInProgress,
-    TResult Function(KtList<Transaction> transaction, KtList<Queue> queue)?
+    TResult Function(KtList<Transaction> transaction,
+            KtList<TransactionsQueue> transactionsQueue)?
         loadTransactionsSuccess,
     TResult Function(TransactionFailure transactionFailure)? loadFailure,
     required TResult orElse(),

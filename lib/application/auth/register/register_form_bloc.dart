@@ -23,14 +23,11 @@ class RegisterFormBloc extends Bloc<RegisterFormEvent, RegisterFormState> {
 
   RegisterFormBloc(this._authFacade, this._internetConnectionChecker) : super(RegisterFormState.initial()) {
     on<RegisterFormEvent>((event, emit) {
-
-
-
       event.map(
           emailChanged: _emailChanged,
           passwordChanged: _passwordChanged,
           passwordRepeatChanged: _passwordRepeatChanged,
-          registerWithEmailAndPasswordPressed: _registerWithEmailAndPasswordPressed);
+          registerWithEmailAndPasswordPressed: _registerWithEmailAndPassword);
     });
   }
 
@@ -61,7 +58,7 @@ class RegisterFormBloc extends Bloc<RegisterFormEvent, RegisterFormState> {
     );
   }
 
-  void _registerWithEmailAndPasswordPressed(RegisterWithEmailAndPasswordPressed e) async {
+  void _registerWithEmailAndPassword(RegisterWithEmailAndPasswordPressed e) async {
     Either<AuthFailure, Unit>? failureOrSuccess;
     bool _showErrorMessage = true;
     _emitSubmitting();
@@ -73,8 +70,8 @@ class RegisterFormBloc extends Bloc<RegisterFormEvent, RegisterFormState> {
       return;
     }
 
-    if (areInputsValid()) {
-      if (arePasswordsEqual()) {
+    if (_areInputsValid()) {
+      if (_arePasswordsEqual()) {
         failureOrSuccess = await _register();
       } else {
         failureOrSuccess = left(const AuthFailure.passwordsNotEqual());
@@ -106,14 +103,14 @@ class RegisterFormBloc extends Bloc<RegisterFormEvent, RegisterFormState> {
 
   Future<bool> _checkInternetConnection() async => !await _internetConnectionChecker.hasConnection();
 
-  bool areInputsValid() {
+  bool _areInputsValid() {
     final isEmailValid = state.emailAddress.isValid();
     final isPasswordValid = state.password.isValid();
     final isPasswordRepeatValid = state.passwordRepeat.isValid();
     return isEmailValid & isPasswordValid & isPasswordRepeatValid;
   }
 
-  bool arePasswordsEqual() {
+  bool _arePasswordsEqual() {
     final password = state.password.getOrCrash();
     final passwordRepeat = state.passwordRepeat.getOrCrash();
 

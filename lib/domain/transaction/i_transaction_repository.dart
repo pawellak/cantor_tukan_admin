@@ -4,9 +4,10 @@ import 'package:kantor_tukan/domain/transaction/transaction.dart';
 import 'package:kantor_tukan/domain/transaction/transaction_failure.dart';
 
 abstract class ITransactionRepository {
-  Future<Either<TransactionFailure, Transaction>> getPending(Queue queue);
-  Future<Either<TransactionFailure, Unit>> delete(Queue queue);
-  Future<Either<TransactionFailure, Unit>> accept(Queue queue);
-  Future<Either<TransactionFailure, Unit>> decline(Queue queue);
+  Future<Either<TransactionFailure, Transaction>> getPending(TransactionsQueue transactionsQueue);
+  Future<Either<TransactionFailure, Unit>> delete(TransactionsQueue transactionsQueue);
+  Future<Either<TransactionFailure, Unit>> accept(TransactionsQueue transactionsQueue);
+  Future<Either<TransactionFailure, Unit>> decline(TransactionsQueue transactionsQueue);
   Future<Either<TransactionFailure, Unit>> declineAll();
 }
+

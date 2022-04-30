@@ -8,7 +8,7 @@ import 'header_tile.dart';
 
 class ExpandedTile extends StatefulWidget {
   final Transaction userTransaction;
-  final Queue userDetails;
+  final TransactionsQueue userDetails;
   final int indexOfTransaction;
 
   const ExpandedTile(

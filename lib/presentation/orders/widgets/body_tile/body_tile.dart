@@ -13,7 +13,7 @@ import 'package:kantor_tukan/presentation/orders/widgets/body_tile/sell.dart';
 
 class BodyTile extends StatelessWidget {
   final Transaction userTransaction;
-  final Queue queue;
+  final TransactionsQueue queue;
 
   const BodyTile({Key? key, required this.userTransaction, required this.queue}) : super(key: key);
 
