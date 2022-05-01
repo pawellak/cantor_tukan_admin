@@ -23,7 +23,9 @@ class OrdersList extends StatelessWidget {
     return BlocBuilder<TransactionWatcherBloc, TransactionWatcherState>(
       builder: (BuildContext context, TransactionWatcherState state) {
         return state.map(
-          initial: _buildInitialState,
+          initial: (initial) {
+            return _buildInitialState(initial, context);
+          },
           loadInProgress: _buildLoadingState,
           loadFailure: _buildFailureState,
           loadTransactionsSuccess: _loadTransactionSuccess,
@@ -38,7 +40,10 @@ class OrdersList extends StatelessWidget {
     return _loadSuccess(transactionList, queueList);
   }
 
-  Widget _buildInitialState(_) {
+  Widget _buildInitialState(_, BuildContext context) {
+    context
+        .read<TransactionWatcherBloc>()
+        .add(const TransactionWatcherEvent.watchTransactionsInQueue(isSoundPlay: false));
     return const Center(child: Text(OrdersConstants.chooseCategory));
   }
 

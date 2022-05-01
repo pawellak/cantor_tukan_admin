@@ -24,7 +24,7 @@ class TransactionWatcherBloc extends Bloc<TransactionWatcherEvent, TransactionWa
   final ITransactionRepository _transactionRepository;
   final IQueueRepository _queueRepository;
   int previousNumberOfQueue = 0;
-  int actualNumberOfQueue = 0;
+  bool isSoundPlay = false;
   StreamSubscription<Either<TransactionFailure, KtList>>? _transactionStreamSubscription;
 
   TransactionWatcherBloc(this._transactionRepository, this._queueRepository)
@@ -74,12 +74,13 @@ class TransactionWatcherBloc extends Bloc<TransactionWatcherEvent, TransactionWa
   void _listenTransactionsQueue(
       Stream<Either<TransactionsQueueFailure, KtList<TransactionsQueue>>> transactionsQueue, bool isSoundOn) {
     KtList<TransactionsQueue> correctTransactionsQueue;
+    isSoundPlay = isSoundOn;
 
     transactionsQueue.listen(
       (transactionsQueue) {
         if (transactionsQueue.isRight()) {
           correctTransactionsQueue = transactionsQueue.getOrElse(() => const KtList.empty());
-          _handleAlarmSound(correctTransactionsQueue, isSoundOn);
+          _handleAlarm(correctTransactionsQueue);
           add(TransactionWatcherEvent.getTransactionsBasedOnQueue(correctTransactionsQueue));
         } else {
           emit(const TransactionWatcherState.loadFailure(TransactionFailure.unexpected()));
@@ -88,21 +89,21 @@ class TransactionWatcherBloc extends Bloc<TransactionWatcherEvent, TransactionWa
     );
   }
 
-  void _handleAlarmSound(KtList<TransactionsQueue> correctTransactionsQueue, bool isSoundOn) {
-    actualNumberOfQueue = correctTransactionsQueue.size;
+  void _handleAlarm(KtList<TransactionsQueue> correctTransactionsQueue) {
+    int actualNumberOfQueue = correctTransactionsQueue.size;
 
-    if (_isNewElementInQueue()) {
-      if (isSoundOn) {
+    if (_isNewElementInQueue(actualNumberOfQueue)) {
+      if (isSoundPlay) {
         FlutterRingtonePlayer.playAlarm(looping: true);
       } else {
-        isSoundOn = !isSoundOn;
+        isSoundPlay = !isSoundPlay;
       }
     }
 
     previousNumberOfQueue = actualNumberOfQueue;
   }
 
-  bool _isNewElementInQueue() => actualNumberOfQueue > previousNumberOfQueue;
+  bool _isNewElementInQueue(int actualNumberOfQueue) => actualNumberOfQueue > previousNumberOfQueue;
 
   Stream<Either<TransactionsQueueFailure, KtList<TransactionsQueue>>> _getQueueWithTransactions() =>
       _queueRepository.watchQueue();
