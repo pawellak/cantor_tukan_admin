@@ -13,7 +13,7 @@ class OrdersConstants {
       'ul. Pereca 12, Wrocław\n'
       '+48 609 593 939.';
 
-  static const notificationDeclineMessage = 'więcej informacji '
+  static const notificationDeclineMessage = 'Więcej informacji '
       'pod numerem telefonu: \n'
       '+48 609 593 939 \n'
       'lub pod adresem: ul. Pereca 12, Wrocław.';
