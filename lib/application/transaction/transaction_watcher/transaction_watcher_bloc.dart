@@ -127,6 +127,7 @@ class TransactionWatcherBloc extends Bloc<TransactionWatcherEvent, TransactionWa
       if (transactionList.length == queueList.size) {
         emit(TransactionWatcherState.loadTransactionsSuccess(transactionList.toImmutableList(), queueList));
       }
+
     }
   }
 
