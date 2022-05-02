@@ -13,8 +13,27 @@ import '../../domain/transaction/transaction_failure.dart';
 const dateAcceptation = "dateAcceptation";
 const transactionStatus = "transactionStatus";
 
+extension FirestoreGetCloudToken on FirebaseFirestore {
+   Future<Either> getCloudToken(TransactionsQueue transactionsQueue) async {
+    final userOption = await getIt<IAuthFacade>().getSignedInUser();
+    userOption.getOrElse(() => throw NotAuthenticatedError());
+
+    try {
+      DocumentSnapshot<Map<String, dynamic>> token = await FirebaseFirestore.instance
+          .collection(FirebaseConst.docUsers)
+          .doc(transactionsQueue.uid.getOrCrash())
+          .get();
+
+      return right(token);
+    } catch (error) {
+      return left(const TransactionFailure.unexpected());
+    }
+  }
+}
+
 extension FirestoreUsersUpdateTransaction on FirebaseFirestore {
-  Future<Either<TransactionFailure, Unit>> updateUserTransaction(TransactionsQueue transactionsQueue, EnumTransactionStatus type) async {
+  Future<Either<TransactionFailure, Unit>> updateUserTransaction(
+      TransactionsQueue transactionsQueue, EnumTransactionStatus type) async {
     final userOption = await getIt<IAuthFacade>().getSignedInUser();
     userOption.getOrElse(() => throw NotAuthenticatedError());
 

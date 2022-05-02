@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:convert';
 import 'package:cloud_firestore/cloud_firestore.dart' as fs;
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
@@ -41,6 +42,29 @@ class TransactionRepository implements ITransactionRepository {
 
       if (userTransactionJson != null) {
         return right(TransactionDto.fromJson(userTransactionJson).toDomain());
+      } else {
+        return left(const TransactionFailure.unexpected());
+      }
+    } on fs.FirebaseException catch (e) {
+      return _transactionError(e);
+    }
+  }
+
+  @override
+  Future<Either<TransactionFailure, String>> getCloudToken(TransactionsQueue transactionsQueue) async {
+    try {
+      final userTransaction = await _firebaseFirestore.getCloudToken(transactionsQueue);
+      String token = '';
+      var transactionFold = userTransaction.fold((l) => null, (r) => r);
+
+      if (transactionFold != null) {
+        final Map<String, dynamic>? userTransactionJson = transactionFold.data();
+
+        if (userTransactionJson != null) {
+          token = userTransactionJson["token"];
+        }
+
+        return right(token);
       } else {
         return left(const TransactionFailure.unexpected());
       }

@@ -6,6 +6,18 @@ class OrdersConstants {
   static const refresh = 'odśwież';
   static const turnOffAlarm = 'wyłącz alarm';
 
+  static const notificationAcceptedTitle = 'Transakcja akceptowana';
+  static const notificationDeclineTitle = 'Transakcja odrzucona';
+
+  static const notificationAcceptedMessage = 'Udaj się do Kantoru, \n'
+      'ul. Pereca 12, Wrocław\n'
+      '+48 609 593 939.';
+
+  static const notificationDeclineMessage = 'więcej informacji '
+      'pod numerem telefonu: \n'
+      '+48 609 593 939 \n'
+      'lub pod adresem: ul. Pereca 12, Wrocław.';
+
   static const decline = 'odrzucone';
   static const all = 'wszystkie';
   static const loadingFailure = 'błąd serwera, spróbuj ponownie później';

@@ -6,10 +6,7 @@ part of 'queue_dtos.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-QueueDto _$QueueDtoFromJson(Map<String, dynamic> json) => QueueDto(
-      uid: json['uid'] as String,
-      transactionUid: json['transactionUid'] as String,
-    );
+
 
 Map<String, dynamic> _$QueueDtoToJson(QueueDto instance) => <String, dynamic>{
       'uid': instance.uid,

@@ -1,14 +1,52 @@
+import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kantor_tukan/application/auth/app_auth_bloc.dart';
-
 import '../orders/orders_page.dart';
 import 'constants.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
-class SplashPage extends StatelessWidget {
+class SplashPage extends StatefulWidget {
   static const routeName = '/splash';
 
   const SplashPage({Key? key}) : super(key: key);
+
+  @override
+  State<SplashPage> createState() => _SplashPageState();
+}
+
+class _SplashPageState extends State<SplashPage> {
+  late AndroidNotificationChannel channel;
+  late FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin;
+
+  @override
+  void initState() {
+    loadFCM();
+    super.initState();
+  }
+
+  void loadFCM() async {
+    if (!kIsWeb) {
+      channel = const AndroidNotificationChannel(
+          'high_importance_channel', // id
+          'High Importance Notifications', // title
+          importance: Importance.high,
+          enableVibration: true);
+
+      flutterLocalNotificationsPlugin = FlutterLocalNotificationsPlugin();
+
+      await flutterLocalNotificationsPlugin
+          .resolvePlatformSpecificImplementation<AndroidFlutterLocalNotificationsPlugin>()
+          ?.createNotificationChannel(channel);
+
+      await FirebaseMessaging.instance.setForegroundNotificationPresentationOptions(
+        alert: true,
+        badge: true,
+        sound: true,
+      );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +72,7 @@ class SplashPage extends StatelessWidget {
   }
 
   void _navigateToOrdersPage(BuildContext context) {
-    Navigator.of(context).popAndPushNamed(OrdersPage.routeName);
+    Navigator.of(context).pushNamed(OrdersPage.routeName);
   }
 
   Center _buildLoadingWidget(BuildContext context) {

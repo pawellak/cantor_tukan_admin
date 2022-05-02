@@ -23,6 +23,17 @@ class _$TransactionWatcherEventTearOff {
     );
   }
 
+  _PushNotification pushNotification(
+      {required TransactionsQueue transactionsQueue,
+      required String title,
+      required String message}) {
+    return _PushNotification(
+      transactionsQueue: transactionsQueue,
+      title: title,
+      message: message,
+    );
+  }
+
   _DeclineTransaction declineTransaction(TransactionsQueue transactionsQueue) {
     return _DeclineTransaction(
       transactionsQueue,
@@ -59,6 +70,9 @@ mixin _$TransactionWatcherEvent {
   TResult when<TResult extends Object?>({
     required TResult Function(TransactionsQueue transactionsQueue)
         acceptTransaction,
+    required TResult Function(
+            TransactionsQueue transactionsQueue, String title, String message)
+        pushNotification,
     required TResult Function(TransactionsQueue transactionsQueue)
         declineTransaction,
     required TResult Function(TransactionsQueue transactionsQueue)
@@ -71,6 +85,9 @@ mixin _$TransactionWatcherEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(TransactionsQueue transactionsQueue)? acceptTransaction,
+    TResult Function(
+            TransactionsQueue transactionsQueue, String title, String message)?
+        pushNotification,
     TResult Function(TransactionsQueue transactionsQueue)? declineTransaction,
     TResult Function(TransactionsQueue transactionsQueue)? deleteFromQueue,
     TResult Function(bool isSoundPlay)? watchTransactionsInQueue,
@@ -81,6 +98,9 @@ mixin _$TransactionWatcherEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(TransactionsQueue transactionsQueue)? acceptTransaction,
+    TResult Function(
+            TransactionsQueue transactionsQueue, String title, String message)?
+        pushNotification,
     TResult Function(TransactionsQueue transactionsQueue)? declineTransaction,
     TResult Function(TransactionsQueue transactionsQueue)? deleteFromQueue,
     TResult Function(bool isSoundPlay)? watchTransactionsInQueue,
@@ -92,6 +112,7 @@ mixin _$TransactionWatcherEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_AcceptTransaction value) acceptTransaction,
+    required TResult Function(_PushNotification value) pushNotification,
     required TResult Function(_DeclineTransaction value) declineTransaction,
     required TResult Function(_DeleteFromQueue value) deleteFromQueue,
     required TResult Function(_WatchTransactionsInQueue value)
@@ -103,6 +124,7 @@ mixin _$TransactionWatcherEvent {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_AcceptTransaction value)? acceptTransaction,
+    TResult Function(_PushNotification value)? pushNotification,
     TResult Function(_DeclineTransaction value)? declineTransaction,
     TResult Function(_DeleteFromQueue value)? deleteFromQueue,
     TResult Function(_WatchTransactionsInQueue value)? watchTransactionsInQueue,
@@ -113,6 +135,7 @@ mixin _$TransactionWatcherEvent {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_AcceptTransaction value)? acceptTransaction,
+    TResult Function(_PushNotification value)? pushNotification,
     TResult Function(_DeclineTransaction value)? declineTransaction,
     TResult Function(_DeleteFromQueue value)? deleteFromQueue,
     TResult Function(_WatchTransactionsInQueue value)? watchTransactionsInQueue,
@@ -217,6 +240,9 @@ class _$_AcceptTransaction implements _AcceptTransaction {
   TResult when<TResult extends Object?>({
     required TResult Function(TransactionsQueue transactionsQueue)
         acceptTransaction,
+    required TResult Function(
+            TransactionsQueue transactionsQueue, String title, String message)
+        pushNotification,
     required TResult Function(TransactionsQueue transactionsQueue)
         declineTransaction,
     required TResult Function(TransactionsQueue transactionsQueue)
@@ -232,6 +258,9 @@ class _$_AcceptTransaction implements _AcceptTransaction {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(TransactionsQueue transactionsQueue)? acceptTransaction,
+    TResult Function(
+            TransactionsQueue transactionsQueue, String title, String message)?
+        pushNotification,
     TResult Function(TransactionsQueue transactionsQueue)? declineTransaction,
     TResult Function(TransactionsQueue transactionsQueue)? deleteFromQueue,
     TResult Function(bool isSoundPlay)? watchTransactionsInQueue,
@@ -245,6 +274,9 @@ class _$_AcceptTransaction implements _AcceptTransaction {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(TransactionsQueue transactionsQueue)? acceptTransaction,
+    TResult Function(
+            TransactionsQueue transactionsQueue, String title, String message)?
+        pushNotification,
     TResult Function(TransactionsQueue transactionsQueue)? declineTransaction,
     TResult Function(TransactionsQueue transactionsQueue)? deleteFromQueue,
     TResult Function(bool isSoundPlay)? watchTransactionsInQueue,
@@ -262,6 +294,7 @@ class _$_AcceptTransaction implements _AcceptTransaction {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_AcceptTransaction value) acceptTransaction,
+    required TResult Function(_PushNotification value) pushNotification,
     required TResult Function(_DeclineTransaction value) declineTransaction,
     required TResult Function(_DeleteFromQueue value) deleteFromQueue,
     required TResult Function(_WatchTransactionsInQueue value)
@@ -276,6 +309,7 @@ class _$_AcceptTransaction implements _AcceptTransaction {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_AcceptTransaction value)? acceptTransaction,
+    TResult Function(_PushNotification value)? pushNotification,
     TResult Function(_DeclineTransaction value)? declineTransaction,
     TResult Function(_DeleteFromQueue value)? deleteFromQueue,
     TResult Function(_WatchTransactionsInQueue value)? watchTransactionsInQueue,
@@ -289,6 +323,7 @@ class _$_AcceptTransaction implements _AcceptTransaction {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_AcceptTransaction value)? acceptTransaction,
+    TResult Function(_PushNotification value)? pushNotification,
     TResult Function(_DeclineTransaction value)? declineTransaction,
     TResult Function(_DeleteFromQueue value)? deleteFromQueue,
     TResult Function(_WatchTransactionsInQueue value)? watchTransactionsInQueue,
@@ -310,6 +345,218 @@ abstract class _AcceptTransaction implements TransactionWatcherEvent {
   TransactionsQueue get transactionsQueue;
   @JsonKey(ignore: true)
   _$AcceptTransactionCopyWith<_AcceptTransaction> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$PushNotificationCopyWith<$Res> {
+  factory _$PushNotificationCopyWith(
+          _PushNotification value, $Res Function(_PushNotification) then) =
+      __$PushNotificationCopyWithImpl<$Res>;
+  $Res call(
+      {TransactionsQueue transactionsQueue, String title, String message});
+
+  $TransactionsQueueCopyWith<$Res> get transactionsQueue;
+}
+
+/// @nodoc
+class __$PushNotificationCopyWithImpl<$Res>
+    extends _$TransactionWatcherEventCopyWithImpl<$Res>
+    implements _$PushNotificationCopyWith<$Res> {
+  __$PushNotificationCopyWithImpl(
+      _PushNotification _value, $Res Function(_PushNotification) _then)
+      : super(_value, (v) => _then(v as _PushNotification));
+
+  @override
+  _PushNotification get _value => super._value as _PushNotification;
+
+  @override
+  $Res call({
+    Object? transactionsQueue = freezed,
+    Object? title = freezed,
+    Object? message = freezed,
+  }) {
+    return _then(_PushNotification(
+      transactionsQueue: transactionsQueue == freezed
+          ? _value.transactionsQueue
+          : transactionsQueue // ignore: cast_nullable_to_non_nullable
+              as TransactionsQueue,
+      title: title == freezed
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String,
+      message: message == freezed
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+
+  @override
+  $TransactionsQueueCopyWith<$Res> get transactionsQueue {
+    return $TransactionsQueueCopyWith<$Res>(_value.transactionsQueue, (value) {
+      return _then(_value.copyWith(transactionsQueue: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$_PushNotification implements _PushNotification {
+  const _$_PushNotification(
+      {required this.transactionsQueue,
+      required this.title,
+      required this.message});
+
+  @override
+  final TransactionsQueue transactionsQueue;
+  @override
+  final String title;
+  @override
+  final String message;
+
+  @override
+  String toString() {
+    return 'TransactionWatcherEvent.pushNotification(transactionsQueue: $transactionsQueue, title: $title, message: $message)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _PushNotification &&
+            const DeepCollectionEquality()
+                .equals(other.transactionsQueue, transactionsQueue) &&
+            const DeepCollectionEquality().equals(other.title, title) &&
+            const DeepCollectionEquality().equals(other.message, message));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(transactionsQueue),
+      const DeepCollectionEquality().hash(title),
+      const DeepCollectionEquality().hash(message));
+
+  @JsonKey(ignore: true)
+  @override
+  _$PushNotificationCopyWith<_PushNotification> get copyWith =>
+      __$PushNotificationCopyWithImpl<_PushNotification>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(TransactionsQueue transactionsQueue)
+        acceptTransaction,
+    required TResult Function(
+            TransactionsQueue transactionsQueue, String title, String message)
+        pushNotification,
+    required TResult Function(TransactionsQueue transactionsQueue)
+        declineTransaction,
+    required TResult Function(TransactionsQueue transactionsQueue)
+        deleteFromQueue,
+    required TResult Function(bool isSoundPlay) watchTransactionsInQueue,
+    required TResult Function(KtList<TransactionsQueue> transactionsQueue)
+        getTransactionsBasedOnQueue,
+  }) {
+    return pushNotification(transactionsQueue, title, message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(TransactionsQueue transactionsQueue)? acceptTransaction,
+    TResult Function(
+            TransactionsQueue transactionsQueue, String title, String message)?
+        pushNotification,
+    TResult Function(TransactionsQueue transactionsQueue)? declineTransaction,
+    TResult Function(TransactionsQueue transactionsQueue)? deleteFromQueue,
+    TResult Function(bool isSoundPlay)? watchTransactionsInQueue,
+    TResult Function(KtList<TransactionsQueue> transactionsQueue)?
+        getTransactionsBasedOnQueue,
+  }) {
+    return pushNotification?.call(transactionsQueue, title, message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(TransactionsQueue transactionsQueue)? acceptTransaction,
+    TResult Function(
+            TransactionsQueue transactionsQueue, String title, String message)?
+        pushNotification,
+    TResult Function(TransactionsQueue transactionsQueue)? declineTransaction,
+    TResult Function(TransactionsQueue transactionsQueue)? deleteFromQueue,
+    TResult Function(bool isSoundPlay)? watchTransactionsInQueue,
+    TResult Function(KtList<TransactionsQueue> transactionsQueue)?
+        getTransactionsBasedOnQueue,
+    required TResult orElse(),
+  }) {
+    if (pushNotification != null) {
+      return pushNotification(transactionsQueue, title, message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_AcceptTransaction value) acceptTransaction,
+    required TResult Function(_PushNotification value) pushNotification,
+    required TResult Function(_DeclineTransaction value) declineTransaction,
+    required TResult Function(_DeleteFromQueue value) deleteFromQueue,
+    required TResult Function(_WatchTransactionsInQueue value)
+        watchTransactionsInQueue,
+    required TResult Function(_GetTransactionsBasedOnQueue value)
+        getTransactionsBasedOnQueue,
+  }) {
+    return pushNotification(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_AcceptTransaction value)? acceptTransaction,
+    TResult Function(_PushNotification value)? pushNotification,
+    TResult Function(_DeclineTransaction value)? declineTransaction,
+    TResult Function(_DeleteFromQueue value)? deleteFromQueue,
+    TResult Function(_WatchTransactionsInQueue value)? watchTransactionsInQueue,
+    TResult Function(_GetTransactionsBasedOnQueue value)?
+        getTransactionsBasedOnQueue,
+  }) {
+    return pushNotification?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_AcceptTransaction value)? acceptTransaction,
+    TResult Function(_PushNotification value)? pushNotification,
+    TResult Function(_DeclineTransaction value)? declineTransaction,
+    TResult Function(_DeleteFromQueue value)? deleteFromQueue,
+    TResult Function(_WatchTransactionsInQueue value)? watchTransactionsInQueue,
+    TResult Function(_GetTransactionsBasedOnQueue value)?
+        getTransactionsBasedOnQueue,
+    required TResult orElse(),
+  }) {
+    if (pushNotification != null) {
+      return pushNotification(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _PushNotification implements TransactionWatcherEvent {
+  const factory _PushNotification(
+      {required TransactionsQueue transactionsQueue,
+      required String title,
+      required String message}) = _$_PushNotification;
+
+  TransactionsQueue get transactionsQueue;
+  String get title;
+  String get message;
+  @JsonKey(ignore: true)
+  _$PushNotificationCopyWith<_PushNotification> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -390,6 +637,9 @@ class _$_DeclineTransaction implements _DeclineTransaction {
   TResult when<TResult extends Object?>({
     required TResult Function(TransactionsQueue transactionsQueue)
         acceptTransaction,
+    required TResult Function(
+            TransactionsQueue transactionsQueue, String title, String message)
+        pushNotification,
     required TResult Function(TransactionsQueue transactionsQueue)
         declineTransaction,
     required TResult Function(TransactionsQueue transactionsQueue)
@@ -405,6 +655,9 @@ class _$_DeclineTransaction implements _DeclineTransaction {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(TransactionsQueue transactionsQueue)? acceptTransaction,
+    TResult Function(
+            TransactionsQueue transactionsQueue, String title, String message)?
+        pushNotification,
     TResult Function(TransactionsQueue transactionsQueue)? declineTransaction,
     TResult Function(TransactionsQueue transactionsQueue)? deleteFromQueue,
     TResult Function(bool isSoundPlay)? watchTransactionsInQueue,
@@ -418,6 +671,9 @@ class _$_DeclineTransaction implements _DeclineTransaction {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(TransactionsQueue transactionsQueue)? acceptTransaction,
+    TResult Function(
+            TransactionsQueue transactionsQueue, String title, String message)?
+        pushNotification,
     TResult Function(TransactionsQueue transactionsQueue)? declineTransaction,
     TResult Function(TransactionsQueue transactionsQueue)? deleteFromQueue,
     TResult Function(bool isSoundPlay)? watchTransactionsInQueue,
@@ -435,6 +691,7 @@ class _$_DeclineTransaction implements _DeclineTransaction {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_AcceptTransaction value) acceptTransaction,
+    required TResult Function(_PushNotification value) pushNotification,
     required TResult Function(_DeclineTransaction value) declineTransaction,
     required TResult Function(_DeleteFromQueue value) deleteFromQueue,
     required TResult Function(_WatchTransactionsInQueue value)
@@ -449,6 +706,7 @@ class _$_DeclineTransaction implements _DeclineTransaction {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_AcceptTransaction value)? acceptTransaction,
+    TResult Function(_PushNotification value)? pushNotification,
     TResult Function(_DeclineTransaction value)? declineTransaction,
     TResult Function(_DeleteFromQueue value)? deleteFromQueue,
     TResult Function(_WatchTransactionsInQueue value)? watchTransactionsInQueue,
@@ -462,6 +720,7 @@ class _$_DeclineTransaction implements _DeclineTransaction {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_AcceptTransaction value)? acceptTransaction,
+    TResult Function(_PushNotification value)? pushNotification,
     TResult Function(_DeclineTransaction value)? declineTransaction,
     TResult Function(_DeleteFromQueue value)? deleteFromQueue,
     TResult Function(_WatchTransactionsInQueue value)? watchTransactionsInQueue,
@@ -563,6 +822,9 @@ class _$_DeleteFromQueue implements _DeleteFromQueue {
   TResult when<TResult extends Object?>({
     required TResult Function(TransactionsQueue transactionsQueue)
         acceptTransaction,
+    required TResult Function(
+            TransactionsQueue transactionsQueue, String title, String message)
+        pushNotification,
     required TResult Function(TransactionsQueue transactionsQueue)
         declineTransaction,
     required TResult Function(TransactionsQueue transactionsQueue)
@@ -578,6 +840,9 @@ class _$_DeleteFromQueue implements _DeleteFromQueue {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(TransactionsQueue transactionsQueue)? acceptTransaction,
+    TResult Function(
+            TransactionsQueue transactionsQueue, String title, String message)?
+        pushNotification,
     TResult Function(TransactionsQueue transactionsQueue)? declineTransaction,
     TResult Function(TransactionsQueue transactionsQueue)? deleteFromQueue,
     TResult Function(bool isSoundPlay)? watchTransactionsInQueue,
@@ -591,6 +856,9 @@ class _$_DeleteFromQueue implements _DeleteFromQueue {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(TransactionsQueue transactionsQueue)? acceptTransaction,
+    TResult Function(
+            TransactionsQueue transactionsQueue, String title, String message)?
+        pushNotification,
     TResult Function(TransactionsQueue transactionsQueue)? declineTransaction,
     TResult Function(TransactionsQueue transactionsQueue)? deleteFromQueue,
     TResult Function(bool isSoundPlay)? watchTransactionsInQueue,
@@ -608,6 +876,7 @@ class _$_DeleteFromQueue implements _DeleteFromQueue {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_AcceptTransaction value) acceptTransaction,
+    required TResult Function(_PushNotification value) pushNotification,
     required TResult Function(_DeclineTransaction value) declineTransaction,
     required TResult Function(_DeleteFromQueue value) deleteFromQueue,
     required TResult Function(_WatchTransactionsInQueue value)
@@ -622,6 +891,7 @@ class _$_DeleteFromQueue implements _DeleteFromQueue {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_AcceptTransaction value)? acceptTransaction,
+    TResult Function(_PushNotification value)? pushNotification,
     TResult Function(_DeclineTransaction value)? declineTransaction,
     TResult Function(_DeleteFromQueue value)? deleteFromQueue,
     TResult Function(_WatchTransactionsInQueue value)? watchTransactionsInQueue,
@@ -635,6 +905,7 @@ class _$_DeleteFromQueue implements _DeleteFromQueue {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_AcceptTransaction value)? acceptTransaction,
+    TResult Function(_PushNotification value)? pushNotification,
     TResult Function(_DeclineTransaction value)? declineTransaction,
     TResult Function(_DeleteFromQueue value)? deleteFromQueue,
     TResult Function(_WatchTransactionsInQueue value)? watchTransactionsInQueue,
@@ -729,6 +1000,9 @@ class _$_WatchTransactionsInQueue implements _WatchTransactionsInQueue {
   TResult when<TResult extends Object?>({
     required TResult Function(TransactionsQueue transactionsQueue)
         acceptTransaction,
+    required TResult Function(
+            TransactionsQueue transactionsQueue, String title, String message)
+        pushNotification,
     required TResult Function(TransactionsQueue transactionsQueue)
         declineTransaction,
     required TResult Function(TransactionsQueue transactionsQueue)
@@ -744,6 +1018,9 @@ class _$_WatchTransactionsInQueue implements _WatchTransactionsInQueue {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(TransactionsQueue transactionsQueue)? acceptTransaction,
+    TResult Function(
+            TransactionsQueue transactionsQueue, String title, String message)?
+        pushNotification,
     TResult Function(TransactionsQueue transactionsQueue)? declineTransaction,
     TResult Function(TransactionsQueue transactionsQueue)? deleteFromQueue,
     TResult Function(bool isSoundPlay)? watchTransactionsInQueue,
@@ -757,6 +1034,9 @@ class _$_WatchTransactionsInQueue implements _WatchTransactionsInQueue {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(TransactionsQueue transactionsQueue)? acceptTransaction,
+    TResult Function(
+            TransactionsQueue transactionsQueue, String title, String message)?
+        pushNotification,
     TResult Function(TransactionsQueue transactionsQueue)? declineTransaction,
     TResult Function(TransactionsQueue transactionsQueue)? deleteFromQueue,
     TResult Function(bool isSoundPlay)? watchTransactionsInQueue,
@@ -774,6 +1054,7 @@ class _$_WatchTransactionsInQueue implements _WatchTransactionsInQueue {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_AcceptTransaction value) acceptTransaction,
+    required TResult Function(_PushNotification value) pushNotification,
     required TResult Function(_DeclineTransaction value) declineTransaction,
     required TResult Function(_DeleteFromQueue value) deleteFromQueue,
     required TResult Function(_WatchTransactionsInQueue value)
@@ -788,6 +1069,7 @@ class _$_WatchTransactionsInQueue implements _WatchTransactionsInQueue {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_AcceptTransaction value)? acceptTransaction,
+    TResult Function(_PushNotification value)? pushNotification,
     TResult Function(_DeclineTransaction value)? declineTransaction,
     TResult Function(_DeleteFromQueue value)? deleteFromQueue,
     TResult Function(_WatchTransactionsInQueue value)? watchTransactionsInQueue,
@@ -801,6 +1083,7 @@ class _$_WatchTransactionsInQueue implements _WatchTransactionsInQueue {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_AcceptTransaction value)? acceptTransaction,
+    TResult Function(_PushNotification value)? pushNotification,
     TResult Function(_DeclineTransaction value)? declineTransaction,
     TResult Function(_DeleteFromQueue value)? deleteFromQueue,
     TResult Function(_WatchTransactionsInQueue value)? watchTransactionsInQueue,
@@ -897,6 +1180,9 @@ class _$_GetTransactionsBasedOnQueue implements _GetTransactionsBasedOnQueue {
   TResult when<TResult extends Object?>({
     required TResult Function(TransactionsQueue transactionsQueue)
         acceptTransaction,
+    required TResult Function(
+            TransactionsQueue transactionsQueue, String title, String message)
+        pushNotification,
     required TResult Function(TransactionsQueue transactionsQueue)
         declineTransaction,
     required TResult Function(TransactionsQueue transactionsQueue)
@@ -912,6 +1198,9 @@ class _$_GetTransactionsBasedOnQueue implements _GetTransactionsBasedOnQueue {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(TransactionsQueue transactionsQueue)? acceptTransaction,
+    TResult Function(
+            TransactionsQueue transactionsQueue, String title, String message)?
+        pushNotification,
     TResult Function(TransactionsQueue transactionsQueue)? declineTransaction,
     TResult Function(TransactionsQueue transactionsQueue)? deleteFromQueue,
     TResult Function(bool isSoundPlay)? watchTransactionsInQueue,
@@ -925,6 +1214,9 @@ class _$_GetTransactionsBasedOnQueue implements _GetTransactionsBasedOnQueue {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(TransactionsQueue transactionsQueue)? acceptTransaction,
+    TResult Function(
+            TransactionsQueue transactionsQueue, String title, String message)?
+        pushNotification,
     TResult Function(TransactionsQueue transactionsQueue)? declineTransaction,
     TResult Function(TransactionsQueue transactionsQueue)? deleteFromQueue,
     TResult Function(bool isSoundPlay)? watchTransactionsInQueue,
@@ -942,6 +1234,7 @@ class _$_GetTransactionsBasedOnQueue implements _GetTransactionsBasedOnQueue {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_AcceptTransaction value) acceptTransaction,
+    required TResult Function(_PushNotification value) pushNotification,
     required TResult Function(_DeclineTransaction value) declineTransaction,
     required TResult Function(_DeleteFromQueue value) deleteFromQueue,
     required TResult Function(_WatchTransactionsInQueue value)
@@ -956,6 +1249,7 @@ class _$_GetTransactionsBasedOnQueue implements _GetTransactionsBasedOnQueue {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_AcceptTransaction value)? acceptTransaction,
+    TResult Function(_PushNotification value)? pushNotification,
     TResult Function(_DeclineTransaction value)? declineTransaction,
     TResult Function(_DeleteFromQueue value)? deleteFromQueue,
     TResult Function(_WatchTransactionsInQueue value)? watchTransactionsInQueue,
@@ -969,6 +1263,7 @@ class _$_GetTransactionsBasedOnQueue implements _GetTransactionsBasedOnQueue {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_AcceptTransaction value)? acceptTransaction,
+    TResult Function(_PushNotification value)? pushNotification,
     TResult Function(_DeclineTransaction value)? declineTransaction,
     TResult Function(_DeleteFromQueue value)? deleteFromQueue,
     TResult Function(_WatchTransactionsInQueue value)? watchTransactionsInQueue,
