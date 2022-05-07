@@ -37,9 +37,14 @@ String _getDescription(Transaction userTransaction) {
   String transactionType = _getCurrencyType(userTransaction);
   String currencyBill = _getCurrencyBill(userTransaction);
   String nameOfCurrency = _getNameOfCurrency(userTransaction);
-  String description = '$transactionType $currencyBill $nameOfCurrency';
+  String transactionStatus = _getTransactionStatus(userTransaction);
+  String description = '$transactionType $currencyBill $nameOfCurrency - $transactionStatus';
+
   return description;
 }
+
+String _getTransactionStatus(Transaction userTransaction) =>
+    userTransaction.transactionStatus.getOrCrash().toShortString();
 
 String _getCurrencyBill(Transaction userTransaction) =>
     userTransaction.currencyValue.getOrCrash().toStringAsFixed(CoreConstants.valueDecimalPlaces);

@@ -14,7 +14,7 @@ const dateAcceptation = "dateAcceptation";
 const transactionStatus = "transactionStatus";
 
 extension FirestoreGetCloudToken on FirebaseFirestore {
-   Future<Either> getCloudToken(TransactionsQueue transactionsQueue) async {
+  Future<Either> getCloudToken(TransactionsQueue transactionsQueue) async {
     final userOption = await getIt<IAuthFacade>().getSignedInUser();
     userOption.getOrElse(() => throw NotAuthenticatedError());
 

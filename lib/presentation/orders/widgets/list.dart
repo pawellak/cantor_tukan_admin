@@ -34,17 +34,17 @@ class OrdersList extends StatelessWidget {
     );
   }
 
-  Widget _loadTransactionSuccess(transaction) {
-    KtList<Transaction> transactionList = transaction.transaction;
-    KtList<TransactionsQueue> queueList = transaction.transactionsQueue;
-    return _loadSuccess(transactionList, queueList);
-  }
-
   Widget _buildInitialState(_, BuildContext context) {
     context
         .read<TransactionWatcherBloc>()
         .add(const TransactionWatcherEvent.watchTransactionsInQueue(isSoundPlay: false));
     return const Center(child: Text(OrdersConstants.chooseCategory));
+  }
+
+  Widget _loadTransactionSuccess(transaction) {
+    KtList<Transaction> transactionList = transaction.transaction;
+    KtList<TransactionsQueue> queueList = transaction.transactionsQueue;
+    return _loadSuccess(transactionList, queueList);
   }
 
   Widget _buildLoadingState(_) {
