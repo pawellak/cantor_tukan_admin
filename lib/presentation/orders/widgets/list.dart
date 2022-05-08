@@ -62,12 +62,50 @@ class OrdersList extends StatelessWidget {
   Center _buildEmptyBody() => const Center(child: Text(OrdersConstants.emptyCategory));
 
   ListView _buildListBody(KtList<Transaction> transaction, KtList<TransactionsQueue> queue) {
+    transaction = sortTransactionsByReservationDate(transaction);
+    queue = connectQueueWithTransaction(transaction, queue);
+
     return ListView.builder(
       itemCount: transaction.size,
       itemBuilder: (context, index) {
         return _buildExpandedTile(index, transaction, queue);
       },
     );
+  }
+
+  KtList<TransactionsQueue> connectQueueWithTransaction(
+      KtList<Transaction> transaction, KtList<TransactionsQueue> queue) {
+    List<TransactionsQueue> queueConnectedToTransaction = [];
+    List<TransactionsQueue> queueMutable = [];
+
+    queue.forEach((element) {
+      queueMutable.add(element);
+    });
+
+    transaction.forEach((transactionElement) {
+      TransactionsQueue queue = queueMutable.firstWhere(
+          (queueElement) => queueElement.transactionUid.getOrCrash() == transactionElement.uId.getOrCrash());
+
+      queueConnectedToTransaction.add(queue);
+    });
+
+    return queueConnectedToTransaction.toImmutableList();
+  }
+
+  KtList<Transaction> sortTransactionsByReservationDate(KtList<Transaction> transaction) {
+    List<Transaction> sortedList = [];
+    transaction.forEach((element) {
+      sortedList.add(element);
+    });
+
+    sortedList.sort((a, b) {
+      var objectA = a.dateReservation.getOrCrash();
+      var objectB = b.dateReservation.getOrCrash();
+
+      return objectA.compareTo(objectB);
+    });
+
+    return sortedList.toImmutableList().reversed();
   }
 
   bool _isListEmpty(transaction) => transaction.size == 0;
