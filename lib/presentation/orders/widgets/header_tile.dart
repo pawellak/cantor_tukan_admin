@@ -38,13 +38,26 @@ String _getDescription(Transaction userTransaction) {
   String currencyBill = _getCurrencyBill(userTransaction);
   String nameOfCurrency = _getNameOfCurrency(userTransaction);
   String transactionStatus = _getTransactionStatus(userTransaction);
+
   String description = '$transactionType $currencyBill $nameOfCurrency - $transactionStatus';
 
   return description;
 }
 
-String _getTransactionStatus(Transaction userTransaction) =>
-    userTransaction.transactionStatus.getOrCrash().toShortString();
+String _getTransactionStatus(Transaction userTransaction) {
+  var transactionStatus = userTransaction.transactionStatus.getOrCrash();
+
+  switch (transactionStatus) {
+    case EnumTransactionStatus.pending:
+      return OrdersConstants.headerPending;
+    case EnumTransactionStatus.accepted:
+      return OrdersConstants.headerAccepted;
+    case EnumTransactionStatus.decline:
+      return OrdersConstants.headerDecline;
+    case EnumTransactionStatus.undefined:
+      return OrdersConstants.headerDecline;
+  }
+}
 
 String _getCurrencyBill(Transaction userTransaction) =>
     userTransaction.currencyValue.getOrCrash().toStringAsFixed(CoreConstants.valueDecimalPlaces);

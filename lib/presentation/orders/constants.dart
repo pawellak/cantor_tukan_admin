@@ -6,6 +6,10 @@ class OrdersConstants {
   static const refresh = 'odśwież';
   static const turnOffAlarm = 'wyłącz alarm';
 
+  static const headerPending ='W toku';
+  static const headerDecline ='Odrzucono';
+  static const headerAccepted ='Zaakceptowano';
+
   static const notificationAcceptedTitle = 'Transakcja akceptowana';
   static const notificationDeclineTitle = 'Transakcja odrzucona';
 
